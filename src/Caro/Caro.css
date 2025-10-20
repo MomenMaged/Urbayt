@@ -1,0 +1,16 @@
+.custom-carousel .slick-dots {
+  bottom: 50px !important;
+}
+
+.CoverImg {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* fills the box, cropping overflow */
+  object-position: 50% 50%; /* center vertically (default) */
+}

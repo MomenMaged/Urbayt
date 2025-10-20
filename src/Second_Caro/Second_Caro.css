@@ -1,0 +1,32 @@
+.carousel-slide {
+                /* Match Carousel height */
+  text-align: center;        /* Center text horizontally */
+  display: flex;
+  flex-direction: column;    /* Stack title and subtitle vertically */
+  justify-content: center;   /* Center vertically */
+  align-items: center;       /* Center horizontally */
+}
+
+.Title h1 {
+  margin: 0.5;
+  font-size: 2.5rem;
+}
+
+/* Second_Caro.css */
+.custom-carousel .slick-prev,
+.custom-carousel .slick-next {
+  color:black !important;  /* Set arrow color */
+  font-size: 34px;
+  z-index: 10;
+}
+
+.custom-carousel .slick-prev:hover,
+.custom-carousel .slick-next:hover {
+  color: #1890ff !important; /* Hover color */
+}
+.Title-no{
+
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}

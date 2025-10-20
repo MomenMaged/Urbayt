@@ -1,0 +1,11 @@
+.Image {
+  width: 40vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.second-image {
+  width: 100%;
+  height: 100%;
+  /* center vertically (default) */
+}
