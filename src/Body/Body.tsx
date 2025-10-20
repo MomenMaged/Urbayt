@@ -48,7 +48,7 @@ const Body = () => {
                 warmer, and more beautiful. From curated spaces to thoughtful
                 touches, we bring people together and turn simple days into
                 lasting memories. At Livingville, its not about checking in and
-                out, its about feeling at home, every moment
+                out, its about feeling at home, every momentZZ
               </div>
             </Flex>
           </div>
