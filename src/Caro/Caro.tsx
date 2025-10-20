@@ -17,7 +17,7 @@ const Caro = () => {
               <img
                 className="cover-image"
                 alt="cover"
-                src="./src/assets/KE_Nine_Oct23-9.webp"
+                src="/KE_Nine_Oct23-9.webp"
               ></img>
             </div>
             <div>First image</div>
@@ -29,7 +29,7 @@ const Caro = () => {
               <img
                 className="cover-image"
                 alt="cover"
-                src="./src/assets/KE_Banafseg_Apr24-50.webp"
+                src="/KE_Banafseg_Apr24-50.webp"
               ></img>
             </div>
             <div>Second image</div>

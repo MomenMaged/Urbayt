@@ -31,7 +31,7 @@ const Body = () => {
 
         <video className="videoo" width="90%" autoPlay muted loop playsInline>
           <source
-            src="./src/assets/458700_Finance_District_3840x2160.mp4"
+            src="/458700_Finance_District_3840x2160.mp4"
             type="video/mp4"
           />
         </video>
