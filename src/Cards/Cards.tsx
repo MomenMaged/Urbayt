@@ -19,7 +19,7 @@ const screens = useBreakpoint();
       <img
         draggable={false}
         alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+       src="./KE_Nine_Oct23-9.webp"
       />
     }
   >
@@ -32,7 +32,7 @@ const screens = useBreakpoint();
       <img
         draggable={false}
         alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+       src="./KE_Nine_Oct23-9.webp"
       />
     }
   >
@@ -45,7 +45,7 @@ const screens = useBreakpoint();
       <img
         draggable={false}
         alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+       src="./KE_Nine_Oct23-9.webp"
       />
     }
   >
@@ -63,7 +63,7 @@ const screens = useBreakpoint();
       <img
         draggable={false}
         alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+        src="./KE_Nine_Oct23-9.webp"
       />
     }
   >
@@ -76,7 +76,7 @@ const screens = useBreakpoint();
       <img
         draggable={false}
         alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+        src="./KE_Nine_Oct23-9.webp"
       />
     }
   >
@@ -91,7 +91,7 @@ const screens = useBreakpoint();
       <img
         draggable={false}
         alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+       src="./KE_Nine_Oct23-9.webp"
       />
     }
   >

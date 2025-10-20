@@ -69,10 +69,8 @@ const Menu = () => {
   return (
     <>
       <Space>
-        {/* <Button type="primary" onClick={() => toggleModal(1, true)}>
-          ConfigProvider
-        </Button> */}
-        <MenuOutlined onClick={() => toggleModal(1, true)} style={{ fontSize:'35px', color:'#f2f2f2'}}/>
+        
+        <MenuOutlined onClick={() => toggleModal(1, true)} style={{ marginTop:'20px', fontSize:'35px', color:'#f2f2f2'}}/>
       </Space>
       <ConfigProvider
         modal={{
@@ -83,12 +81,14 @@ const Menu = () => {
         <Modal
         footer={null}
         closeIcon={<CloseOutlined style={{ fontSize: 20, color: 'white' }} />}
-          style={{ top: "20px" }}
+          style={{ top: "20px"}}
           open={isModalOpen[1]}
           width={"100%"}
           height={"100%"}
           onOk={() => toggleModal(1, false)}
           onCancel={() => toggleModal(1, false)}
+          
+     
         >
           {screens.lg ?
           <Flex>

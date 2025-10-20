@@ -8,3 +8,15 @@
 height: 50vh;
     background-color: black;
 }
+
+.footer2{
+height: 35vh;
+    background-color: black;
+}
+
+.butto{
+color: white;
+}
+.butto :hover{
+    color:black
+}

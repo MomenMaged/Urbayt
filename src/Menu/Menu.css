@@ -67,4 +67,6 @@
     border-color: white !important;
   }
   
-
+ .ant-modal-root .ant-modal-wrap {
+  overflow: hidden;
+}

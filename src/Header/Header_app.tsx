@@ -80,7 +80,7 @@ const Header_app = () => {
     <p className='menu__item' >Blog</p>
     <p className='menu__item'>Careers</p>
     <p className='menu__item'>Contact</p>
-    <p style={{marginLeft:'5px'}}><Menu></Menu>  </p>
+   
     </div> 
     : <div style={{display:'Flex',marginLeft:'auto'}}><Menu></Menu></div>
 }
