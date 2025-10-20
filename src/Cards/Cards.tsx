@@ -55,10 +55,10 @@ const screens = useBreakpoint();
   
   (<Flex align='center' vertical>
   
-  <Flex align='center' style={{marginLeft:'3%'}} gap={'5%'}>
+  <Flex align='center' gap={'5%'}  justify='space-between'>
   <Card className='Card_css'
     hoverable
-    style={{ width: 200 }}
+    style={{ width: 160 }}
     cover={
       <img
         draggable={false}
@@ -71,7 +71,7 @@ const screens = useBreakpoint();
   </Card>
   <Card className='Card_css'
     hoverable
-    style={{ width: 200 }}
+    style={{ width: 160 }}
     cover={
       <img
         draggable={false}

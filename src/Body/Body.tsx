@@ -7,13 +7,6 @@ import Caro from "../Caro/Caro";
 import Second_Caro from "../Second_Caro/Second_Caro";
 import Emaill from "../Emaill/Emaill";
 
-// const contentStyle: React.CSSProperties = {
-//   height: '160px',
-//   color: '#fff',
-//   lineHeight: '160px',
-//   textAlign: 'center',
-//   background: '#364d79',
-// };
 const { useBreakpoint } = Grid;
 
 const Body = () => {
@@ -24,8 +17,9 @@ const Body = () => {
       <Caro></Caro>
 
       <Flex align="center" vertical className="space">
-        <Flex align="center" vertical className="space">
-          <h1>DIRECT BEST RATE GUARANTEED</h1>
+        <Flex align="center"  vertical className="space">
+          
+          <h1 className="titlee">DIRECT BEST RATE GUARANTEED</h1>
           <DropDownMenu></DropDownMenu>
         </Flex>
 

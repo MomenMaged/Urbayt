@@ -24,3 +24,11 @@ margin-top: 5px;
 border-radius: 10%;
 }
 
+.titlee {
+  text-align: center;          /* centers the text itself */
+  overflow-wrap: break-word;   /* breaks long words if needed */
+  max-width: 90%;              /* prevents edge overflow */
+  margin: 0 auto;              /* keeps it centered in the container */
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* responsive font size */
+}
+

@@ -4,20 +4,30 @@
   display: flex;
   flex-direction: column;    /* Stack title and subtitle vertically */
   justify-content: center;   /* Center vertically */
-  align-items: center;       /* Center horizontally */
+  align-items: center;  
+  margin-top: -20px;     /* Center horizontally */
 }
 
 .Title h1 {
-  margin: 0.5;
+  /* margin: 0.5; */
   font-size: 2.5rem;
+  
+ 
+  max-width: 300px;          /* optional — controls how wide the text can go */
+  word-wrap: break-word;     /* older syntax, still widely supported */
+  overflow-wrap: break-word; /* modern syntax — preferred */
+  white-space: normal;       /* ensures the text can wrap */
+
+   
 }
 
 /* Second_Caro.css */
 .custom-carousel .slick-prev,
-.custom-carousel .slick-next {
+.custom-carousel .slick-next,
+.custom-carousel .slick-dots {
   color:black !important;  /* Set arrow color */
   font-size: 34px;
-  z-index: 10;
+  z-index: 0;
 }
 
 .custom-carousel .slick-prev:hover,
@@ -29,4 +39,6 @@
     font-size: large;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
+    
 }
+

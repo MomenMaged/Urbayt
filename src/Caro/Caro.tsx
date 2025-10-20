@@ -10,6 +10,7 @@ const Caro = () => {
         dotPosition="bottom"
         autoplay
         autoplaySpeed={2000}
+       
       >
         <Content style={{ padding: 0, margin: 0 }}>
           <Flex gap={"middle"} align="center" vertical>

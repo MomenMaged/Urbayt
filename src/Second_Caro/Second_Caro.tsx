@@ -28,9 +28,9 @@ const Second_Caro = () => {
           align="center"
           vertical
         >
-          <div className="Title">
+          <Flex justify="center" align="center" className="Title">
             <h1>fdlslklsdjf</h1>
-          </div>
+          </Flex>
           <div className="Title-no">First image</div>
         </Flex>
 
@@ -41,10 +41,11 @@ const Second_Caro = () => {
           align="center"
           vertical
         >
-          <div className="Title">
+          <Flex align="center" justify="center" className="Title">
             <h1>jnjnjaklnfdksndkjfnkj</h1>
-          </div>
-          <div className="Title-no" >Second image</div>
+          </Flex>
+          <div className="Title-no"  style={{marginTop:'-10px'
+          }}>Second image</div>
         </Flex>
       </Carousel>
     </ConfigProvider>

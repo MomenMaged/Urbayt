@@ -48,12 +48,12 @@ const onChange = (key: string | string[]) => {
               <img
                 className="second-image"
                 alt="cover"
-                src="./src/assets/KE_Nine_Oct23-9.webp"
+                src="./KE_Nine_Oct23-9.webp"
               ></img>
             </div>
               
 <Flex vertical  style={{width:'40%'}}>
-              <h1 style={{width:'120%'}}>ARTFUL LIVING AMENITIES  AT EVERY DETAIL.</h1>
+              <h1 style={{width:'100%'}}>ARTFUL LIVING AMENITIES  AT EVERY DETAIL.</h1>
               <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} ghost expandIconPosition='end' size='large' items={items} onChange={onChange} />
            </Flex>
             </Flex>
@@ -70,10 +70,10 @@ const onChange = (key: string | string[]) => {
               <img
                 className="second-image"
                 alt="cover"
-                src="./src/assets/KE_Nine_Oct23-9.webp"
+                src="/KE_Nine_Oct23-9.webp"
               ></img>
               <Flex vertical >
-                 <h1 style={{width:'120%'}}>ARTFUL LIVING AMENITIES  AT EVERY DETAIL.</h1>
+                 <h1 style={{width:'100%'}}>ARTFUL LIVING AMENITIES  AT EVERY DETAIL.</h1>
               <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} expandIconPosition='end' size='large' items={items} onChange={onChange} />
            </Flex>
             </Flex>
