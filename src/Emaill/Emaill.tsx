@@ -1,5 +1,4 @@
 import { Button, Flex, Input } from 'antd'
-import React from 'react'
 import './Emaill.css'
 
 const Emaill = () => {

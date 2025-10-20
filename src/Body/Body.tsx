@@ -1,6 +1,5 @@
 import "./Body.css";
-import { Content } from "antd/es/layout/layout";
-import {  Carousel, Flex, Grid} from "antd";
+import { Flex, Grid} from "antd";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 import Cards from "../Cards/Cards";
 import Details from "../Details/Details";

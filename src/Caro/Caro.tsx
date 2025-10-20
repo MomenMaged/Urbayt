@@ -1,7 +1,6 @@
 import { Flex , Carousel } from 'antd'
 import { Content } from 'antd/es/layout/layout'
 import './Caro.css'
-import React from 'react'
 
 const Caro = () => {
   return (
