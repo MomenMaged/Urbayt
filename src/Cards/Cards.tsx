@@ -1,16 +1,9 @@
 import { Card, Carousel, Flex, Grid } from "antd";
 import "./Cards.css";
-import {
-  HomeOutlined,
-  LoadingOutlined,
-  SettingFilled,
-  SmileOutlined,
-  SyncOutlined,
-} from "@ant-design/icons";
-import Space from "antd";
-import { Header } from "antd/es/layout/layout";
+import {HomeOutlined} from "@ant-design/icons";
 
-const { Meta } = Card;
+
+
 
 const { useBreakpoint } = Grid;
 
