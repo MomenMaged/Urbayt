@@ -1,3 +1,36 @@
 .Card_css{
     margin-top: 10%;
 }
+
+.Title2{
+     word-wrap: break-word;     /* older syntax, still widely supported */
+  overflow-wrap: break-word; /* modern syntax — preferred */
+  white-space: normal;  
+  width: 400;
+}
+
+.card_title{
+margin-top: -8px;
+font-size: 16px;
+font-weight: 700;
+
+
+}
+
+.available{
+  margin-top: -10px;
+  border-bottom: 1px solid black;
+ 
+
+}
+
+.para{
+ margin-bottom:-2px;
+}
+
+.ant-carousel .slick-slide img{
+  border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+  
+}

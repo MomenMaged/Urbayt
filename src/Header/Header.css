@@ -45,3 +45,8 @@
   display: flex;
   margin-left: auto;
 }
+
+.menu__item--active {
+  border-bottom: 1px solid white; /* underline */
+  font-weight: bold;
+}

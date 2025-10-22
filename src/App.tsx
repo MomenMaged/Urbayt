@@ -3,18 +3,28 @@ import {
 } from "antd";
 import Header_app from "./Header/Header_app";
 import Body from "./Body/Body";
+import { BrowserRouter as  Router,Route, Routes } from "react-router-dom";
+import Second_Caro from "./Second_Caro/Second_Caro";
+import Cards from "./Cards/Cards";
 
 const App = () => {
   return (
     
-     <Layout>
-        
-      
+     <Router>
+      <Layout>
         <Header_app />
-      <Body/>  
-        
-    
-    </Layout>
+
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/about" element={<Second_Caro />} />
+          <Route path="/Cards" element={<Cards/>} />
+          {/* <Route path="/media" element={<Media />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} /> */}
+        </Routes>
+      </Layout>
+    </Router>
   );
 };
 

@@ -4,7 +4,7 @@ import { Header } from 'antd/es/layout/layout';
 import { useEffect, useState } from 'react'
 import './Header.css'
 import Menu from '../Menu/Menu';
-
+import { Link , useLocation } from 'react-router-dom';
 // const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 //   message.info('Click on left button.');
 //   console.log('click left button', e);
@@ -52,6 +52,10 @@ const { useBreakpoint } = Grid;
 
 
 const Header_app = () => {
+
+  const location = useLocation();
+const currentPath = location.pathname;
+
   const screens = useBreakpoint(); // returns an object with current breakpoints
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,8 +79,9 @@ const Header_app = () => {
     {/* <Dropdown.Button  style={{paddingTop:'25px',}} menu={menuProps}>
     <p className='menu__item'>Projects</p>
     </Dropdown.Button> */}
-    <p className='menu__item'>About </p>
-    <p className='menu__item'>Media</p>
+    <Link to="./"><p className={`menu__item ${currentPath === '/' ? 'menu__item--active' : ''}`}>Home</p></Link>
+    <Link to="./about"><p className={`menu__item ${currentPath === '/about' ? 'menu__item--active' : ''}`}>About </p></Link>
+     <Link to="./Cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}>Cards</p></Link>
     <p className='menu__item' >Blog</p>
     <p className='menu__item'>Careers</p>
     <p className='menu__item'>Contact</p>
