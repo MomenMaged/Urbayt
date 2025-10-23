@@ -180,20 +180,22 @@ const Menu = () => {
             </div>
 
             <div className="navigation__inner">
-              <a className="menu-panel__item">Projects</a>
-              <a className="menu-panel__item">About</a>
-              <a className="menu-panel__item">Media</a>
-              <a className="menu-panel__item">Blog</a>
-              <a className="menu-panel__item">Careers</a>
-              <a className="menu-panel__item">Contact</a>
+             
+              <a className="menu-panel__item">Our listings</a>
+              <a className="menu-panel__item">Listing 1</a>
+              <a className="menu-panel__item">Listing 2</a>
+              <a className="menu-panel__item">Listing 3</a>
+              <a className="menu-panel__item">Become a Partner</a>
+               <a className="menu-panel__item">Contact us</a>
             </div>
           </Flex> :  <div className="navigation__inner2">
-              <a className="menu-panel__item2">Projects</a>
-              <a className="menu-panel__item2">About</a>
-              <a className="menu-panel__item2">Media</a>
-              <a className="menu-panel__item2">Blog</a>
-              <a className="menu-panel__item2">Careers</a>
-              <a className="menu-panel__item2">Contact</a>
+             
+              <a className="menu-panel__item2">Our Listings</a>
+              <a className="menu-panel__item2">Listing 1</a>
+              <a className="menu-panel__item2">Listing 2</a>
+              <a className="menu-panel__item2">Listing 3</a>
+              <a className="menu-panel__item2">Become a Partner</a>
+               <a className="menu-panel__item2">Contact us</a>
             </div>}
         </Modal>
       </ConfigProvider>

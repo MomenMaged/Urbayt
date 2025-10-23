@@ -73,19 +73,20 @@ const currentPath = location.pathname;
   return (
    
     <Header  className={isScrolled ? 'header header--small' : 'header'} >
-    <ExpandOutlined style={{ fontSize:'50px', color:'white'}}/>
+    <Link to="./"><ExpandOutlined  style={{ fontSize:'50px', color:'white' , marginTop:'50%'}}/></Link>
      {screens.lg&& !isScrolled ?
     <div style={{display:'flex', marginLeft:'auto'}}>
     {/* <Dropdown.Button  style={{paddingTop:'25px',}} menu={menuProps}>
     <p className='menu__item'>Projects</p>
     </Dropdown.Button> */}
-    <Link to="./"><p className={`menu__item ${currentPath === '/' ? 'menu__item--active' : ''}`}>Home</p></Link>
-    <Link to="./about"><p className={`menu__item ${currentPath === '/about' ? 'menu__item--active' : ''}`}>About </p></Link>
-     <Link to="./Cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}>Cards</p></Link>
-    <p className='menu__item' >Blog</p>
-    <p className='menu__item'>Careers</p>
-    <p className='menu__item'>Contact</p>
-   
+    
+    
+     <Link to="./Cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}> Our listings</p></Link>
+    <p className='menu__item' >Listing 1</p>
+    <p className='menu__item'>Listing 2</p>
+    <p className='menu__item'>Listing 3</p>
+    <p className='menu__item'>Become a partner</p>
+   <p className='menu__item'>Contact us</p>
     </div> 
     : <div style={{display:'Flex',marginLeft:'auto'}}><Menu></Menu></div>
 }

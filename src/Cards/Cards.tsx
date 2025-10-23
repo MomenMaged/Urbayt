@@ -65,7 +65,7 @@ const Cards = () => {
 
   return (
     <div>
-       
+       {/* <h2>Nests:{cards.length}</h2> */}
         <Flex  wrap
         align="center" vertical={!screens.lg} style={ screens.lg ? { marginLeft: "3%" , marginRight:'3%'} : {}} justify="center" gap='3%'>
           {cards.map((item) => (
@@ -136,22 +136,27 @@ const Cards = () => {
 
           <Card
           id={item.Id}
-            className="Card_css"
+            className="Card_css" 
+            
             hoverable
             style={{ maxWidth: "350px", borderRadius: "10%" }}
             cover={
-              <Carousel arrows dots={false}>
+              <div className="my_special_car">
+              <Carousel  arrows dots={false}>
                 <img
-                  draggable={true}
+                
+                  draggable={false}
                   alt="example"
                   src={item.imgSrc1}
                 />
                 <img
-                  draggable={true}
+                
+                  draggable={false}
                   alt="example"
                   src={item.imgSrc2}
                 />
               </Carousel>
+              </div>
             }
           >
             <Flex vertical>
