@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "./cardd.css";
+import "./Cardd.css";
 import { Flex, Grid } from 'antd';
 import { HomeFilled } from '@ant-design/icons';
 import Emaill from '../Emaill/Emaill';
