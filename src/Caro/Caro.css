@@ -1,5 +1,6 @@
 .custom-carousel .slick-dots {
   bottom: 50px !important;
+  z-index: 1;
 }
 
 .CoverImg {

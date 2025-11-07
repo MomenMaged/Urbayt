@@ -47,6 +47,19 @@ const Second_Caro = () => {
           <div className="Title-no"  style={{marginTop:'-10px'
           }}>Second image</div>
         </Flex>
+
+         <Flex
+          className="carousel-slide"
+          justify="center"
+          align="center"
+          vertical
+        >
+          <Flex align="center" justify="center" className="Title">
+            <h1>jnjnjaklnfdksndkjfnkj</h1>
+          </Flex>
+          <div className="Title-no"  style={{marginTop:'-10px'
+          }}>Second image</div>
+        </Flex>
       </Carousel>
     </ConfigProvider>
   );

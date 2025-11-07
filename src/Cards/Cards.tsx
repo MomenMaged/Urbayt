@@ -1,6 +1,7 @@
 import { Card, Carousel, Flex, Grid } from "antd";
 import "./Cards.css";
 import {HomeOutlined} from "@ant-design/icons";
+import Emaill from "../Emaill/Emaill";
 
 
 
@@ -189,6 +190,7 @@ const Cards = () => {
           </Card>
           ))}
         </Flex>
+        <Emaill></Emaill>
       
     </div>
   );

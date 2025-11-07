@@ -73,17 +73,15 @@ const currentPath = location.pathname;
   return (
    
     <Header  className={isScrolled ? 'header header--small' : 'header'} >
-    <Link to="./"><ExpandOutlined  style={{ fontSize:'50px', color:'white' , marginTop:'50%'}}/></Link>
+    <Link to="./"><ExpandOutlined  style={{  display:'block', fontSize:'50px', color:'white'}}/></Link>
      {screens.lg&& !isScrolled ?
     <div style={{display:'flex', marginLeft:'auto'}}>
-    {/* <Dropdown.Button  style={{paddingTop:'25px',}} menu={menuProps}>
-    <p className='menu__item'>Projects</p>
-    </Dropdown.Button> */}
+    
     
     
      <Link to="./Cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}> Our listings</p></Link>
-    <p className='menu__item' >Listing 1</p>
-    <p className='menu__item'>Listing 2</p>
+    <Link to="./Listing"><p className={`menu__item ${currentPath === '/Listing' ? 'menu__item--active' : ''}`} >Listing 1</p></Link>
+    <Link to="./View"><p className={`menu__item ${currentPath === '/View' ? 'menu__item--active' : ''}`} >View Photos</p></Link>
     <p className='menu__item'>Listing 3</p>
     <p className='menu__item'>Become a partner</p>
    <p className='menu__item'>Contact us</p>
@@ -92,7 +90,7 @@ const currentPath = location.pathname;
 }
     </Header>
 
-  // <MenuOutlined style={{ fontSize:'35px', color:'#f2f2f2'}}/>
+  
   )
 }
 

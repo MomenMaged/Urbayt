@@ -3,6 +3,7 @@ import { Button, ConfigProvider, Flex, Grid, Modal, Space } from "antd";
 import { createStyles} from "antd-style";
 import "./Menu.css";
 import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const useStyle = createStyles(({ token }) => ({
   "my-modal-body": {
@@ -87,8 +88,6 @@ const Menu = () => {
           height={"100%"}
           onOk={() => toggleModal(1, false)}
           onCancel={() => toggleModal(1, false)}
-          
-     
         >
           {screens.lg ?
           <Flex>
@@ -190,12 +189,12 @@ const Menu = () => {
             </div>
           </Flex> :  <div className="navigation__inner2">
              
-              <a className="menu-panel__item2">Our Listings</a>
-              <a className="menu-panel__item2">Listing 1</a>
-              <a className="menu-panel__item2">Listing 2</a>
-              <a className="menu-panel__item2">Listing 3</a>
-              <a className="menu-panel__item2">Become a Partner</a>
-               <a className="menu-panel__item2">Contact us</a>
+              <Link to="./Cards" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Our Listings</a></Link>
+              <Link to="./Listing" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 1</a></Link>
+              <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Listing 2</a>
+              <a className="menu-panel__item2"onClick={()=>toggleModal(1,false)}>Listing 3</a>
+              <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Become a Partner</a>
+               <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Contact us</a>
             </div>}
         </Modal>
       </ConfigProvider>

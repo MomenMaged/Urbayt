@@ -27,7 +27,7 @@
 .custom-carousel .slick-dots {
   color:black !important;  /* Set arrow color */
   font-size: 34px;
-  z-index: 0;
+  
 }
 
 .custom-carousel .slick-prev:hover,
