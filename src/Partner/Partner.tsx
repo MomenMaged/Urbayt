@@ -448,7 +448,7 @@ const Partner = () => {
                 <Flex style={{ width: "30%" }} vertical align="center">
                   <img
                     width={"58%"}
-                    src="/dist/illustrations1.svg"
+                    src="/illustrations1.svg"
                     alt="Resort"
                   />
                   <p style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -463,7 +463,7 @@ const Partner = () => {
                 <Flex style={{ width: "30%" }} vertical align="center">
                   <img
                     width={"50%"}
-                    src="/dist/illustrations2.svg"
+                    src="/illustrations2.svg"
                     alt="Resort"
                   />
                   <p style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -478,7 +478,7 @@ const Partner = () => {
                 <Flex style={{ maxWidth: "30%" }} vertical align="center">
                   <img
                     width={"25%"}
-                    src="/dist/illustrations3.svg"
+                    src="/illustrations3.svg"
                     alt="Resort"
                   />
                   <p style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -521,7 +521,7 @@ const Partner = () => {
                   <Flex style={{ width: "100%" }} vertical align="center">
                     <img
                       width={"40%"}
-                      src="/dist/illustrations1.svg"
+                      src="/illustrations1.svg"
                       alt="Resort"
                     />
                     <p style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -536,7 +536,7 @@ const Partner = () => {
                   <Flex style={{ width: "100%" }} vertical align="center">
                     <img
                       width={"40%"}
-                      src="/dist/illustrations2.svg"
+                      src="/illustrations2.svg"
                       alt="Resort"
                     />
                     <p style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -551,7 +551,7 @@ const Partner = () => {
                   <Flex style={{ maxWidth: "100%" }} vertical align="center">
                     <img
                       width={"30%"}
-                      src="/dist/illustrations3.svg"
+                      src="/illustrations3.svg"
                       alt="Resort"
                     />
                     <p style={{ fontSize: "24px", fontWeight: "bold" }}>
