@@ -193,7 +193,7 @@ const Menu = () => {
               <Link to="./Listing" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 1</a></Link>
               <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Listing 2</a>
               <a className="menu-panel__item2"onClick={()=>toggleModal(1,false)}>Listing 3</a>
-              <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Become a Partner</a>
+              <Link to="./Partner" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Become a partner</a></Link>
                <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Contact us</a>
             </div>}
         </Modal>

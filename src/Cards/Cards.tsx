@@ -3,9 +3,6 @@ import "./Cards.css";
 import {HomeOutlined} from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
 
-
-
-
 const { useBreakpoint } = Grid;
 
 const Cards = () => {

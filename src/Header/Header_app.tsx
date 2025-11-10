@@ -83,7 +83,7 @@ const currentPath = location.pathname;
     <Link to="./Listing"><p className={`menu__item ${currentPath === '/Listing' ? 'menu__item--active' : ''}`} >Listing 1</p></Link>
     <Link to="./View"><p className={`menu__item ${currentPath === '/View' ? 'menu__item--active' : ''}`} >View Photos</p></Link>
     <p className='menu__item'>Listing 3</p>
-    <p className='menu__item'>Become a partner</p>
+    <Link to="./Partner"><p className={`menu__item ${currentPath === '/Partner' ? 'menu__item--active' : ''}`} >Become a partner</p></Link>
    <p className='menu__item'>Contact us</p>
     </div> 
     : <div style={{display:'Flex',marginLeft:'auto'}}><Menu></Menu></div>
