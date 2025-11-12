@@ -73,20 +73,19 @@ const Cards = () => {
           <Card
           id={item.Id}
             className="Card_css" 
-             onClick={() => window.open("https://www.airbnb.com/")}
             hoverable
             style={{ maxWidth: "350px", borderRadius: "10%" }}
             cover={
               <div className="my_special_car">
-              <Carousel  arrows dots={false}>
+              <Carousel arrows dots={false}>
                 <img
-                
+                  onClick={() => window.open("https://www.airbnb.com/")}
                   draggable={false}
                   alt="example"
                   src={item.imgSrc1}
                 />
                 <img
-                
+                  onClick={() => window.open("https://www.airbnb.com/")}
                   draggable={false}
                   alt="example"
                   src={item.imgSrc2}
@@ -95,7 +94,9 @@ const Cards = () => {
               </div>
             }
           >
-            <Flex vertical>
+            <Flex 
+              vertical
+              onClick={() => window.open("https://www.airbnb.com/")}>
               <div style={{ height: "100px" }}>
                 <p className="card_title">{item.title}</p>
                 <p className="card_title">{item.price}</p>
