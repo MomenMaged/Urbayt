@@ -191,10 +191,11 @@ const Menu = () => {
              
               <Link to="./Cards" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Our Listings</a></Link>
               <Link to="./Listing" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 1</a></Link>
-              <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Listing 2</a>
-              <a className="menu-panel__item2"onClick={()=>toggleModal(1,false)}>Listing 3</a>
+               <Link to="./Listing_2" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 2</a></Link>
+                <Link to="./Listing_3" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 3</a></Link>
+              
               <Link to="./Partner" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Become a partner</a></Link>
-               <a className="menu-panel__item2" onClick={()=>toggleModal(1,false)}>Contact us</a>
+              <Link to="./ContactUs" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Contact us</a></Link>
             </div>}
         </Modal>
       </ConfigProvider>

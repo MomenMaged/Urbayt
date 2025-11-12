@@ -1,7 +1,6 @@
 import "./Body.css";
 import { Flex, Grid} from "antd";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
-import Cards from "../Cards/Cards";
 import Details from "../Details/Details";
 import Caro from "../Caro/Caro";
 import Second_Caro from "../Second_Caro/Second_Caro";
@@ -23,7 +22,7 @@ const Body = () => {
           <DropDownMenu></DropDownMenu>
         </Flex>
 
-        <video className="videoo" width="90%" autoPlay muted loop playsInline>
+        <video style={{marginTop:'3%'}} className="videoo" width="90%" autoPlay muted loop playsInline>
           <source
             src="/458700_Finance_District_3840x2160.mp4"
             type="video/mp4"
@@ -69,7 +68,7 @@ const Body = () => {
 
     {/* Video End */}
 
-    <Cards></Cards>
+    
 
     <Details></Details>
 

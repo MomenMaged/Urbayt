@@ -5,48 +5,7 @@ import { useEffect, useState } from 'react'
 import './Header.css'
 import Menu from '../Menu/Menu';
 import { Link , useLocation } from 'react-router-dom';
-// const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-//   message.info('Click on left button.');
-//   console.log('click left button', e);
-// };
 
-// const handleMenuClick: MenuProps['onClick'] = (e) => {
-//   message.info('Click on menu item.');
-//   console.log('click', e);
-// };
-
-
-
-// const items: MenuProps['items'] = [
-//   {
-//     label: '1st menu item',
-//     key: '1',
-   
-//   },
-//   {
-//     label: '2nd menu item',
-//     key: '2',
-    
-//   },
-//   {
-//     label: '3rd menu item',
-//     key: '3',
-    
-//     danger: true,
-//   },
-//   {
-//     label: '4rd menu item',
-//     key: '4',
-    
-//     danger: true,
-//     disabled: true,
-//   },
-// ];
-
-// const menuProps = {
-//   items,
-//   onClick: handleMenuClick,
-// };
 
 const { useBreakpoint } = Grid;
 
@@ -64,7 +23,8 @@ const currentPath = location.pathname;
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50); // if scrolled more than 50px
-    };
+    
+console.log('clicked')    };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -81,10 +41,10 @@ const currentPath = location.pathname;
     
      <Link to="./Cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}> Our listings</p></Link>
     <Link to="./Listing"><p className={`menu__item ${currentPath === '/Listing' ? 'menu__item--active' : ''}`} >Listing 1</p></Link>
-    <Link to="./View"><p className={`menu__item ${currentPath === '/View' ? 'menu__item--active' : ''}`} >View Photos</p></Link>
-    <p className='menu__item'>Listing 3</p>
+    <Link to="./Listing_2"><p className={`menu__item ${currentPath === '/Listing_2' ? 'menu__item--active' : ''}`} >Listing 2</p></Link>
+   <Link to="./Listing_3"><p className={`menu__item ${currentPath === '/Listing_3' ? 'menu__item--active' : ''}`} >Listing 3</p></Link>
     <Link to="./Partner"><p className={`menu__item ${currentPath === '/Partner' ? 'menu__item--active' : ''}`} >Become a partner</p></Link>
-   <p className='menu__item'>Contact us</p>
+   <Link to="./ContactUs"><p className={`menu__item ${currentPath === '/ContactUs' ? 'menu__item--active' : ''}`} >Contact us</p></Link>
     </div> 
     : <div style={{display:'Flex',marginLeft:'auto'}}><Menu></Menu></div>
 }

@@ -24,20 +24,20 @@ const screens = useBreakpoint();
     <div>
     {screens.lg?
     <Flex align="center" className="footer" vertical>
-      <strong className="Fontt">hdjfflkndfg hj?</strong>
-      <p style={{ color: "white" }}>kdbvsdkfjbskbdfjhbdjv</p>
+      <strong className="Fontt">Contact us</strong>
+      <p style={{ color: "white" }}>Drop here you Email!</p>
       <Flex align="center" gap={"10px"} style={{ marginTop: "2%" }}>
         <Input size="large" placeholder="EMAIL ADDRESS"></Input>
-        <Button  size="large" className="butto">Sign up</Button>
+        <Button  size="large" className="butto">Send</Button>
       </Flex>
     </Flex> : 
     
     <Flex align="center" className="footer2" vertical>
-      <strong className="Fontt">hdjfflkndfg hj?</strong>
-      <p style={{ color: "white" }}>kdbvsdkfjbskbdfjhbdjv</p>
+      <strong className="Fontt">Contact us</strong>
+      <p style={{ color: "white" }}>Drop here you Email!</p>
       <Flex align="center" gap={"10px"} style={{ marginTop: "2%" }}>
         <Input size="large" placeholder="EMAIL ADDRESS"></Input>
-        <Button  size="large" className="butto" >Sign up</Button>
+        <Button  size="large" className="butto" >Send</Button>
       </Flex>
     </Flex>}
     </div>

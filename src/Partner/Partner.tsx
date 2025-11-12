@@ -1,16 +1,14 @@
-import { useState } from "react";
 import "./Partner.css";
 import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
-
-import ViewPhotos from "../ViewPhotos/ViewPhotos";
+import { HomeFilled } from "@ant-design/icons";
+import FAQ from "../FAQ/FAQ";
+import Emaill from "../Emaill/Emaill";
 
 const Partner = () => {
   const { useBreakpoint } = Grid;
 
   const screens = useBreakpoint();
   console.warn({ screens });
-
-  const [open, setOpen] = useState(false);
 
   return (
     <ConfigProvider
@@ -44,20 +42,7 @@ const Partner = () => {
             {/* Foreground content */}
             <div>
               <Flex align="center" justify="space-between">
-                {/* <h1 className="background-content2"> Junior Suite sea view</h1> */}
-                <div className="background-content1">
-                  <Button
-                    style={{ color: "white" }}
-                    onClick={() => setOpen(true)}
-                  >
-                    Open Image Modal
-                  </Button>
-
-                  <ViewPhotos open={open} onClose={() => setOpen(false)} />
-                </div>
-                {/* <p style={{marginRight:'-40%'}}>
-          This is text and Ant Design components centered over an actual image.
-          </p> */}
+               
                 <div className="background-place">
                   <Flex
                     align="center"
@@ -105,22 +90,7 @@ const Partner = () => {
 
               {/* Foreground content */}
 
-              <Flex align="center" justify="space-between">
-                <h1 className="background-content2"> Junior Suite sea view</h1>
-                <div className="background-content1">
-                  <Button
-                    style={{ color: "white" }}
-                    onClick={() => setOpen(true)}
-                  >
-                    Open Image Modal
-                  </Button>
-
-                  <ViewPhotos open={open} onClose={() => setOpen(false)} />
-                </div>
-                {/* <p style={{marginRight:'-40%'}}>
-          This is text and Ant Design components centered over an actual image.
-          </p> */}
-              </Flex>
+              
             </div>{" "}
             <div>
               <Flex
@@ -163,19 +133,7 @@ const Partner = () => {
 
               {/* Foreground content */}
 
-              <Flex align="center" justify="space-between">
-                <h1 className="background-content2"> Junior Suite sea view</h1>
-                <div className="background-content1">
-                  <Button
-                    style={{ color: "white" }}
-                    onClick={() => setOpen(true)}
-                  >
-                    Open Image Modal
-                  </Button>
-
-                  <ViewPhotos open={open} onClose={() => setOpen(false)} />
-                </div>
-              </Flex>
+              
             </div>{" "}
             <div>
               <Flex
@@ -218,7 +176,7 @@ const Partner = () => {
                   paddingRight: "120px",
                   backgroundColor: "white",
                   width: "100%",
-                  marginTop: "15%",
+                  marginTop: "10%",
                 }}
               >
                 <div style={{ width: "50%" }}>
@@ -253,7 +211,7 @@ const Partner = () => {
                   paddingRight: "120px",
                   backgroundColor: "white",
                   width: "100%",
-                  marginTop: "15%",
+                  marginTop: "10%",
                 }}
               >
                 <Flex vertical style={{ width: "50%" }}>
@@ -329,7 +287,7 @@ const Partner = () => {
                   padding: "20px",
                   backgroundColor: "white",
                   width: "100%",
-                  marginTop: "15%",
+                  marginTop: "10%",
                 }}
               >
                 <div>
@@ -355,7 +313,7 @@ const Partner = () => {
                 style={{
                   backgroundColor: "white",
                   width: "100%",
-                  marginTop: "15%",
+                  marginTop: "10%",
                 }}
               >
                 <div>
@@ -428,12 +386,13 @@ const Partner = () => {
               vertical
               align="center"
               style={{
-                paddingTop: "6rem",
-                paddingBottom: "6rem",
-                paddingLeft: "120px",
-                paddingRight: "120px",
-                marginTop: "15%",
+                paddingTop: "4rem",
+                paddingBottom: "4rem",
+                paddingLeft: "60px",
+                paddingRight: "60px",
+                marginTop: "10%",
                 backgroundColor: "white",
+                
               }}
             >
               <p style={{ fontSize: "40px", fontFamily: "sans-serif" }}>
@@ -502,8 +461,9 @@ const Partner = () => {
                   paddingBottom: "3rem",
                   paddingLeft: "30px",
                   paddingRight: "30px",
-                  marginTop: "15%",
+                  marginTop: "10%",
                   backgroundColor: "white",
+                  
                 }}
               >
                 <h2
@@ -567,7 +527,49 @@ const Partner = () => {
               </Flex>
             </div>
           )}
-        </div>
+
+<div>
+  
+  <Flex align="center" vertical style={{paddingRight:'10%' ,paddingLeft:'10%' , marginTop:'10%'}}>
+    <p style={{fontSize:'48px' , fontFamily:'sans-serif'}}>How it works</p>
+
+      <Flex  justify="flex-start"  gap={'3%'} style={{overflowX:'scroll' , scrollbarWidth:'none' , width:'100%'  }}>
+            
+            {/* Example collapsed text section */}
+            <div   style={{minWidth:'300px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+              <HomeFilled style={{fontSize:'30px'}} />
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 1: Register your unit</p>
+              <p style={{fontSize:'16px' , color:'#292A2B' }}>Leave your unit to BirdNest to unlock its full rental potential</p>
+            </div>
+
+             <div   style={{ minWidth:'300px', height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+              <HomeFilled style={{fontSize:'30px'}} />
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 2: Schedule an On-Site Inspection</p>
+              <p style={{fontSize:'16px' , color:'#292A2B'}}>A BirdNest specialist visits your property to assess its condition and suitability for our Furnish & Rent program.</p>
+            </div>
+
+            <div  style={{minWidth:'300px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+              <HomeFilled style={{fontSize:'30px'}} />
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 3: Furnishing & Prepping</p>
+              <p style={{fontSize:'16px' , color:'#292A2B'}}>We furnish your unit, uplift it, or start renting straight away. Every detail is carefully curated to meet our signature hospitality standards, ensuring your property is guest-ready.</p>
+            </div>
+
+            <div    style={{minWidth:'300px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+              <HomeFilled style={{fontSize:'30px'}} />
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 4: Start earning!</p>
+              <p style={{fontSize:'16px' , color:'#292A2B' }}>Your property is listed, marketed, rented, and fully managed—while you enjoy consistent, hassle-free returns.</p>
+            </div>
+          
+      </Flex>
+
+  </Flex>
+</div>
+
+
+</div>
+<FAQ></FAQ>
+
+<Emaill></Emaill>
       </div>
     </ConfigProvider>
   );

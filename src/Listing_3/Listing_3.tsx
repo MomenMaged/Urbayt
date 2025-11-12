@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import "./Listing.css";
+import "./Listing_3.css";
 import {
   Button,
   
@@ -17,7 +17,7 @@ import { HomeFilled } from "@ant-design/icons";
 import Cardd from "../cardd/Cardd";
 import ViewPhotos from "../ViewPhotos/ViewPhotos";
 
-const Listing = () => {
+const Listing_3 = () => {
   const { useBreakpoint } = Grid;
 
   const screens = useBreakpoint();
@@ -492,4 +492,4 @@ const [open, setOpen] = useState(false);
   );
 };
 
-export default Listing;
+export default Listing_3;
