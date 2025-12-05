@@ -2,6 +2,7 @@ import { Card, Carousel, Flex, Grid } from "antd";
 import "./Cards.css";
 import {HomeOutlined} from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
+import FAQ from "../FAQ/FAQ";
 
 const { useBreakpoint } = Grid;
 
@@ -127,6 +128,7 @@ const Cards = () => {
           ))}
         </Flex>
         </Flex>
+        <FAQ></FAQ>
         <Emaill></Emaill>
       
     </div>

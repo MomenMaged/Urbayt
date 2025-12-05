@@ -14,6 +14,7 @@ const items: MenuItem[] = [
           justifyContent: "center",
           width: "100%",
           fontSize: "30px",
+          
         }}
       >
         BOOK NOW

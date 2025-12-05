@@ -18,7 +18,7 @@ const App = () => {
   return (
     
      <Router>
-      <Layout>
+      <Layout style={{backgroundColor:'#E2CAA2'}}>
         <Header_app  />
 
         <Routes>

@@ -57,7 +57,7 @@ const Cardd = () => {
           <h1 style={{ marginBottom: '40px' }}>Nest rules</h1>
           <Flex align='center' gap={'10%'} justify='center' vertical={!screens.lg}>
             
-            {/* Example collapsed text section */}
+            {/* Example collapsed text section  */}
             <Flex vertical>
               <HomeFilled />
               <h2>Cancellation & Changes</h2>

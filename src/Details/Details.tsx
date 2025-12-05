@@ -10,21 +10,21 @@ const Details = () => {
 const items: CollapseProps['items'] = [
   {
     key: '1',
-    label: 'LIVINGVILLE NINE APARTHOTEL',
+    label: '2BR APARTHOTEL | MADINATY',
     children: <p><ul><li>24/7 CONCIERGE </li>
     <li>DEDICATED ON PROPERTY SECURITY </li>
     <li>BUSINESS LOUNGE</li></ul></p>,
   },
   {
     key: '2',
-    label: 'LIVINGVILLE THE TWO FIFTY',
+    label: '3BR POOL/SEA VIEW | BLUMAR',
     children: <p><ul><li>24/7 CONCIERGE </li>
     <li>DEDICATED ON PROPERTY SECURITY </li>
     <li>BUSINESS LOUNGE</li></ul></p>,
   },
   {
     key: '3',
-    label: 'This is panel header 3',
+    label: '2BR TEXT | CFC',
     children: <p><ul><li>24/7 CONCIERGE </li>
     <li>DEDICATED ON PROPERTY SECURITY </li>
     <li>BUSINESS LOUNGE</li></ul></p>,
@@ -53,7 +53,7 @@ const onChange = (key: string | string[]) => {
             </div>
               
 <Flex vertical  style={{width:'40%'}}>
-              <h1 style={{width:'100%'}}>ARTFUL LIVING AMENITIES  AT EVERY DETAIL.</h1>
+              <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>
               <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} ghost expandIconPosition='end' size='large' items={items} onChange={onChange} />
            </Flex>
             </Flex>
@@ -73,7 +73,7 @@ const onChange = (key: string | string[]) => {
                 src="/KE_Nine_Oct23-9.webp"
               ></img>
               <Flex vertical >
-                 <h1 style={{width:'100%'}}>ARTFUL LIVING AMENITIES  AT EVERY DETAIL.</h1>
+                 <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>
               <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} expandIconPosition='end' size='large' items={items} onChange={onChange} />
            </Flex>
             </Flex>

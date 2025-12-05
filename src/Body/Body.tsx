@@ -18,7 +18,7 @@ const Body = () => {
       <Flex align="center" vertical className="space">
         <Flex align="center"  vertical className="space">
           
-          <h1 className="titlee">DIRECT BEST RATE GUARANTEED</h1>
+          <h1 className="titlee">STAY CONNECTED. STAY COMFORTABLE.</h1>
           <DropDownMenu></DropDownMenu>
         </Flex>
 
@@ -35,13 +35,9 @@ const Body = () => {
               justify="space-between"
               style={{ width: "80%", marginTop: "20vh", marginLeft: "10%" }}
             >
-              <h1 style={{ width: "20%" }}>Aparthotels made for families.</h1>
+              <h1 style={{ width: "30%" , color:'#CE8A39' , textAlign:'center'}}>URBAN LUXURY FOR FAMILIES, COUPLES, AND SOLO TRAVELERS.</h1>
               <div style={{ width: "45%" }}>
-                A place where every detail is designed to make life easier,
-                warmer, and more beautiful. From curated spaces to thoughtful
-                touches, we bring people together and turn simple days into
-                lasting memories. At Livingville, its not about checking in and
-                out, its about feeling at home, every momentZZ
+                UrbanHive is where considered design meets heartfelt hospitality. Every element is shaped to make your stay simpler, cozier, and more inspiring. Our spaces bring people closer and transform ordinary days into cherished memories. Here, home isn’t a place you enter, it’s a feeling that stays with you.
               </div>
             </Flex>
           </div>
@@ -51,15 +47,11 @@ const Body = () => {
               align="center"
               justify="space-between"
               vertical
-              style={{ width: "80%", marginLeft: "10%", marginTop: "10vh" }}
+              style={{  padding:'5%'}}
             >
-              <h1>Aparthotels made for families.</h1>
+              <h1 style={{color:'#CE8A39' , textAlign:'center'}}>URBAN LUXURY FOR FAMILIES, COUPLES, AND SOLO TRAVELERS.</h1>
               <div>
-                A place where every detail is designed to make life easier,
-                warmer, and more beautiful. From curated spaces to thoughtful
-                touches, we bring people together and turn simple days into
-                lasting memories. At Livingville, its not about checking in and
-                out, its about feeling at home, every moment
+                UrbanHive is where considered design meets heartfelt hospitality. Every element is shaped to make your stay simpler, cozier, and more inspiring. Our spaces bring people closer and transform ordinary days into cherished memories. Here, home isn’t a place you enter, it’s a feeling that stays with you.
               </div>
             </Flex>
           </div>

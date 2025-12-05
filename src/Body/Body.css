@@ -7,7 +7,7 @@ margin-top: 30px;
 }
 .spacee{
 color: white;
-background-color: black;
+background-color: #133848;
 height: 65vh;
 width: 100%;
 margin-top: 3%;
@@ -15,7 +15,7 @@ margin-top: 3%;
 }
 .spaceee{
 color: white;
-background-color: black;
+background-color: #133848;
 height: 55vh;
 width: 100%;
 margin-top: 5%;
@@ -31,6 +31,7 @@ border-radius: 10%;
   overflow-wrap: break-word;   /* breaks long words if needed */
   max-width: 90%;              /* prevents edge overflow */
   margin: 0 auto;              /* keeps it centered in the container */
-  font-size: clamp(1.5rem, 5vw, 2.5rem); /* responsive font size */
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #133848; /* responsive font size */
 }
 

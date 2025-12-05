@@ -50,7 +50,7 @@ const Partner = () => {
                     vertical
                     // gap={"30px"}
                     style={{
-                      backgroundColor: "White",
+                      backgroundColor: "#CE8A39",
                       width: "45vw",
                       height: "100%",
                       padding: "20px",

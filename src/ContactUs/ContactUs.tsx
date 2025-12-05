@@ -1,4 +1,4 @@
-import {Button, Flex, Grid, Input, Select } from "antd";
+import {Button, ConfigProvider, Flex, Grid, Input, Select } from "antd";
 import "./ContactUS.css";
 import TextArea from "antd/es/input/TextArea";
 import { EnvironmentFilled, FacebookFilled, InstagramFilled, MailOutlined, PhoneOutlined, WhatsAppOutlined } from "@ant-design/icons";
@@ -16,6 +16,24 @@ const optionss = [
 const ContactUs = () => {
   const screens = useBreakpoint();
   return (
+
+    <ConfigProvider
+    theme={{
+      components:{
+        Button:{
+         defaultBg:'#133848',
+         defaultHoverBg:'#CE8A39',
+         ghostBg:'transparent',
+         defaultActiveBg:'#CE8A39',
+         defaultHoverBorderColor:'transparent',
+         defaultHoverColor:'transparent',
+         defaultBorderColor:'transparent',
+         colorBgLayout:'black',
+         defaultActiveBorderColor:'transparent'
+         
+        }
+      }
+    }}>
     <div>
     
       
@@ -61,7 +79,7 @@ const ContactUs = () => {
 
           <TextArea placeholder="Message" autoSize={{ minRows: 4 }} />
 
-          <Button size="large" style={{ backgroundColor: "green" }}>
+          <Button size="large" style={{color:'white'}}>
             Send message
           </Button>
         </Flex>
@@ -84,6 +102,7 @@ const ContactUs = () => {
 
       
     </div>
+    </ConfigProvider>
   );
 };
 

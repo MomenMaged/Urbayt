@@ -1,17 +1,20 @@
 .menu__item{
     font: 700 14px / 16px 'Circe', Arial, Helvetica, sans-serif;
-    color: #fff;
+    color: WHITE;
     letter-spacing: 0px;
     display: inline-block;
     vertical-align: middle;
-    padding: 20px 31px;
+    padding: 15px 15px;
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     position: relative;
+    
 }
+
+.menu__item:hover{color: #CE8A39;}
 
 .header {
   position:fixed;
@@ -21,14 +24,14 @@
   height: 108px;
   display: flex;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: #133848;
   transition: all 0.3s ease; /* smooth animation */
   padding: 0 20px;
 }
 
 .header--small {
   height: 70px;           /* smaller height when scrolled */
-  background-color: #111; /* optional: darker color */
+  background-color: #133848; /* optional: darker color */
 }
 
 .header__icon {
