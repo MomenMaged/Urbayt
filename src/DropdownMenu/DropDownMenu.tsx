@@ -32,7 +32,7 @@ const items: MenuItem[] = [
                 width: "100%",
               }}
             >
-              NINE.
+              MADINATY
             </span>
           </a>
         ),
@@ -48,7 +48,7 @@ const items: MenuItem[] = [
                 width: "100%",
               }}
             >
-              NINE.
+             SOHKNA
             </span>
           </a>
         ),
@@ -64,7 +64,7 @@ const items: MenuItem[] = [
                 width: "100%",
               }}
             >
-              NINE.
+              CAIRO FESTIVAL CITY
             </span>
           </a>
         ),

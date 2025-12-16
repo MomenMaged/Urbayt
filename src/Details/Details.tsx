@@ -1,4 +1,4 @@
-import { Collapse, CollapseProps, Flex, Grid } from 'antd'
+import { Collapse, CollapseProps, ConfigProvider, Flex, Grid } from 'antd'
 import './Details.css'
 
 
@@ -36,6 +36,15 @@ const onChange = (key: string | string[]) => {
   };
 
   return (
+     <ConfigProvider
+    theme={{
+      components:{
+        Collapse:{
+         
+
+        }
+      }
+    }}>
     <div>
      {screens.lg ? (
           <div >
@@ -65,7 +74,7 @@ const onChange = (key: string | string[]) => {
               align="center"
               justify="space-between"
               vertical
-              style={{ width: "80%", marginLeft: "10%", marginTop: "10vh" }}
+              style={{ width: "80%", marginLeft: "10%", marginTop: "10vh"  }}
             >
               <img
                 className="second-image"
@@ -74,12 +83,13 @@ const onChange = (key: string | string[]) => {
               ></img>
               <Flex vertical >
                  <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>
-              <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} expandIconPosition='end' size='large' items={items} onChange={onChange} />
+              <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} ghost expandIconPosition='end' size='large' items={items} onChange={onChange} />
            </Flex>
             </Flex>
           </div>
         )}
         </div>
+        </ConfigProvider>
   )
 }
 

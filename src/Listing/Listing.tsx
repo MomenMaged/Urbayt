@@ -1,21 +1,29 @@
 import  { useState } from "react";
 import "./Listing.css";
+import { TbAirConditioning } from "react-icons/tb";
+
 import {
   Button,
   
   ConfigProvider,
-  DatePicker,
+  
   
   Flex,
   Grid,
-  InputNumber,
+  
   
   Modal,
 } from "antd";
 
-import { HomeFilled } from "@ant-design/icons";
+
 import Cardd from "../cardd/Cardd";
 import ViewPhotos from "../ViewPhotos/ViewPhotos";
+import { FaBath, FaLock, FaParking, FaTv, FaWifi } from "react-icons/fa";
+import { MdBedroomParent, MdMicrowave, MdOutlineCleaningServices, MdSanitizer } from "react-icons/md";
+import { GiTowel } from "react-icons/gi";
+import { CgSmartHomeRefrigerator } from "react-icons/cg";
+import { FaKitchenSet, FaPerson } from "react-icons/fa6";
+import { SlSizeFullscreen } from "react-icons/sl";
 
 const Listing = () => {
   const { useBreakpoint } = Grid;
@@ -47,8 +55,8 @@ const [open, setOpen] = useState(false);
     theme={{
       components:{
         Button:{
-         defaultBg:'black',
-         defaultHoverBg:'green',
+         defaultBg:'white',
+         defaultHoverBg:'#E2CAA2',
          borderColorDisabled:'transparent',
          defaultHoverBorderColor:'transparent',
          defaultHoverColor:'transparent'
@@ -70,12 +78,12 @@ const [open, setOpen] = useState(false);
         {/* Foreground content */}
         <div>
           <Flex align="center"  justify="space-between">
-            <h1 className="background-content2"> Junior Suite sea view</h1>
+            <h1 className="background-content2">MODERN COZY 2BR+1BA PANO GARDEN VIEW @ MADINATY</h1>
             <div className="background-content1">
              
              
-      <Button style={{color:'white'}} onClick={() => setOpen(true)}>
-        Open Image Modal
+      <Button style={{color:'black'}} onClick={() => setOpen(true)}>
+       SHOW ALL PHOTOS
       </Button>
 
       <ViewPhotos open={open} onClose={() => setOpen(false)} />
@@ -84,7 +92,7 @@ const [open, setOpen] = useState(false);
             {/* <p style={{marginRight:'-40%'}}>
           This is text and Ant Design components centered over an actual image.
           </p> */}
-            <div className="background-content">
+            <div className="background-content0">
               <Flex
                 align="center"
                 justify="center"
@@ -92,13 +100,14 @@ const [open, setOpen] = useState(false);
                 gap={"30px"}
                 style={{
                   backgroundColor: "White",
-                  width: "70vw",
+                  // width: "70vw",
+                  width:'30vw',
                   height: "30vh",
                   borderTopLeftRadius: "10px",
                   padding: "40px",
                 }}
               >
-                <Flex vertical align="center">
+                {/* <Flex vertical align="center">
                   <h3>Check-in</h3>
                   <p style={{ marginTop: "-10px" }}>
                     <DatePicker></DatePicker>
@@ -115,13 +124,17 @@ const [open, setOpen] = useState(false);
                   <p style={{ marginTop: "-10px" }}>
                     <InputNumber defaultValue={0}></InputNumber>
                   </p>
-                </Flex>
+                </Flex> */}
 
-                <Flex vertical align="center" className="fasel">
-                  <h3>Price/ Night + Utilities</h3>
-                  <p style={{ marginTop: "-10px" }}>8,000,000</p>
+                <Flex vertical align="center" >
+                  <h3>STARTING PRICE</h3>
+                  <p style={{ marginTop: "-10px" }}>1750LE/NIGHT</p>
                 </Flex>
-                <Button style={{color:'white' }} className="background-title">Book now</Button>
+                <button onClick={()=>{ window.open(
+        "https://www.airbnb.com/",
+        "_blank",
+        "noopener,noreferrer"
+      ); }} className="classic-btn ">Book now</button>
               </Flex>
             </div>
           </Flex>
@@ -142,8 +155,8 @@ const [open, setOpen] = useState(false);
           <Flex align="center" justify="space-between">
             <h1 className="background-content2"> Junior Suite sea view</h1>
             <div className="background-content1">
-               <Button style={{color:'white'}} onClick={() => setOpen(true)}>
-        Open Image Modal
+               <Button style={{color:'black'}} onClick={() => setOpen(true)}>
+       SHOW ALL PHOTOS
       </Button>
 
       <ViewPhotos open={open} onClose={() => setOpen(false)} />
@@ -160,42 +173,29 @@ const [open, setOpen] = useState(false);
               <Flex
                 align="center"
                 justify="center"
-               
+               vertical
                 style={{
                   backgroundColor: "White",
                   width: "100%",
                   height: "100%",
-                 
+                 paddingBottom:'2%'
                   
                 }}
               >
-                <Flex  vertical align="center" className="fasel">
-                  <h3>Check-in</h3>
-                  <p style={{ marginTop: "-10px" }}>
-                    <DatePicker></DatePicker>
-                  </p>
-                </Flex>
-                <Flex vertical align="center" className= "fasel" >
-                  <h3>Check-out</h3>
-                  <p style={{ marginTop: "-10px" }}>
-                    <DatePicker></DatePicker>
-                  </p>
-                </Flex>
-                <Flex vertical align="center" className='fasel'>
-                  <h3 >Guests</h3>
-                  <p style={{ marginTop: "-10px" }}>
-                    <InputNumber defaultValue={0}></InputNumber>
-                  </p>
-                </Flex>
+                
 
-                <Flex vertical align="center" className='fasel'>
-                  <h3>Price/ Night + Utilities</h3>
-                  <p style={{ marginTop: "-10px" }}>8,000,000</p>
+                <Flex vertical align="center">
+                  <h3>STARTING PRICE</h3>
+                  <p style={{ marginTop: "-10px" }}>1750LE/NIGHT</p>
                 </Flex>
-                 <Button style={{color:'white' }} className="background-title">Book now</Button>
+                 <button onClick={()=>{ window.open(
+        "https://www.airbnb.com/",
+        "_blank",
+        "noopener,noreferrer"
+      ); }} className="classic-btn">Book now</button>
               </Flex>
             </div></Flex> :<Flex vertical><div className="background-container" style={{height:'60vh'}}>
-        {/* Background image */}
+        {/* Background image */}  
         <img
           src={"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"}
           alt="Background"
@@ -210,9 +210,9 @@ const [open, setOpen] = useState(false);
           <Flex align="center" justify="space-between">
             <h1 className="background-content2"> Junior Suite sea view</h1>
             <div className="background-content1">
-              <Button style={{color:'white'}} onClick={() => setOpen(true)}>
+              <button  className="classic-btn" style={{color:'white'}} onClick={() => setOpen(true)}>
         Open Image Modal
-      </Button>
+      </button>
 
       <ViewPhotos open={open} onClose={() => setOpen(false)} />
             </div>
@@ -236,31 +236,18 @@ const [open, setOpen] = useState(false);
                   
                 }}
               >
-                <Flex  >
-                  <h3 style={{ width:'100%',marginLeft:'-20%'}}>Check-in</h3>
-                  <p style={{marginRight:'-2%'}}>
-                    <DatePicker></DatePicker>
-                  </p>
-                </Flex>
-                <Flex  >
-                  <h3 style={{ width:'100%',marginLeft:'-20%'}}>Check-out</h3>
-                  <p >
-                    <DatePicker></DatePicker>
-                  </p>
-                </Flex>
-                <Flex  gap={'75%'}  >
-                  <h3 style={{ width:'100%',marginLeft:'-50%'}}>Guests</h3>
-                  <p >
-                    <InputNumber ></InputNumber>
-                  </p>
-                </Flex>
+              
 
                 <Flex   align="center">
                   <h3 style={{ width:'90%',marginLeft:'-30%'}}>Price/ Night + Utilities</h3>
                   <p >8,000,000</p>
                 </Flex>
        
-                <Button  style={{color:'white',marginTop:'5%'}}>Book now</Button>
+                <button  onClick={()=>{ window.open(
+        "https://www.airbnb.com/",
+        "_blank",
+        "noopener,noreferrer"
+      ); }} style={{color:'white',marginTop:'5%'}} className="classic-btn">Book now</button>
               </Flex>
             </div></Flex> )}
 
@@ -277,34 +264,59 @@ const [open, setOpen] = useState(false);
                 <img
                   className="second-image"
                   alt="cover"
-                  src="./KE_Nine_Oct23-9.webp"
+                  src="public/Rectangle-528-1.jpg"
                 ></img>
               </div>
 
               <Flex vertical style={{ width: "40%" }}>
                 <h1 style={{ width: "100%" }}>
-                  ARTFUL LIVING AMENITIES AT EVERY DETAIL.
+                  OVERVIEW
                 </h1>
                 <p>
-                  Comfortable Room with King size bed with spacious living area.
-                  Mini bar (filled by request, chargeable) tea and coffee making
-                  facilities, bathrobes and slippers, LCD TV with international
-                  channels, direct dial phone, 2 bathrooms with toilet, shower
-                  or bathtub, hair dryer, AC, safe, tiled/marble floor,
-                  balcony.Sea View.
+                  Welcome to your perfect getaway! This fully renovated 2-br, 1-ba home is designed for comfort, perfect for solo travelers, couples, or small families. Features queen-sized beds with fresh linens, and brand-new furniture throughout adds a modern yet cozy touch.
+
+Wake up to breathtaking panoramic garden views, and step onto your balcony, the perfect spot to enjoy a brunch or sip your morning coffee in peace.
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                    <MdBedroomParent style={{fontSize:'20px'}} />
+                <p className="logos9">
+                  No. of bedrooms
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
+                </Flex>
+<h4>2 Bedrooms</h4>
+</Flex>
+                
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                     <FaBath style={{fontSize:'20px'}} />
+                <p className="logos9">
+                 No. of bathrooms
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                </Flex>
+                <h4>1 Bathroom</h4>
+                </Flex>
+                
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                    <FaPerson style={{fontSize:'20px'}} />
+                <p className="logos9">
+                 Guests
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddd
+                </Flex>
+                <h4>Up to 4 guests</h4>
+                </Flex>
+                
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                    <SlSizeFullscreen  style={{fontSize:'20px'}} />
+                <p className="logos9">
+                 Size
                 </p>
+                </Flex>
+                 <h4><span >79<sup>2</sup></span>
+</h4>
+                </Flex>
               </Flex>
             </Flex>
 
@@ -314,44 +326,87 @@ const [open, setOpen] = useState(false);
               justify="center"
               style={{ width: "100%", marginTop: "20vh" }}
             >
-              <Flex vertical style={{ width: "40%" }}>
-                <h1 style={{ width: "100%" }}>Apartment</h1>
-                <Flex wrap align="center" gap={25}>
+              <Flex  vertical style={{ width: "40%" }}>
+                <h1 style={{ width: "100%" }}>Amenities</h1>
+                <Flex wrap  justify="left" gap={25}>
+                  <Flex align="center" gap={5}>
+                    <TbAirConditioning></TbAirConditioning>
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                     Air Conditioning
                   </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+ <FaParking></FaParking>
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjddddddddddddd
+                   Free Parking
                   </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+<FaWifi />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                   WIFI
                   </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+<FaTv />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddd
+                    Smart TV
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <MdOutlineCleaningServices />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                    Weekly Cleaning
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <GiTowel />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjddddddddddddd
+                    Linens and Towels
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <FaLock />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                   Smart lock
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <CgSmartHomeRefrigerator />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddd
+                    Refrigerator
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <FaKitchenSet />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                    Kitchen
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <MdMicrowave />
                   <p className="logos2">
-                    <HomeFilled></HomeFilled> jjjjddddddddddddd
+                   Microwave
                   </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <MdSanitizer />
+                  <p className="logos2">
+                    Toiletries
+                  </p>
+                  </Flex>
                 </Flex>
-                <h1 style={{ width: "100%" }}>Building</h1>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
-                </p>
+               
               </Flex>
               <div className="Image2">
                 <img
@@ -374,32 +429,57 @@ const [open, setOpen] = useState(false);
               <img
                 className="second-image"
                 alt="cover"
-                src="/KE_Nine_Oct23-9.webp"
+                src="public/Rectangle-528-1.jpg"
               ></img>
               <Flex vertical>
                 <h1 style={{ width: "100%" }}>
-                  ARTFUL LIVING AMENITIES AT EVERY DETAIL.
+                  OVERVIEW
                 </h1>
                 <p>
-                  Comfortable Room with King size bed with spacious living area.
-                  Mini bar (filled by request, chargeable) tea and coffee making
-                  facilities, bathrobes and slippers, LCD TV with international
-                  channels, direct dial phone, 2 bathrooms with toilet, shower
-                  or bathtub, hair dryer, AC, safe, tiled/marble floor,
-                  balcony.Sea View.
+                  Welcome to your perfect getaway! This fully renovated 2-br, 1-ba home is designed for comfort, perfect for solo travelers, couples, or small families. Features queen-sized beds with fresh linens, and brand-new furniture throughout adds a modern yet cozy touch.
+
+Wake up to breathtaking panoramic garden views, and step onto your balcony, the perfect spot to enjoy a brunch or sip your morning coffee in peace.
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                    <MdBedroomParent style={{fontSize:'20px'}} />
+                <p className="logos9">
+                  No. of bedrooms
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
+                </Flex>
+<h4>2 Bedrooms</h4>
+</Flex>
+                
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                     <FaBath style={{fontSize:'20px'}} />
+                <p className="logos9">
+                 No. of bathrooms
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddd
+                </Flex>
+                <h4>1 Bathroom</h4>
+                </Flex>
+                
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                    <FaPerson style={{fontSize:'20px'}} />
+                <p className="logos9">
+                 Guests
                 </p>
-                <p className="logos">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddd
+                </Flex>
+                <h4>Up to 4 guests</h4>
+                </Flex>
+                
+                <Flex align="center" justify="space-between">
+                  <Flex align="center" gap={5}>
+                    <SlSizeFullscreen  style={{fontSize:'20px'}} />
+                <p className="logos9">
+                 Size
                 </p>
+                </Flex>
+                 <h4><span >24<sup>2</sup></span>
+</h4>
+                </Flex>
               </Flex>
             </Flex>
 
@@ -417,27 +497,39 @@ const [open, setOpen] = useState(false);
               ></img>
               <Flex align="start" vertical wrap>
                 <h1 style={{ width: "100%" }}>Amenities</h1>
-                <h1>Apartment</h1>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
-                </p>
-                
+               
+               <Flex align="center" gap={5}>
+                    <TbAirConditioning></TbAirConditioning>
+                  <p className="logos22">
+                     Air Conditioning
+                  </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+ <FaParking></FaParking>
+                  <p className="logos2">
+                   Free Parking
+                  </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+<FaWifi />
+                  <p className="logos2">
+                   WIFI
+                  </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+<FaTv />
+                  <p className="logos2">
+                    Smart TV
+                  </p>
+                  </Flex>
+
               </Flex>
-              <Button type="primary" onClick={showModal}>
+              <button className="classic-btn" onClick={showModal}>
                 Open Modal
-              </Button>
+              </button>
               <Modal
                 title="Basic Modal"
                 closable={{ "aria-label": "Custom Close Button" }}
@@ -445,45 +537,90 @@ const [open, setOpen] = useState(false);
                 onOk={handleOk}
                 onCancel={handleCancel}
               >
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjdddddddddddddddddd
-                </p>
-                <p className="logos2">
-                  <HomeFilled></HomeFilled> jjjjddddddddddddd
-                </p>
+               <Flex align="center" gap={5}>
+                    <TbAirConditioning></TbAirConditioning>
+                  <p className="logos22">
+                     Air Conditioning
+                  </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+ <FaParking></FaParking>
+                  <p className="logos2">
+                   Free Parking
+                  </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+<FaWifi />
+                  <p className="logos2">
+                   WIFI
+                  </p>
+                  </Flex>
+
+                  <Flex align="center" gap={5}>
+<FaTv />
+                  <p className="logos2">
+                    Smart TV
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <MdOutlineCleaningServices />
+                  <p className="logos2">
+                    Weekly Cleaning
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <GiTowel />
+                  <p className="logos2">
+                    Linens and Towels
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <FaLock />
+                  <p className="logos2">
+                   Smart lock
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <CgSmartHomeRefrigerator />
+                  <p className="logos2">
+                    Refrigerator
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <FaKitchenSet />
+                  <p className="logos2">
+                    Kitchen
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <MdMicrowave />
+                  <p className="logos2">
+                   Microwave
+                  </p>
+                  </Flex>
+
+                   <Flex align="center" gap={5}>
+                    <MdSanitizer />
+                  <p className="logos2">
+                    Toiletries
+                  </p>
+                  </Flex>
               </Modal>
-              <h1>Building</h1>
-              <p className="logos2">
-                <HomeFilled></HomeFilled> jjjjddddddddddddd
-              </p>
+              
             </Flex>
           </div>
         )}
       </div>
+
+       
 
       <Cardd></Cardd>
     </div>

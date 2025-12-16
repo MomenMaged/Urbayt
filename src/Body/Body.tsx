@@ -5,6 +5,7 @@ import Details from "../Details/Details";
 import Caro from "../Caro/Caro";
 import Second_Caro from "../Second_Caro/Second_Caro";
 import Emaill from "../Emaill/Emaill";
+import FAQ from "../FAQ/FAQ";
 
 const { useBreakpoint } = Grid;
 
@@ -47,7 +48,7 @@ const Body = () => {
               align="center"
               justify="space-between"
               vertical
-              style={{  padding:'5%'}}
+              style={{ padding:'5%'}}
             >
               <h1 style={{color:'#CE8A39' , textAlign:'center'}}>URBAN LUXURY FOR FAMILIES, COUPLES, AND SOLO TRAVELERS.</h1>
               <div>
@@ -64,7 +65,9 @@ const Body = () => {
 
     <Details></Details>
 
-    <Second_Caro></Second_Caro>
+    {/* <Second_Caro></Second_Caro> */}
+
+    <FAQ></FAQ>
 
     <Emaill></Emaill>
     </div>

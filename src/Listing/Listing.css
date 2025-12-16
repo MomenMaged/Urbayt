@@ -85,12 +85,12 @@
 }
 
 /* Foreground content that sits above the image */
-.background-content {
+.background-content0 {
   position:  absolute;
   /* margin-top: 200px;
   margin-right: 40%; */
   bottom: 0;
-  left: 30%;
+  left: 70%;
   
   z-index: 1;
  
@@ -120,18 +120,19 @@
   left:3%;
   z-index: 1;
   font-weight: 1000;
-  font-size: 50px;
+  font-size: 40px;
   width: 30%;
+  color: white;
  
 
 
   
 }
 
-.logos{
+.logos9{
 
-color: 41 42 43;
-font-size: 20px;
+
+font-size: 15px;
 }
 
 .Image2 {
@@ -139,9 +140,35 @@ font-size: 20px;
   height: 90vh;
   overflow: hidden;
 }
-.logos2{
+
+.logos22{
 
 color: 41 42 43;
 font-size: 15px;
+font-weight: bold;
 
+}
+
+.classic-btn {
+  padding: 5px 25px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background: #133848;
+  border: 1px solid #999;
+  border-radius: 6px;
+  cursor: pointer;
+   transition: all 0.5s ease;
+  white-space: unset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.classic-btn:hover {
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  background: #CE8A39;
+}
+
+.classic-btn:active {
+  background: #E2CAA2;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }

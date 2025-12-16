@@ -1,8 +1,8 @@
 import "./Partner.css";
 import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
 import { HomeFilled } from "@ant-design/icons";
-import FAQ from "../FAQ/FAQ";
 import Emaill from "../Emaill/Emaill";
+import { FaArrowRight, FaChevronRight } from "react-icons/fa";
 
 const Partner = () => {
   const { useBreakpoint } = Grid;
@@ -15,11 +15,15 @@ const Partner = () => {
       theme={{
         components: {
           Button: {
-            defaultBg: "black",
-            defaultHoverBg: "green",
-            borderColorDisabled: "transparent",
-            defaultHoverBorderColor: "transparent",
-            defaultHoverColor: "transparent",
+            defaultBg:'#133848',
+         defaultHoverBg:'#CE8A39',
+         ghostBg:'transparent',
+         defaultActiveBg:'black',
+         defaultHoverBorderColor:'transparent',
+         defaultHoverColor:'transparent',
+         defaultBorderColor:'transparent',
+         colorBgLayout:'black',
+         defaultActiveBorderColor:'transparent'
           },
         },
       }}
@@ -30,7 +34,7 @@ const Partner = () => {
             {/* Background image */}
             <img
               src={
-                "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                "public/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
               }
               alt="Background"
               className="background-image"
@@ -49,24 +53,16 @@ const Partner = () => {
                     justify="center"
                     vertical
                     // gap={"30px"}
-                    style={{
-                      backgroundColor: "#CE8A39",
-                      width: "45vw",
-                      height: "100%",
-                      padding: "20px",
-                      borderTopRightRadius: "30px",
-                      borderBottomRightRadius: "30px",
-                    }}
+                   className="testTR"
                   >
-                    <p style={{ marginBottom: "2%", fontSize: "48px" }}>
-                      Let's Grow Together
+                    <p style={{ color:'#E2CAA2', marginBottom: "2%", fontSize: "48px" }}>
+                      GROW WITH THE HIVE
                     </p>
-                    <h3 style={{ paddingLeft: "30px", paddingRight: "30px" }}>
-                      Are you a developer, landlord, or investor? Let's bring
-                      hospitality to life — together
+                    <h3 style={{ color:'#E2CAA2', paddingLeft: "30px", paddingRight: "30px" }}>
+                     Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                     </h3>
                     <Button style={{ color: "white" }} size="large">
-                      Join as a partner
+                      Partner with UrbanHive
                     </Button>
                   </Flex>
                 </div>
@@ -104,14 +100,13 @@ const Partner = () => {
                 }}
               >
                 <p style={{ marginBottom: "2%", fontSize: "48px" }}>
-                  Let's Grow Together
+                 GROW WITH THE HIVE
                 </p>
                 <h3>
-                  Are you a developer, landlord, or investor? Let's bring
-                  hospitality to life — together
+                 Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                 </h3>
                 <Button style={{ color: "white" }} size="large">
-                  Join as a partner
+                  Partner with UrbanHive
                 </Button>
               </Flex>
             </div>
@@ -174,7 +169,7 @@ const Partner = () => {
                   paddingBottom: "3rem",
                   paddingLeft: "120px",
                   paddingRight: "120px",
-                  backgroundColor: "white",
+                  backgroundColor: "#133848",
                   width: "100%",
                   marginTop: "10%",
                 }}
@@ -185,18 +180,15 @@ const Partner = () => {
                       fontSize: "48px",
                       width: "100%",
                       wordWrap: "break-word",
+                      color:'#CE8A39'
                     }}
                   >
-                    Looking to maximize your property's potential?
+                    Ready to unlock your property’s potential and join the UrbanHive?
                   </p>
                 </div>
 
-                <p style={{ fontSize: "20px", width: "50%" }}>
-                  Your unit could be earning – let us help you unlock its full
-                  potential. With the right furnishing and styling that we
-                  offer, your property will become your steady source of income
-                  minus all the hassle. From furnishing to finding the right
-                  tenants, let us take care of all the details.
+                <p style={{ color:'white' , fontSize: "20px", width: "50%" }}>
+                  Your unit deserves to perform at its best. UrbanHive enhances every space with refined furnishing and modern styling, delivering consistent income without the burden of management. From the first piece of furniture to the perfect guest, we handle it all.
                 </p>
               </Flex>
 
@@ -209,7 +201,8 @@ const Partner = () => {
                   paddingBottom: "3rem",
                   paddingLeft: "120px",
                   paddingRight: "120px",
-                  backgroundColor: "white",
+                  backgroundColor: "#133848",
+                  
                   width: "100%",
                   marginTop: "10%",
                 }}
@@ -220,15 +213,17 @@ const Partner = () => {
                       fontSize: "48px",
                       width: "100%",
                       wordWrap: "break-word",
+                      color:'#CE8A39'
                     }}
                   >
-                    Who do we partner with?
+                    WHO URBANHIVE COLLABORATES WITH?
                   </p>
                   <p
                     style={{
                       fontSize: "18px",
                       width: "80%",
                       wordWrap: "break-word",
+                      color:'white'
                     }}
                   >
                     We partner with a wide variety of building owners, unit
@@ -237,13 +232,13 @@ const Partner = () => {
                   </p>
                   <Row>
                     <Col
-                      style={{ fontWeight: "bold", fontSize: "24px" }}
+                      style={{ fontWeight: "bold", fontSize: "24px" , color:'white' }}
                       span={8}
                     >
                       Homeowners
                     </Col>
                     <Col
-                      style={{ fontWeight: "bold", fontSize: "24px" }}
+                      style={{ fontWeight: "bold", fontSize: "24px" , color:'white' }}
                       span={8}
                       offset={8}
                     >
@@ -252,13 +247,13 @@ const Partner = () => {
                   </Row>
                   <Row style={{ marginTop: "5%" }}>
                     <Col
-                      style={{ fontWeight: "bold", fontSize: "24px" }}
+                      style={{ fontWeight: "bold", fontSize: "24px" , color:'white' }}
                       span={8}
                     >
                       Developers
                     </Col>
                     <Col
-                      style={{ fontWeight: "bold", fontSize: "24px" }}
+                      style={{ fontWeight: "bold", fontSize: "24px" , color:'white' }}
                       span={8}
                       offset={8}
                     >
@@ -285,23 +280,20 @@ const Partner = () => {
                 justify="space-between"
                 style={{
                   padding: "20px",
-                  backgroundColor: "white",
+                  backgroundColor: "#133848",
                   width: "100%",
                   marginTop: "10%",
+
                 }}
               >
                 <div>
-                  <h1 style={{ width: "100%", wordWrap: "break-word" }}>
-                    Looking to maximize your property's potential?
+                  <h1 style={{ width: "100%", wordWrap: "break-word" , color:'#CE8A39' }}>
+                    Ready to unlock your property’s potential and join the UrbanHive?
                   </h1>
                 </div>
 
-                <p>
-                  Your unit could be earning – let us help you unlock its full
-                  potential. With the right furnishing and styling that we
-                  offer, your property will become your steady source of income
-                  minus all the hassle. From furnishing to finding the right
-                  tenants, let us take care of all the details.
+                <p style={{color:"white"}} > 
+                  Your unit deserves to perform at its best. UrbanHive enhances every space with refined furnishing and modern styling, delivering consistent income without the burden of management. From the first piece of furniture to the perfect guest, we handle it all.
                 </p>
               </Flex>
 
@@ -318,8 +310,8 @@ const Partner = () => {
               >
                 <div>
                   <Flex align="center" vertical gap={20}>
-                    <h2 style={{ wordWrap: "break-word" }}>
-                      Who do we partner with?
+                    <h2 style={{ paddingRight:'2%' , paddingLeft:'2%',wordWrap: "break-word" }}>
+                      WHO URBANHIVE COLLABORATES WITH?
                     </h2>
                     <p
                       style={{
@@ -328,21 +320,19 @@ const Partner = () => {
                         wordWrap: "break-word",
                       }}
                     >
-                      We partner with a wide variety of building owners, unit
-                      owners, and developers to offer rental solutions tailored
-                      to different needs
+                      UrbanHive collaborates with a wide spectrum of property partners to create flexible, high-performing rental solutions:
                     </p>
                   </Flex>
                   <div style={{ paddingLeft: "10%", paddingRight: "10%" }}>
                     <Row>
                       <Col
-                        style={{ fontWeight: "bold", fontSize: "24px" }}
+                        style={{ fontWeight: "bold", fontSize: "20px" , color:'white' }}
                         span={8}
                       >
                         Homeowners
                       </Col>
                       <Col
-                        style={{ fontWeight: "bold", fontSize: "24px" }}
+                        style={{ fontWeight: "bold", fontSize: "20px" , color:'white' }}
                         span={8}
                         offset={8}
                       >
@@ -351,13 +341,13 @@ const Partner = () => {
                     </Row>
                     <Row style={{ marginTop: "5%" }}>
                       <Col
-                        style={{ fontWeight: "bold", fontSize: "24px" }}
+                        style={{ fontWeight: "bold", fontSize: "20px" , color:'white'}}
                         span={8}
                       >
                         Developers
                       </Col>
                       <Col
-                        style={{ fontWeight: "bold", fontSize: "24px" }}
+                        style={{ fontWeight: "bold", fontSize: "20px" , color:'white' }}
                         span={8}
                         offset={8}
                       >
@@ -396,7 +386,7 @@ const Partner = () => {
               }}
             >
               <p style={{ fontSize: "40px", fontFamily: "sans-serif" }}>
-                We take care of everything so you don't need to.
+                Everything is handled for you, start to finish.
               </p>
               <Flex
                 align="center"
@@ -406,47 +396,41 @@ const Partner = () => {
               >
                 <Flex style={{ width: "30%" }} vertical align="center">
                   <img
-                    width={"58%"}
-                    src="/illustrations1.svg"
+                    width={"100%"}
+                    src="/WhatsApp Imageee 2025-12-06 at 8.30.41 AM.jpeg"
                     alt="Resort"
                   />
-                  <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-                    Maximized Revenues
+                  <p style={{  fontSize: "24px", fontWeight: "bold" }}>
+                    Boost Your Earnings
                   </p>
-                  <p style={{ fontSize: "20px", color: "#707071" }}>
-                    Ghazala Resort and SPA in Rixos Alamein offers a private
-                    beach area and beachfront access. Guests enjoy sea views and
-                    a seasonal outdoor swimming pool.
+                  <p style={{ fontSize: "20px" }}>
+                    Unlock the full earning potential of your property with strategic hospitality management. From premium furnishing and styling to targeted guest acquisition, every aspect is designed to boost occupancy and revenue. With seamless operations, ongoing monitoring, and optimized pricing, your property becomes a steady, hassle-free income stream.
                   </p>
                 </Flex>
                 <Flex style={{ width: "30%" }} vertical align="center">
                   <img
-                    width={"50%"}
-                    src="/illustrations2.svg"
+                    width={"100%"}
+                    src="/WhatsApp Image 2025-12-06 at 8.30.41 AM.jpeg"
                     alt="Resort"
                   />
-                  <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-                    All Services Covered
+                  <p style={{  fontSize: "24px", fontWeight: "bold" }}>
+                    We Handle It All
                   </p>
-                  <p style={{ fontSize: "20px", color: "#707071" }}>
-                    Ghazala Resort and SPA in Rixos Alamein offers a private
-                    beach area and beachfront access. Guests enjoy sea views and
-                    a seasonal outdoor swimming pool.
+                  <p style={{ fontSize: "20px"}}>
+                   At UrbanHive, we handle every detail of your property so you can relax and enjoy the returns. From professional furnishing and styling to guest management, bookings, and maintenance, every step is expertly managed. With continuous monitoring and seamless operations, your property is in capable hands — giving you peace of mind and a steady, hassle-free income.
                   </p>
                 </Flex>
                 <Flex style={{ maxWidth: "30%" }} vertical align="center">
                   <img
-                    width={"25%"}
-                    src="/illustrations3.svg"
+                    width={"100%"}
+                    src="/WhatsApp Image 2025-12-06 at 8.30.40 AM.jpeg"
                     alt="Resort"
                   />
                   <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-                    On-going Monitoring
+                    Active Management & Monitoring
                   </p>
-                  <p style={{ fontSize: "20px", color: "#707071" }}>
-                    Ghazala Resort and SPA in Rixos Alamein offers a private
-                    beach area and beachfront access. Guests enjoy sea views and
-                    a seasonal outdoor swimming pool.
+                  <p style={{ fontSize: "20px" }}>
+                    At UrbanHive, your property is always in expert hands. We actively manage every unit, from guest communications and bookings to maintenance and quality checks. Our ongoing monitoring ensures smooth operations, optimal occupancy, and maximum revenue, giving you confidence that your investment is performing at its best—24/7.
                   </p>
                 </Flex>
               </Flex>
@@ -462,14 +446,14 @@ const Partner = () => {
                   paddingLeft: "30px",
                   paddingRight: "30px",
                   marginTop: "10%",
-                  backgroundColor: "white",
+                  backgroundColor: "#133848",
                   
                 }}
               >
                 <h2
-                  style={{ fontFamily: "sans-serif", wordBreak: "break-word" }}
+                  style={{ color:'#CE8A39',fontSize:'20px' , fontFamily: "sans-serif", wordBreak: "break-word" }}
                 >
-                  We take care of everything so you don't need to.
+                  Everything is handled for you, start to finish.
                 </h2>
                 <Flex
                   vertical
@@ -484,13 +468,10 @@ const Partner = () => {
                       src="/illustrations1.svg"
                       alt="Resort"
                     />
-                    <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-                      Maximized Revenues
-                    </p>
-                    <p style={{ fontSize: "20px", color: "#707071" }}>
-                      Ghazala Resort and SPA in Rixos Alamein offers a private
-                      beach area and beachfront access. Guests enjoy sea views
-                      and a seasonal outdoor swimming pool.
+                    <p style={{ color:'white',fontSize: "24px", fontWeight: "bold" }}>
+Boost Your Earnings</p>
+                    <p style={{ fontSize: "20px", color:'white' }}>
+                      Unlock the full earning potential of your property with strategic hospitality management. From premium furnishing and styling to targeted guest acquisition, every aspect is designed to boost occupancy and revenue. With seamless operations, ongoing monitoring, and optimized pricing, your property becomes a steady, hassle-free income stream.
                     </p>
                   </Flex>
                   <Flex style={{ width: "100%" }} vertical align="center">
@@ -499,13 +480,9 @@ const Partner = () => {
                       src="/illustrations2.svg"
                       alt="Resort"
                     />
-                    <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-                      All Services Covered
-                    </p>
-                    <p style={{ fontSize: "20px", color: "#707071" }}>
-                      Ghazala Resort and SPA in Rixos Alamein offers a private
-                      beach area and beachfront access. Guests enjoy sea views
-                      and a seasonal outdoor swimming pool.
+                    <p style={{  color:'white',fontSize: "24px", fontWeight: "bold" }}>We Handle It All</p>
+                    <p style={{ fontSize: "20px", color:'white' }}>
+                      At UrbanHive, we handle every detail of your property so you can relax and enjoy the returns. From professional furnishing and styling to guest management, bookings, and maintenance, every step is expertly managed. With continuous monitoring and seamless operations, your property is in capable hands — giving you peace of mind and a steady, hassle-free income.
                     </p>
                   </Flex>
                   <Flex style={{ maxWidth: "100%" }} vertical align="center">
@@ -514,13 +491,10 @@ const Partner = () => {
                       src="/illustrations3.svg"
                       alt="Resort"
                     />
-                    <p style={{ fontSize: "24px", fontWeight: "bold" }}>
-                      On-going Monitoring
-                    </p>
-                    <p style={{ fontSize: "20px", color: "#707071" }}>
-                      Ghazala Resort and SPA in Rixos Alamein offers a private
-                      beach area and beachfront access. Guests enjoy sea views
-                      and a seasonal outdoor swimming pool.
+                    <p style={{color:'white', fontSize: "24px", fontWeight: "bold" }}>
+Active Management & Monitoring</p>
+                    <p style={{ fontSize: "20px", color:'white' }}>
+                      At UrbanHive, your property is always in expert hands. We actively manage every unit, from guest communications and bookings to maintenance and quality checks. Our ongoing monitoring ensures smooth operations, optimal occupancy, and maximum revenue, giving you confidence that your investment is performing at its best—24/7.
                     </p>
                   </Flex>
                 </Flex>
@@ -530,35 +504,48 @@ const Partner = () => {
 
 <div>
   
-  <Flex align="center" vertical style={{paddingRight:'10%' ,paddingLeft:'10%' , marginTop:'10%'}}>
+  <Flex align="center" vertical style={{paddingRight:'10%' ,paddingLeft:'10%' , marginTop:'10%',marginBottom:'10%'}}>
     <p style={{fontSize:'48px' , fontFamily:'sans-serif'}}>How it works</p>
 
-      <Flex  justify="flex-start"  gap={'3%'} style={{overflowX:'scroll' , scrollbarWidth:'none' , width:'100%'  }}>
+
+      <Flex  justify="flex-start" align="center"  gap={'3%'} style={{overflowX:'scroll' , scrollbarWidth:'none' , width:'100%'  }}>
             
+            
+          
             {/* Example collapsed text section */}
-            <div   style={{minWidth:'300px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+            <div   style={{minWidth: screens.lg ? '300px' : '200px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
               <HomeFilled style={{fontSize:'30px'}} />
-              <p style={{fontSize:'24px' , color:'#111212'}}>Step 1: Register your unit</p>
-              <p style={{fontSize:'16px' , color:'#292A2B' }}>Leave your unit to BirdNest to unlock its full rental potential</p>
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 1: Join the Hive</p>
+              <p style={{fontSize:'16px' , color:'#292A2B' }}>Let UrbanHive handle your property and maximize its earning potential.</p>
             </div>
 
-             <div   style={{ minWidth:'300px', height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+          <span style={{fontSize:'20px'}}> <FaArrowRight /></span> 
+
+
+             <div   style={{ minWidth: screens.lg ? '300px' : '200px', height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
               <HomeFilled style={{fontSize:'30px'}} />
-              <p style={{fontSize:'24px' , color:'#111212'}}>Step 2: Schedule an On-Site Inspection</p>
-              <p style={{fontSize:'16px' , color:'#292A2B'}}>A BirdNest specialist visits your property to assess its condition and suitability for our Furnish & Rent program.</p>
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 2: Property Assessment</p>
+              <p style={{fontSize:'16px' , color:'#292A2B'}}>Our UrbanHive expert conducts an on-site visit to ensure your unit is ready for maximum performance in the Furnish & Rent program.</p>
             </div>
 
-            <div  style={{minWidth:'300px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+             <span style={{fontSize:'20px'}}> <FaArrowRight /></span> 
+
+
+            <div  style={{minWidth: screens.lg ? '300px' : '200px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
               <HomeFilled style={{fontSize:'30px'}} />
-              <p style={{fontSize:'24px' , color:'#111212'}}>Step 3: Furnishing & Prepping</p>
-              <p style={{fontSize:'16px' , color:'#292A2B'}}>We furnish your unit, uplift it, or start renting straight away. Every detail is carefully curated to meet our signature hospitality standards, ensuring your property is guest-ready.</p>
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 3: Styling & Setup</p>
+              <p style={{fontSize:'16px' , color:'#292A2B'}}>UrbanHive transforms your unit with premium furnishings and careful preparation, making it ready for guests and optimized for revenue.</p>
             </div>
 
-            <div    style={{minWidth:'300px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
+            <span style={{fontSize:'20px'}}> <FaArrowRight /></span> 
+
+
+            <div    style={{ minWidth: screens.lg ? '300px' : '200px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
               <HomeFilled style={{fontSize:'30px'}} />
-              <p style={{fontSize:'24px' , color:'#111212'}}>Step 4: Start earning!</p>
-              <p style={{fontSize:'16px' , color:'#292A2B' }}>Your property is listed, marketed, rented, and fully managed—while you enjoy consistent, hassle-free returns.</p>
+              <p style={{fontSize:'24px' , color:'#111212'}}>Step 4: Enjoy Hassle-Free Income</p>
+              <p style={{fontSize:'16px' , color:'#292A2B' }}>With your unit fully managed and guest-ready, UrbanHive ensures steady returns while you relax.</p>
             </div>
+            
           
       </Flex>
 
@@ -567,7 +554,7 @@ const Partner = () => {
 
 
 </div>
-<FAQ></FAQ>
+{/* <FAQ></FAQ> */}
 
 <Emaill></Emaill>
       </div>

@@ -12,8 +12,8 @@ const screens = useBreakpoint();
     theme={{
       components:{
         Button:{
-         defaultBg:'transparent',
-         defaultHoverBg:'#f7f7f7',
+         defaultBg:'#E2CAA2',
+         defaultHoverBg:'#CE8A39',
          borderColorDisabled:'transparent',
          defaultHoverBorderColor:'transparent',
          defaultHoverColor:'transparent'
@@ -28,7 +28,7 @@ const screens = useBreakpoint();
       <p style={{ color: "white" }}>Drop here you Email!</p>
       <Flex align="center" gap={"10px"} style={{ marginTop: "2%" }}>
         <Input size="large" placeholder="EMAIL ADDRESS"></Input>
-        <Button  size="large" className="butto">Send</Button>
+        <Button  size="large" style={{color:"black"}}>Send</Button>
       </Flex>
     </Flex> : 
     
@@ -37,7 +37,7 @@ const screens = useBreakpoint();
       <p style={{ color: "white" }}>Drop here you Email!</p>
       <Flex align="center" gap={"10px"} style={{ marginTop: "2%" }}>
         <Input size="large" placeholder="EMAIL ADDRESS"></Input>
-        <Button  size="large" className="butto" >Send</Button>
+        <Button  size="large" style={{color:"black"}} >Send</Button>
       </Flex>
     </Flex>}
     </div>

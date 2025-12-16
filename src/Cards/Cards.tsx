@@ -1,12 +1,19 @@
-import { Card, Carousel, Flex, Grid } from "antd";
+import {  Button, Card, Carousel, ConfigProvider, Flex, Grid } from "antd";
 import "./Cards.css";
 import {HomeOutlined} from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
 import FAQ from "../FAQ/FAQ";
 
+import { useNavigate } from "react-router-dom";
+
+
+
+
 const { useBreakpoint } = Grid;
 
 const Cards = () => {
+
+  const navigate = useNavigate();
   const screens = useBreakpoint();
 
   const cards = [
@@ -63,30 +70,58 @@ const Cards = () => {
   ];
 
   return (
+     <ConfigProvider
+    theme={{
+      components:{
+       Button:{
+        defaultBg:'#133848',
+         defaultHoverBg:'#CE8A39',
+         ghostBg:'transparent',
+         defaultActiveBg:'#CE8A39',
+         defaultHoverBorderColor:'transparent',
+         defaultHoverColor:'transparent',
+         defaultBorderColor:'transparent',
+         colorBgLayout:'black',
+         defaultActiveBorderColor:'transparent',
+         colorBgContainerDisabled:'#133848'
+       }
+      }
+    }}>
     <div>
       <Flex vertical >
-       <h2 style={{paddingLeft:'5rem'}}>Lists: {cards.length}</h2>
+       {/* <h2 style={{paddingLeft:'5rem'}}> Number of Listings: {cards.length}</h2> */}
         <Flex  wrap
         align="center" vertical={!screens.lg} style={ screens.lg ? { marginLeft: "3%" , marginRight:'3%'} : {}} justify="center" gap='3%'>
           {cards.map((item) => (
          
 
+  
+
           <Card
+          
           id={item.Id}
             className="Card_css" 
             hoverable
             style={{ maxWidth: "350px", borderRadius: "10%" }}
             cover={
               <div className="my_special_car">
-              <Carousel arrows dots={false}>
+              <Carousel arrows  dots={false} >
                 <img
-                  onClick={() => window.open("https://www.airbnb.com/")}
+                   onClick={() => {
+    if (item.Availability !== "Not Available")  {
+      navigate('/Listing');
+    }
+  }}
                   draggable={false}
                   alt="example"
                   src={item.imgSrc1}
                 />
                 <img
-                  onClick={() => window.open("https://www.airbnb.com/")}
+                  onClick={() => {
+    if (item.Availability !== "Not Available")  {
+      navigate('/Listing');
+    }
+  }}
                   draggable={false}
                   alt="example"
                   src={item.imgSrc2}
@@ -97,10 +132,28 @@ const Cards = () => {
           >
             <Flex 
               vertical
-              onClick={() => window.open("https://www.airbnb.com/")}>
+             
+             onClick={() => {
+    if (item.Availability !== "Not Available")  {
+      navigate('/Listing');
+    }
+  }}
+        >
+
               <div style={{ height: "100px" }}>
-                <p className="card_title">{item.title}</p>
-                <p className="card_title">{item.price}</p>
+                <p className="card_title" >{item.title}</p>
+                <Flex align="center" justify="space-between">
+                <p className={`card_title ${
+        item.Availability === "Not Available" ? "blur-text" : ""
+      }`}>{item.price}</p>
+               <Button  disabled={item.Availability==="Not Available"} style={{color:'white'}} onClick={(e)=>{e.stopPropagation(); window.open(
+        "https://www.airbnb.com/",
+        "_blank",
+        "noopener,noreferrer"
+      ); }}>{
+        item.Availability === "Not Available" ? "Coming soon!": "Book now"
+      }</Button>
+                </Flex>
                 <p className="available">{item.Availability}</p>
               </div>
 
@@ -125,6 +178,7 @@ const Cards = () => {
               </Flex>
             </Flex>
           </Card>
+          
           ))}
         </Flex>
         </Flex>
@@ -132,6 +186,7 @@ const Cards = () => {
         <Emaill></Emaill>
       
     </div>
+    </ConfigProvider>
   );
 };
 

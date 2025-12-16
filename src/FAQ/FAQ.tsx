@@ -234,8 +234,8 @@ const onChange = (key: string | string[]) => {
           <Flex align='center'  vertical  >
               <h1 >FAQS</h1>
               <Collapse style={{ width:'80%',backgroundColor:'transparent', borderTop: '1.7px solid black'}} ghost expandIconPosition='end' size='large'  items={visibleItems} onChange={onChange} />
-           <Button type="primary"
-              style={{ marginTop: '16px' }}
+           <Button 
+              style={{ marginTop: '16px' , color:'white' }}
               onClick={() => setShowAll(!showAll)}>{showAll ? 'Show less' : 'Show all'}</Button>
            </Flex>
 

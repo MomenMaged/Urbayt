@@ -3,14 +3,39 @@ import "./Cardd.css";
 import { Flex, Grid } from 'antd';
 import { HomeFilled } from '@ant-design/icons';
 import Emaill from '../Emaill/Emaill';
+import { MdCancel } from 'react-icons/md';
+import { GiEntryDoor } from 'react-icons/gi';
 
 const { useBreakpoint } = Grid;
 
 const Cardd = () => {
   const screens = useBreakpoint();
   const [isExpanded, setIsExpanded] = useState(false); // <-- State for collapse toggle
+  const [isExpand, setIsExpand] = useState(false); // <-- State for collapse toggle
 
-  const longText = `
+const titless = [
+    {
+      Id:'1',
+      feature:'Facilities',
+      DescriptionT:'Madinaty’s well-designed and detailed masterplan was the result of a collaborative effort between three top U.S. design firms: HHCP, SWA, and SASKI.  The outcome has been an international standards modern city spanning over an area of 8000 Feddans, providing a contemporary lifestyle for 700k inhabitants in 120k housing units. Standing out as the beacon of modern cities, symbolized by our majestically-imposing main gate that makes Madinaty a piece of art.',
+
+
+    },
+{
+
+  Id:'2',
+  feature:'Exceptional Features',
+  DescriptionT:'Wake up to breathtaking panoramic garden views, and step onto your private balcony, the perfect spot to enjoy a leisurely brunch or sip your morning coffee in peace. The bathroom is fully updated, featuring sleek finishes and all the essentials for a refreshing start to your day.For your peace of mind, the home is equipped with smoke detectors and carbon monoxide detectors, as well as exterior security cameras monitoring the front door for added security. Also Wifi internet included with a speed up to 100mbs.',
+
+},
+{
+  Id:'3',
+  feature:'Location',
+  DescriptionT:"Madinaty Compound in Egypt is strategically situated in New Cairo, on the Cairo - Suez Road; and thanks to this prime location, the project is: 2 km from the entrance of Shorouk City, A 10-minute drive from Heliopolis, 20 minutes from Downtown Cairo and Easily accessible through Ring Road."
+}
+]
+
+  const longText = (`
     Check In & Check Out Procedure: Check in at 15:00 and Check Out is 12:00 midday.
     You must return your key card at check out. Your key card will deactivate at midday
     on your departure day. If you require a late checkout please reactivate your card
@@ -34,18 +59,36 @@ const Cardd = () => {
     Please do not make any cash payment for any extra charge service, please sign your
     check and pay your bill one day before or during check-out. For any assistance during
     your stay please contact your Guest Relation Team situated.
-  `;
+  `);
+
+  const Cancel=(
+  <><Flex vertical align='center' ><span style={{fontWeight:'bold'}}>Cancellation Policy</span> <p>Full refund for cancellations made within 48 hours of booking, if the check in date is at least 14 days away.
+50% refund for cancellations made at least 7 days before check in.
+No refunds for cancellations made within 7 days of check in.</p> <span style={{fontWeight:'bold'}}>Late check-out policy
+</span> <p>Late check out requests are subject to availability.
+check out between 11:00 AM till 15:00 PM on the same day of departure, guests will be charged 25% of the daily rate published on our website.
+Check out between 15:00 PM till 18:00 PM on the same day of departure, guests will be charged 50% of the daily rate published on our website.
+Check out after 18:00 PM on the same day of departure, guests will be charged full day charges of the daily rate published on our website.</p></Flex>
+             </>);
+
+             const CancelPreview = (
+  <p>
+<strong>Cancellation Policy:</strong> Full refund for cancellations made within 48 hours of booking, if the check in date is at least 14 days away.
+50% refund for cancellations made at least 7 days before check in...
+  </p>
+);
 
   return (
+    
     <div>
       {/* --- Top Cards --- */}
       <div style={{ marginTop: '10%', marginBottom: '10%', paddingLeft: '13%', paddingRight: '13%' }}>
-        <Flex align='center' gap={'10%'} justify='center' vertical={!screens.lg}>
-          {[1, 2, 3].map((i) => (
-            <Flex vertical align='center' key={i}>
+        <Flex  gap={'10%'} justify='center' vertical={!screens.lg}>
+          {titless.map((i) => (
+            <Flex vertical align='center' >
               <img className={ screens.lg ?'Imagee':'imagee2'} src="/KE_Banafseg_Apr24-50.webp" alt="Resort" />
-              <p>hello{i}</p>
-              <p>Ghazala Resort and SPA in Rixos Alamein offers a private beach area and beachfront access. Guests enjoy sea views and a seasonal outdoor swimming pool.</p>
+              <p style={{fontWeight:'bold'}}>{i.feature}</p>
+              <p>{i.DescriptionT}</p>
             </Flex>
           ))}
         </Flex>
@@ -54,25 +97,37 @@ const Cardd = () => {
       {/* --- Nest Rules --- */}
       <div style={{ marginBottom: '10%', backgroundColor: 'white' }}>
         <div style={{ marginBottom: '10%', padding: '5%' }}>
-          <h1 style={{ marginBottom: '40px' }}>Nest rules</h1>
-          <Flex align='center' gap={'10%'} justify='center' vertical={!screens.lg}>
+          <h1 style={{ marginBottom: '40px' }}>UrbanHive Rules</h1>
+          <Flex gap={'10%'} justify='center' vertical={!screens.lg} align='space-between'>
             
             {/* Example collapsed text section  */}
-            <Flex vertical>
-              <HomeFilled />
+           <Flex vertical style={{width:'100%'}}>
+              <MdCancel style={{fontSize:'20px'}} />
               <h2>Cancellation & Changes</h2>
-              <p>Ghazala Resort and SPA in Rixos Alamein offers a private beach area and beachfront access. Guests enjoy sea views and a seasonal outdoor swimming pool.</p>
+              
+              {/* Collapse Section */}
+              <p >
+                {isExpand ? Cancel : CancelPreview}
+              </p>
+
+              <button
+                onClick={() => setIsExpand(!isExpand)}
+                className='ViewMore'
+              >
+                {isExpand ? 'View Less ▲' : 'View More ▼'}
+              </button>
             </Flex>
 
             <Flex vertical>
-              <HomeFilled />
-              <h2>Cancellation & Changes</h2>
-              <p>Ghazala Resort and SPA in Rixos Alamein offers a private beach area and beachfront access. Guests enjoy sea views and a seasonal outdoor swimming pool.</p>
+             <GiEntryDoor style={{fontSize:'20px'}} />
+              <h2>Guest Regulations</h2>
+              <p style={{paddingTop:'2%'}}>For Arab passport holders, couples must submit an official marriage certificate. Visitors of the opposite sex are not allowed unless they're first degree relatives. </p>
             </Flex>
 
-            <Flex vertical>
-              <HomeFilled />
-              <h2>Check In & Check Out Procedure</h2>
+            <Flex  vertical>
+              
+              <HomeFilled style={{fontSize:'20px'}} />
+              <h2>House Rules</h2>
               
               {/* Collapse Section */}
               <p >
@@ -81,15 +136,7 @@ const Cardd = () => {
 
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                style={{
-                  border: 'none',
-                  background: 'none',
-                  color: '#1890ff',
-                  cursor: 'pointer',
-                  padding: 2,
-                  fontSize: '16px',
-                  fontWeight: 'bold'
-                }}
+               className='ViewMore'
               >
                 {isExpanded ? 'View Less ▲' : 'View More ▼'}
               </button>

@@ -3,6 +3,7 @@ import "./ContactUS.css";
 import TextArea from "antd/es/input/TextArea";
 import { EnvironmentFilled, FacebookFilled, InstagramFilled, MailOutlined, PhoneOutlined, WhatsAppOutlined } from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
+import { useState } from "react";
 
 const { useBreakpoint } = Grid;
 
@@ -14,6 +15,17 @@ const optionss = [
 ];
 
 const ContactUs = () => {
+
+  const [value, setValue] = useState("");
+  const [touched, setTouched] = useState(false);
+
+  const [valuee, setValuee] = useState("");
+
+
+  const hasError = touched && value.trim() === "";
+
+  const hasErrorr = touched && valuee.trim() === "";
+
   const screens = useBreakpoint();
   return (
 
@@ -54,8 +66,9 @@ const ContactUs = () => {
             paddingBottom: "2.5rem",
             paddingLeft: "3rem",
             paddingRight: "3rem",
-            backgroundColor: "White",
+            backgroundColor: "white",
             width: "100%",
+            boxShadow: 'inset 0 2px 2px rgba(0, 0, 0, 0.3)'
           }}
         >
           <p
@@ -68,11 +81,16 @@ const ContactUs = () => {
             Contact us
           </p>
 
-          <Input size="large" placeholder="Full name"></Input>
+          <Input size="large" placeholder="Full name" value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onBlur={() => setTouched(true)}
+      status={hasError ? "error" : ""}></Input>
 
           <Flex gap={10}>
-            <Input size="large" placeholder="Email"></Input>
-            <Input size="large" placeholder="Full name"></Input>
+            <Input size="large" placeholder="Email"   onChange={(e) => setValuee(e.target.value)}
+      onBlur={() => setTouched(true)}
+      status={hasErrorr ? "error" : ""}></Input>
+            <Input size="large" placeholder="Number (+20)"></Input>
           </Flex>
 
           <Select size="large" placeholder="Reason" options={optionss} />

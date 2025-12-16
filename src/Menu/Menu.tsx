@@ -92,11 +92,11 @@ const Menu = () => {
            <div className="navigation__inner2">
              
               <Link to="./Cards" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Our Listings</a></Link>
-              <Link to="./Listing" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 1</a></Link>
-               <Link to="./Listing_2" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 2</a></Link>
-                <Link to="./Listing_3" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Listings 3</a></Link>
+              <Link to="./Listing" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">MADINATY</a></Link>
+               <Link to="./Listing_2" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">SOKHNA</a></Link>
+                <Link to="./Listing_3" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">CAIRO FESTIVAL CITY</a></Link>
               
-              <Link to="./Partner" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Become a partner</a></Link>
+              <Link to="./Partner" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">JOIN OUR HIVE</a></Link>
               <Link to="./ContactUs" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Contact us</a></Link>
             </div>
         </Modal>

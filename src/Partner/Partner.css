@@ -146,3 +146,16 @@ color: 41 42 43;
 font-size: 15px;
 
 }
+
+.testTR{
+
+  
+                      background-color: rgba(206, 138, 57, 0.45);
+                     
+                      width: 45vw;
+                   height: 100%;
+                      padding: 20px;
+                      border-top-right-radius: 30px;
+                      border-bottom-right-radius: 30px;
+                    
+}

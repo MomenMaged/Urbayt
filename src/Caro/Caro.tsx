@@ -21,7 +21,7 @@ const Caro = () => {
                 src="/KE_Nine_Oct23-9.webp"
               ></img>
             </div>
-            <div>First image</div>
+            
           </Flex>
         </Content>
         <Content style={{ padding: 0, margin: 0 }}>
@@ -33,7 +33,7 @@ const Caro = () => {
                 src="/KE_Banafseg_Apr24-50.webp"
               ></img>
             </div>
-            <div>Second image</div>
+           
           </Flex>
         </Content>
       </Carousel>
