@@ -2,7 +2,7 @@ import "./Partner.css";
 import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
 import { HomeFilled } from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
-import { FaArrowRight, FaChevronRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const Partner = () => {
   const { useBreakpoint } = Grid;

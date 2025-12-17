@@ -3,7 +3,6 @@ import { Flex, Grid} from "antd";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 import Details from "../Details/Details";
 import Caro from "../Caro/Caro";
-import Second_Caro from "../Second_Caro/Second_Caro";
 import Emaill from "../Emaill/Emaill";
 import FAQ from "../FAQ/FAQ";
 
