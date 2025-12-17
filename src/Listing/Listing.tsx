@@ -67,7 +67,7 @@ const [open, setOpen] = useState(false);
      {screens.lg ? (<div className="background-container">
         {/* Background image */}
         <img
-          src={"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"}
+          src={"/Madinaty-gate-scaled.jpg"}
           alt="Background"
           className="background-image"
         />
@@ -142,7 +142,7 @@ const [open, setOpen] = useState(false);
       </div>):(screens.md ?<Flex vertical><div className="background-container">
         {/* Background image */}
         <img
-          src={"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"}
+          src={"/Madinaty-gate-scaled.jpg"}
           alt="Background"
           className="background-image"
         />
@@ -197,7 +197,7 @@ const [open, setOpen] = useState(false);
             </div></Flex> :<Flex vertical><div className="background-container" style={{height:'60vh'}}>
         {/* Background image */}  
         <img
-          src={"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"}
+          src={"/Madinaty-gate-scaled.jpg"}
           alt="Background"
           className="background-image"
         />
@@ -264,7 +264,7 @@ const [open, setOpen] = useState(false);
                 <img
                   className="second-image"
                   alt="cover"
-                  src="public/Rectangle-528-1.jpg"
+                  src="/Rectangle-528-1.jpg"
                 ></img>
               </div>
 
@@ -412,7 +412,7 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
                 <img
                   className="second-image"
                   alt="cover"
-                  src="./KE_Nine_Oct23-9.webp"
+                  src="/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif"
                 ></img>
               </div>
             </Flex>
@@ -429,7 +429,7 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
               <img
                 className="second-image"
                 alt="cover"
-                src="public/Rectangle-528-1.jpg"
+                src="/Rectangle-528-1.jpg"
               ></img>
               <Flex vertical>
                 <h1 style={{ width: "100%" }}>
@@ -493,7 +493,7 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
               <img
                 className="second-image"
                 alt="cover"
-                src="/KE_Nine_Oct23-9.webp"
+                src="/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif"
               ></img>
               <Flex align="start" vertical wrap>
                 <h1 style={{ width: "100%" }}>Amenities</h1>

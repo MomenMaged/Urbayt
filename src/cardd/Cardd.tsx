@@ -18,7 +18,7 @@ const titless = [
       Id:'1',
       feature:'Facilities',
       DescriptionT:'Madinaty’s well-designed and detailed masterplan was the result of a collaborative effort between three top U.S. design firms: HHCP, SWA, and SASKI.  The outcome has been an international standards modern city spanning over an area of 8000 Feddans, providing a contemporary lifestyle for 700k inhabitants in 120k housing units. Standing out as the beacon of modern cities, symbolized by our majestically-imposing main gate that makes Madinaty a piece of art.',
-
+image2:"./984655a5-fdd4-43a6-bfc4-9d1bfe633e65.avif"
 
     },
 {
@@ -26,12 +26,13 @@ const titless = [
   Id:'2',
   feature:'Exceptional Features',
   DescriptionT:'Wake up to breathtaking panoramic garden views, and step onto your private balcony, the perfect spot to enjoy a leisurely brunch or sip your morning coffee in peace. The bathroom is fully updated, featuring sleek finishes and all the essentials for a refreshing start to your day.For your peace of mind, the home is equipped with smoke detectors and carbon monoxide detectors, as well as exterior security cameras monitoring the front door for added security. Also Wifi internet included with a speed up to 100mbs.',
-
+image2:'/2fc9e959-70bf-4f95-9b53-2873eb5ad1f2.avif'
 },
 {
   Id:'3',
   feature:'Location',
-  DescriptionT:"Madinaty Compound in Egypt is strategically situated in New Cairo, on the Cairo - Suez Road; and thanks to this prime location, the project is: 2 km from the entrance of Shorouk City, A 10-minute drive from Heliopolis, 20 minutes from Downtown Cairo and Easily accessible through Ring Road."
+  DescriptionT:"Madinaty Compound in Egypt is strategically situated in New Cairo, on the Cairo - Suez Road; and thanks to this prime location, the project is: 2 km from the entrance of Shorouk City, A 10-minute drive from Heliopolis, 20 minutes from Downtown Cairo and Easily accessible through Ring Road.",
+image2:'/f40f1e58-9dc9-467b-bbaf-8a1e1ce0919c.avif'
 }
 ]
 
@@ -86,7 +87,7 @@ Check out after 18:00 PM on the same day of departure, guests will be charged fu
         <Flex  gap={'10%'} justify='center' vertical={!screens.lg}>
           {titless.map((i) => (
             <Flex vertical align='center' >
-              <img className={ screens.lg ?'Imagee':'imagee2'} src="/KE_Banafseg_Apr24-50.webp" alt="Resort" />
+              <img className={ screens.lg ?'Imagee':'imagee2'} src={i.image2} alt="Resort" />
               <p style={{fontWeight:'bold'}}>{i.feature}</p>
               <p>{i.DescriptionT}</p>
             </Flex>
