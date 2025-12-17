@@ -3,10 +3,11 @@ import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
 import { HomeFilled } from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Partner = () => {
   const { useBreakpoint } = Grid;
-
+const navigate = useNavigate();
   const screens = useBreakpoint();
   console.warn({ screens });
 
@@ -34,7 +35,7 @@ const Partner = () => {
             {/* Background image */}
             <img
               src={
-                "public/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
+                "/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
               }
               alt="Background"
               className="background-image"
@@ -61,7 +62,7 @@ const Partner = () => {
                     <h3 style={{ color:'#E2CAA2', paddingLeft: "30px", paddingRight: "30px" }}>
                      Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                     </h3>
-                    <Button style={{ color: "white" }} size="large">
+                    <Button onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} size="large">
                       Partner with UrbanHive
                     </Button>
                   </Flex>
@@ -75,7 +76,7 @@ const Partner = () => {
               {/* Background image */}
               <img
                 src={
-                  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                  "/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
                 }
                 alt="Background"
                 className="background-image"
@@ -105,7 +106,7 @@ const Partner = () => {
                 <h3>
                  Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                 </h3>
-                <Button style={{ color: "white" }} size="large">
+                <Button onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} size="large">
                   Partner with UrbanHive
                 </Button>
               </Flex>
@@ -117,7 +118,7 @@ const Partner = () => {
               {/* Background image */}
               <img
                 src={
-                  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                  "/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
                 }
                 alt="Background"
                 className="background-image"
@@ -149,8 +150,8 @@ const Partner = () => {
                   Are you a developer, landlord, or investor? Let's bring
                   hospitality to life — together
                 </h3>
-                <Button style={{ color: "white" }} size="large">
-                  Join as a partner
+                <Button onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} size="large">
+                  Partner with UrbanHive
                 </Button>
               </Flex>
             </div>
@@ -226,9 +227,7 @@ const Partner = () => {
                       color:'white'
                     }}
                   >
-                    We partner with a wide variety of building owners, unit
-                    owners, and developers to offer rental solutions tailored to
-                    different needs
+                   UrbanHive collaborates with a wide spectrum of property partners to create flexible, high-performing rental solutions:
                   </p>
                   <Row>
                     <Col
@@ -293,7 +292,7 @@ const Partner = () => {
                 </div>
 
                 <p style={{color:"white"}} > 
-                  Your unit deserves to perform at its best. UrbanHive enhances every space with refined furnishing and modern styling, delivering consistent income without the burden of management. From the first piece of furniture to the perfect guest, we handle it all.
+                 UrbanHive collaborates with a wide spectrum of property partners to create flexible, high-performing rental solutions:
                 </p>
               </Flex>
 
@@ -303,21 +302,23 @@ const Partner = () => {
                 justify="space-between"
                 gap={20}
                 style={{
-                  backgroundColor: "white",
+                  backgroundColor: "#133848",
                   width: "100%",
                   marginTop: "10%",
                 }}
               >
                 <div>
-                  <Flex align="center" vertical gap={20}>
-                    <h2 style={{ paddingRight:'2%' , paddingLeft:'2%',wordWrap: "break-word" }}>
+                  <Flex align="center"  vertical gap={20}>
+                    <h2 style={{ paddingRight:'2%' , paddingLeft:'2%' ,wordWrap: "break-word" , color:'#CE8A39' }}>
                       WHO URBANHIVE COLLABORATES WITH?
                     </h2>
                     <p
                       style={{
+                        marginTop:'-2%',
                         fontSize: "18px",
                         width: "80%",
                         wordWrap: "break-word",
+                        color:'white'
                       }}
                     >
                       UrbanHive collaborates with a wide spectrum of property partners to create flexible, high-performing rental solutions:
