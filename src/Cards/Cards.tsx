@@ -5,6 +5,10 @@ import Emaill from "../Emaill/Emaill";
 import FAQ from "../FAQ/FAQ";
 
 import { useNavigate } from "react-router-dom";
+import { GiBathtub } from "react-icons/gi";
+
+import { FaPerson } from "react-icons/fa6";
+import { IoBedOutline } from "react-icons/io5";
 
 
 
@@ -21,9 +25,13 @@ const Cards = () => {
       Id:'1',
       imgSrc1: "./KE_Nine_Oct23-9.webp",
       imgSrc2: "./KE_Banafseg_Apr24-50.webp",
-      title: "Title 1",
-      price:'29,000,000',
+      title: "Modern Cozy Garden View @ Madinaty",
+      price:'1750 EGP / Night',
       Availability:'Available now',
+      Bedrooms:'2',
+      Bathrooms:'1',
+      Max_guests:'4',
+      Area:'79 SQM'
 
 
     },
@@ -31,30 +39,39 @@ const Cards = () => {
       Id:'2',
       imgSrc1: "./KE_Nine_Oct23-9.webp",
       imgSrc2: "./KE_Banafseg_Apr24-50.webp",
-      title: "Title 2",
+      title: "Cairo Festival City",
       price:'89,000,000',
       Availability:'Not Available',
-
+Bedrooms:'2',
+      Bathrooms:'2',
+      Max_guests:'4',
+      Area:'140 SQM'
 
     },
      {
       Id:'3',
       imgSrc1: "./KE_Nine_Oct23-9.webp",
       imgSrc2: "./KE_Banafseg_Apr24-50.webp",
-      title: "Title 2",
+      title: "Sokhna Blumar",
       price:'89,000,000',
       Availability:'Not Available',
-
+Bedrooms:'3',
+      Bathrooms:'2',
+      Max_guests:'6',
+      Area:'150 SQM'
 
     },
      {
       Id:'4',
       imgSrc1: "./KE_Nine_Oct23-9.webp",
       imgSrc2: "./KE_Banafseg_Apr24-50.webp",
-      title: "Title 2",
+      title: "Mountain View - Hyde Park ",
       price:'89,000,000',
       Availability:'Not Available',
-
+Bedrooms:'2',
+      Bathrooms:'2',
+      Max_guests:'4',
+      Area:'145 SQM'
 
     },
      {
@@ -64,7 +81,10 @@ const Cards = () => {
       title: "Title 2",
       price:'89,000,000',
       Availability:'Not Available',
-
+Bedrooms:'2',
+      Bathrooms:'1',
+      Max_guests:'5',
+      Area:'180 CM'
 
     }
   ];
@@ -159,22 +179,43 @@ const Cards = () => {
 
               <Flex
                 justify="space-between"
+                
                 wrap
-                style={{ width: "80%", marginTop: "-25px" }}
+                style={{  marginTop: "-25px" }}
               >
-                <p className="para">
-                  {" "}
-                  <HomeOutlined /> Bedrooms:3
+                <Flex className="para" gap={3} align="center" justify="center">
+                <IoBedOutline />
+                <p >
+                 Bedroom: {item.Bedrooms}
+                </p>
+                </Flex>
+                <Flex className="para" gap={3} align="center" justify="center">
+                <GiBathtub />
+                <p >
+               Bathroom: {item.Bathrooms}
+                </p>
+                </Flex>
+                <Flex className="para" gap={3} align="center" justify="center">
+                <FaPerson />
+                <p >
+                 Max Guests: {item.Max_guests}
+                </p>
+                </Flex>
+                <Flex className="para" gap={3} align="center" justify="center">
+               <HomeOutlined />
+                <p >
+                 Area: {item.Area} 
+                </p>
+                </Flex>
+                {/* <p className="para">
+                  <GiBathtub /> {" "}Bathroom: {item.Bathrooms}
                 </p>
                 <p className="para">
-                  <HomeOutlined /> jfnsjkd
+                  <FaPerson /> Max Guests: {item.Max_guests}
                 </p>
                 <p className="para">
-                  <HomeOutlined /> sdlflsdf
-                </p>
-                <p className="para">
-                  <HomeOutlined /> sdlflsdf
-                </p>
+                  <HomeOutlined /> Area: {item.Area}
+                </p> */}
               </Flex>
             </Flex>
           </Card>

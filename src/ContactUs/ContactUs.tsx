@@ -106,7 +106,7 @@ const ContactUs = () => {
       <Flex align="center" vertical={!screens.lg} gap={40} style={{ paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%' ,backgroundColor:'white' , borderRadius:'25px' }}>
         <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
 <p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <MailOutlined></MailOutlined> momen_maged@hotmail.com</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <MailOutlined></MailOutlined> info@urbanhiveco.com</p>
       <p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <EnvironmentFilled></EnvironmentFilled> Kamelizer Spaces, District 5, Sokhna Road</p>
 </Flex>
 <Flex gap={10}>

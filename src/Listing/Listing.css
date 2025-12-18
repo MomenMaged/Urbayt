@@ -112,7 +112,7 @@
   
 }
 
-.background-content2 {
+.background-content5 {
   position:  absolute;
   /* margin-top: 200px;
   margin-right: 40%; */
@@ -120,13 +120,26 @@
   left:3%;
   z-index: 1;
   font-weight: 1000;
-  font-size: 40px;
+  font-size: 45px;
   width: 30%;
   color: white;
  
+ 
+}
 
-
-  
+.background-content_mobile {
+  position:  absolute;
+  /* margin-top: 200px;
+  margin-right: 40%; */
+  top: 5%;
+  left:3%;
+  z-index: 1;
+  font-weight: 1000;
+  font-size: 35px;
+  width: 30%;
+  color: rgb(226, 227, 224)
+ 
+ 
 }
 
 .logos9{
@@ -150,12 +163,12 @@ font-weight: bold;
 }
 
 .classic-btn {
-  padding: 5px 25px;
+  padding: 10px 25px;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   background: #133848;
-  border: 1px solid #999;
+  border: 1px solid transparent;
   border-radius: 6px;
   cursor: pointer;
    transition: all 0.5s ease;

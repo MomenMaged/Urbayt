@@ -266,7 +266,7 @@ const navigate = useNavigate();
                     style={{ height: "100%", borderRadius: "20px" }}
                     className="second-image"
                     alt="cover"
-                    src="/KE_Nine_Oct23-9.webp"
+                    src="/WhatsApp Image 2222025-12-18 at 3.05.45 AM.jpeg"
                   ></img>
                 </div>
               </Flex>
@@ -363,7 +363,7 @@ const navigate = useNavigate();
                     style={{ height: "100%", borderRadius: "20px" }}
                     className="second-image"
                     alt="cover"
-                    src="/KE_Nine_Oct23-9.webp"
+                    src="/WhatsApp Image 2222025-12-18 at 3.05.45 AM.jpeg"
                   ></img>
                 </div>
               </Flex>

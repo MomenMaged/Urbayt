@@ -3,7 +3,7 @@ import "./Listing.css";
 import { TbAirConditioning } from "react-icons/tb";
 
 import {
-  Button,
+  
   
   ConfigProvider,
   
@@ -78,13 +78,13 @@ const [open, setOpen] = useState(false);
         {/* Foreground content */}
         <div>
           <Flex align="center"  justify="space-between">
-            <h1 className="background-content2">MODERN COZY 2BR+1BA PANO GARDEN VIEW @ MADINATY</h1>
+            <h1 className="background-content5">MODERN COZY 2BR+1BA PANO GARDEN VIEW</h1>
             <div className="background-content1">
              
              
-      <Button style={{color:'black'}} onClick={() => setOpen(true)}>
+      <button className="classic-btn" style={{color:'white'}} onClick={() => setOpen(true)}>
        SHOW ALL PHOTOS
-      </Button>
+      </button>
 
       <ViewPhotos open={open} onClose={() => setOpen(false)} />
     
@@ -128,13 +128,13 @@ const [open, setOpen] = useState(false);
 
                 <Flex vertical align="center" >
                   <h3>STARTING PRICE</h3>
-                  <p style={{ marginTop: "-10px" }}>1750LE/NIGHT</p>
+                  <p style={{ marginTop: "-10px" }}>1750EGP / NIGHT</p>
                 </Flex>
                 <button onClick={()=>{ window.open(
-        "https://www.airbnb.com/",
+        "https://airbnb.com/h/uurbanhive",
         "_blank",
         "noopener,noreferrer"
-      ); }} className="classic-btn ">Book now</button>
+      ); }} className="classic-btn">Book now</button>
               </Flex>
             </div>
           </Flex>
@@ -153,11 +153,11 @@ const [open, setOpen] = useState(false);
         {/* Foreground content */}
         
           <Flex align="center" justify="space-between">
-            <h1 className="background-content2"> Junior Suite sea view</h1>
+            <h1 className="background-content5">MODERN COZY 2BR+1BA PANO GARDEN VIEW</h1>
             <div className="background-content1">
-               <Button style={{color:'black'}} onClick={() => setOpen(true)}>
+               <button className="classic-btn" style={{color:'white'}} onClick={() => setOpen(true)}>
        SHOW ALL PHOTOS
-      </Button>
+      </button>
 
       <ViewPhotos open={open} onClose={() => setOpen(false)} />
             </div>
@@ -186,10 +186,10 @@ const [open, setOpen] = useState(false);
 
                 <Flex vertical align="center">
                   <h3>STARTING PRICE</h3>
-                  <p style={{ marginTop: "-10px" }}>1750LE/NIGHT</p>
+                  <p style={{ marginTop: "-10px" }}>1750EGP / NIGHT</p>
                 </Flex>
                  <button onClick={()=>{ window.open(
-        "https://www.airbnb.com/",
+        "https://airbnb.com/h/uurbanhive",
         "_blank",
         "noopener,noreferrer"
       ); }} className="classic-btn">Book now</button>
@@ -208,10 +208,10 @@ const [open, setOpen] = useState(false);
         {/* Foreground content */}
         
           <Flex align="center" justify="space-between">
-            <h1 className="background-content2"> Junior Suite sea view</h1>
+            <h1 className="background-content_mobile">MODERN COZY 2BR+1BA PANO GARDEN VIEW</h1>
             <div className="background-content1">
               <button  className="classic-btn" style={{color:'white'}} onClick={() => setOpen(true)}>
-        Open Image Modal
+        SHOW ALL PHOTOS
       </button>
 
       <ViewPhotos open={open} onClose={() => setOpen(false)} />
@@ -239,12 +239,12 @@ const [open, setOpen] = useState(false);
               
 
                 <Flex   align="center">
-                  <h3 style={{ width:'90%',marginLeft:'-30%'}}>Price/ Night + Utilities</h3>
-                  <p >8,000,000</p>
+                  <h3 style={{ width:'90%',marginLeft:'-30%'}}>Price / Night</h3>
+                  <p >1750EGP</p>
                 </Flex>
        
                 <button  onClick={()=>{ window.open(
-        "https://www.airbnb.com/",
+        "https://airbnb.com/h/uurbanhive",
         "_blank",
         "noopener,noreferrer"
       ); }} style={{color:'white',marginTop:'5%'}} className="classic-btn">Book now</button>

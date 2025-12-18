@@ -15,6 +15,7 @@ const screens = useBreakpoint();
          defaultBg:'#E2CAA2',
          defaultHoverBg:'#CE8A39',
          borderColorDisabled:'transparent',
+         defaultActiveBg:'#E2CAA2',
          defaultHoverBorderColor:'transparent',
          defaultHoverColor:'transparent'
         }

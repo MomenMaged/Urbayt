@@ -18,7 +18,7 @@ const Caro = () => {
               <img
                 className="cover-image"
                 alt="cover"
-                src="/KE_Nine_Oct23-9.webp"
+                src="/WhatsApp Image 2025-12-18 at 3.05.45 AM.jpeg"
               ></img>
             </div>
             
@@ -30,7 +30,7 @@ const Caro = () => {
               <img
                 className="cover-image"
                 alt="cover"
-                src="/KE_Banafseg_Apr24-50.webp"
+                src="/Madinaty-gate-scaled.jpg"
               ></img>
             </div>
            

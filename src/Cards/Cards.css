@@ -28,7 +28,8 @@ font-weight: 700;
 }
 
 .para{
- margin-bottom:-2px;
+ margin-bottom:-20px;
+ margin-right: -5px;
 }
 
 .my_special_car .ant-carousel .slick-slide img {

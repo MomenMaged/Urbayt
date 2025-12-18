@@ -24,7 +24,7 @@ const items: CollapseProps['items'] = [
   },
   {
     key: '3',
-    label: '2BR TEXT | CFC',
+    label: '2BR GARDEN VIEW | CFC',
     children: <p><ul><li>24/7 CONCIERGE </li>
     <li>DEDICATED ON PROPERTY SECURITY </li>
     <li>BUSINESS LOUNGE</li></ul></p>,
@@ -57,7 +57,7 @@ const onChange = (key: string | string[]) => {
               <img
                 className="second-image"
                 alt="cover"
-                src="./KE_Nine_Oct23-9.webp"
+                src="/WhatsApp Image 2025-12-18 at 3.05.37 AM.jpeg"
               ></img>
             </div>
               
@@ -79,7 +79,7 @@ const onChange = (key: string | string[]) => {
               <img
                 className="second-image"
                 alt="cover"
-                src="/KE_Nine_Oct23-9.webp"
+                src="/WhatsApp Image 2025-12-18 at 3.05.37 AM.jpeg"
               ></img>
               <Flex vertical >
                  <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>

@@ -1,6 +1,7 @@
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import "./DropDownMenu.css";
+import { Link } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -24,7 +25,7 @@ const items: MenuItem[] = [
       {
         key: "11",
         label: (
-          <a href="https://direct-book.com/properties/ninebylivingvilledirect?locale=en&from_widget=true&referrer=canvas&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD&checkInDate=2025-10-17&checkOutDate=2025-10-18&trackPage=no">
+          <a href="https://airbnb.com/h/uurbanhive">
             <span
               style={{
                 display: "flex",
@@ -40,7 +41,7 @@ const items: MenuItem[] = [
       {
         key: "12",
         label: (
-          <a href="https://direct-book.com/properties/ninebylivingvilledirect?locale=en&from_widget=true&referrer=canvas&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD&checkInDate=2025-10-17&checkOutDate=2025-10-18&trackPage=no">
+          <Link to={"/Listing"}>
             <span
               style={{
                 display: "flex",
@@ -50,13 +51,14 @@ const items: MenuItem[] = [
             >
              SOHKNA
             </span>
-          </a>
+            </Link>
+          
         ),
       },
       {
         key: "13",
         label: (
-          <a href="https://direct-book.com/properties/ninebylivingvilledirect?locale=en&from_widget=true&referrer=canvas&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=USD&checkInDate=2025-10-17&checkOutDate=2025-10-18&trackPage=no">
+          <Link to={"/Listing"}>
             <span
               style={{
                 display: "flex",
@@ -64,9 +66,9 @@ const items: MenuItem[] = [
                 width: "100%",
               }}
             >
-              CAIRO FESTIVAL CITY
+             CAIRO FESTIVAL CITY
             </span>
-          </a>
+            </Link>
         ),
       },
     ],
