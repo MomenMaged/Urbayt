@@ -1,6 +1,5 @@
 import "./Partner.css";
 import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
-import { HomeFilled } from "@ant-design/icons";
 import Emaill from "../Emaill/Emaill";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
