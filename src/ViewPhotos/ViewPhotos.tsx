@@ -36,15 +36,15 @@ const ViewPhotos: React.FC<ImageModalProps> = ({open ,onClose}) => {
         >
           <Image
             width={'30%'}
-            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            src="/Madenaty_4.avif"
           />
           <Image
             width={'30%'}
-            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            src="/Madenaty_5.avif"
           />
           <Image
             width={'30%'}
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+            src="/Madenaty_6.avif"
           />
         </div>
 
@@ -68,15 +68,15 @@ const ViewPhotos: React.FC<ImageModalProps> = ({open ,onClose}) => {
           >
             <Image
               width={'30%'}
-              src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              src="/Madenaty_7.avif"
             />
             <Image
               width={'30%'}
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+              src="/Madenaty_8.avif"
             />
             <Image
               width={'30%'}
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+              src="/Madenaty_9.avif"
             />
           </div>
         </Image.PreviewGroup>

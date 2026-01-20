@@ -1,10 +1,13 @@
-import { Button, ConfigProvider, Flex, Grid, Input } from "antd";
+import { Button, ConfigProvider, Flex, Grid } from "antd";
 import "./Emaill.css";
+import { EnvironmentFilled, FacebookFilled, InstagramFilled, MailOutlined, PhoneOutlined, WhatsAppOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 
   const { useBreakpoint } = Grid;
 const Emaill = () => {
 
+const navigate = useNavigate();
 
 const screens = useBreakpoint();
   return (
@@ -17,7 +20,8 @@ const screens = useBreakpoint();
          borderColorDisabled:'transparent',
          defaultActiveBg:'#E2CAA2',
          defaultHoverBorderColor:'transparent',
-         defaultHoverColor:'transparent'
+         defaultHoverColor:'transparent',
+      
         }
       }
     }}
@@ -25,21 +29,40 @@ const screens = useBreakpoint();
     <div>
     {screens.lg?
     <Flex align="center" className="footer" vertical>
-      <strong className="Fontt">Contact us</strong>
-      <p style={{ color: "white" }}>Drop here you Email!</p>
-      <Flex align="center" gap={"10px"} style={{ marginTop: "2%" }}>
-        <Input size="large" placeholder="EMAIL ADDRESS"></Input>
-        <Button  size="large" style={{color:"black"}}>Send</Button>
+            <Button onClick={()=>{navigate('/ContactUs')}} style={{color:'black'}} className="Fontt">Contact us</Button>
+
+
+      <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
+        <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urbanhiveco.com</p>
+      <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled> Kamelizer Spaces, District 5, Sokhna Road</p>
+</Flex>
+<Flex gap={10}>
+      <FacebookFilled style={{fontSize:'28px' , color:'white'}}/>
+      <InstagramFilled style={{fontSize:'28px' , color:'white'}} />
+      <WhatsAppOutlined style={{fontSize:'28px' , color:'white'}}></WhatsAppOutlined>
       </Flex>
+      </Flex>
+      
     </Flex> : 
     
     <Flex align="center" className="footer2" vertical>
-      <strong className="Fontt">Contact us</strong>
-      <p style={{ color: "white" }}>Drop here you Email!</p>
-      <Flex align="center" gap={"10px"} style={{ marginTop: "2%" }}>
-        <Input size="large" placeholder="EMAIL ADDRESS"></Input>
-        <Button  size="large" style={{color:"black"}} >Send</Button>
+      <Button onClick={()=>{navigate('/ContactUs')}} style={{color:'black'}} className="Fontt">Contact us</Button>
+      
+<Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
+        <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urbanhiveco.com</p>
+      <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled> Kamelizer Spaces, District 5, Sokhna Road</p>
+</Flex>
+<Flex gap={10}>
+      <FacebookFilled style={{fontSize:'28px' , color:'white'}}/>
+      <InstagramFilled style={{fontSize:'28px' , color:'white'}} />
+      <WhatsAppOutlined style={{fontSize:'28px' , color:'white'}}></WhatsAppOutlined>
       </Flex>
+      </Flex>
+
     </Flex>}
     </div>
     </ConfigProvider>

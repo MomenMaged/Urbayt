@@ -38,3 +38,17 @@
     font-size:'16px';
     font-family:'sans-serif'
 }
+
+/* MessageOverrides.css */
+
+.ant-message {
+  z-index: 9999;        /* make sure it’s on top */
+}
+
+.ant-message-notice-content {
+  font-size: 16px;
+  color: white;
+  background-color: #133848; /* dark blue like your theme */
+  border-radius: 8px;
+  padding: 12px 24px;
+}

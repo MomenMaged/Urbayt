@@ -57,7 +57,7 @@ const onChange = (key: string | string[]) => {
               <img
                 className="second-image"
                 alt="cover"
-                src="/WhatsApp Image 2025-12-18 at 3.05.37 AM.jpeg"
+                src="/Details.jpeg"
               ></img>
             </div>
               
@@ -79,7 +79,7 @@ const onChange = (key: string | string[]) => {
               <img
                 className="second-image"
                 alt="cover"
-                src="/WhatsApp Image 2025-12-18 at 3.05.37 AM.jpeg"
+                src="/Details.jpeg"
               ></img>
               <Flex vertical >
                  <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>

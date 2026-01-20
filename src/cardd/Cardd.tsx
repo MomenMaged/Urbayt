@@ -37,39 +37,14 @@ image2:'/f40f1e58-9dc9-467b-bbaf-8a1e1ce0919c.avif'
 ]
 
   const longText = (`
-    Check In & Check Out Procedure: Check in at 15:00 and Check Out is 12:00 midday.
-    You must return your key card at check out. Your key card will deactivate at midday
-    on your departure day. If you require a late checkout please reactivate your card
-    before midday with the Reception. Please check availability and prices with our
-    Reception Team 1 day prior to departure. Phone – All rooms are supplied with phones
-    – to call another room please dial 5 followed by the room number – this is free of
-    charge. To call an outside line please dial 9 followed by the number – this is with
-    charge. Laundry Service – All rooms are provided with laundry bag and price list –
-    price is per item. Services with Extra Charge Premium Imported All kind of alcohol
-    and imported beverages, Speciality Restaurants, beach cabanas, room service (24 hours),
-    tennis courses & courts as well as lightning, beauty center, hairdresser, phone,
-    laundry service, mini market, shops, rental cars, Shisha Lounge, babysitting, stroller
-    for babies. The Hotel Management does not accept any responsibility for the loss of
-    personal items, valuable or money which is left in the room or public areas. Please
-    keep your belongings in the safe box provided in your room. All inclusive drinks are
-    available from 11.00am to 11.00pm. Liqours and Spirits are not served in the
-    Mediterrenean and Peoples Restaurant. Please contact with our Guest Relation Team
-    if you have any allergies or special dietary requirements. Our Guest Relation Desk
-    is situated in the Reception area. Beach towels are available at the towel huts located
-    at the pool and beach. You can exchange the towel anytime, one towel per guest.
-    Please do not make any cash payment for any extra charge service, please sign your
-    check and pay your bill one day before or during check-out. For any assistance during
-    your stay please contact your Guest Relation Team situated.
+    You'll be staying in someone's home, so please treat it with care and respect. Check-in after 2:00 PM and Checkout before 11:00 AM
+Door Access will deactivate automatically at the check out time, if you need to get access after 11:00 AM, please reach out to our team. Quiet hours are 10:00 PM - 7:00 AM. No parties or events are allowed at any of our properties. Smoking is not allowed inside any of our properties. For your peace of mind, the home is equipped with smoke detectors and carbon monoxide detectors. Couples should provide proof of marriage as per local Egyptian laws. There are exterior security cameras monitoring the front door for added security.
   `);
 
   const Cancel=(
   <><Flex vertical align='center' ><span style={{fontWeight:'bold'}}>Cancellation Policy</span> <p>Full refund for cancellations made within 48 hours of booking, if the check in date is at least 14 days away.
 50% refund for cancellations made at least 7 days before check in.
-No refunds for cancellations made within 7 days of check in.</p> <span style={{fontWeight:'bold'}}>Late check-out policy
-</span> <p>Late check out requests are subject to availability.
-check out between 11:00 AM till 15:00 PM on the same day of departure, guests will be charged 25% of the daily rate published on our website.
-Check out between 15:00 PM till 18:00 PM on the same day of departure, guests will be charged 50% of the daily rate published on our website.
-Check out after 18:00 PM on the same day of departure, guests will be charged full day charges of the daily rate published on our website.</p></Flex>
+No refunds for cancellations made within 7 days of check in.</p> </Flex>
              </>);
 
              const CancelPreview = (

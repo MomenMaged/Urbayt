@@ -29,24 +29,7 @@ const items: CollapseProps['items'] = [
       </ul>
     ),
   },
-  {
-    key: '3',
-    label: 'Do you allow pets?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>It depends on each Nest policy.</li>
-      </ul>
-    ),
-  },
-  {
-    key: '4',
-    label: 'Is there any kind of discounts?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>It depends on the duration — we offer daily rates, weekly, and monthly discounts.</li>
-      </ul>
-    ),
-  },
+  
   {
     key: '5',
     label: 'What amenities are provided?',
@@ -58,26 +41,7 @@ const items: CollapseProps['items'] = [
       </ul>
     ),
   },
-  {
-    key: '6',
-    label: 'Can I see the space before confirming the reservation?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>We provide up-to-date real photos.</li>
-        <li>If you still want to visit the space, contact us to schedule an appointment (if the unit is available).</li>
-      </ul>
-    ),
-  },
-  {
-    key: '7',
-    label: 'Where are your spaces located?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>District locations are viewable on our platform.</li>
-        <li>The exact location is sent after confirming the reservation.</li>
-      </ul>
-    ),
-  },
+  
   {
     key: '8',
     label: 'Is WIFI internet available and reliable?',
@@ -88,79 +52,7 @@ const items: CollapseProps['items'] = [
       </ul>
     ),
   },
-  {
-    key: '9',
-    label: 'How can I make/confirm a reservation?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>You can submit a booking request or make an instant booking by paying the full amount.</li>
-        <li>You may also contact us via phone or WhatsApp.</li>
-      </ul>
-    ),
-  },
-  {
-    key: '10',
-    label: 'Are there any extra charges or fees?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>There is an extra cleaning fee for additional cleanings (more than once per week).</li>
-        <li>An insurance deposit is required at check-in and refunded after inspection.</li>
-      </ul>
-    ),
-  },
-  {
-    key: '11',
-    label: 'When and how do I pay?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>
-          For long-term rentals (30+ nights), booking is through birdnestlife.com. Payment includes 1 month in advance +
-          1 month refundable insurance, then monthly payments.
-        </li>
-        <li>To confirm any booking, payment must be settled at least 5 days before check-in.</li>
-        <li>We accept debit and credit cards only — no cash on arrival.</li>
-      </ul>
-    ),
-  },
-  {
-    key: '12',
-    label: 'What if booked through a third party?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>If you booked through a third party and need to cancel, please contact them directly.</li>
-        <li>The third-party’s cancellation policy will apply.</li>
-      </ul>
-    ),
-  },
-  {
-    key: '13',
-    label: 'How do I extend my booking?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>You can contact our reservations team to extend—subject to availability.</li>
-      </ul>
-    ),
-  },
-  {
-    key: '14',
-    label: 'Where are your buildings?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>New Cairo</li>
-        <li>Sheikh Zayed</li>
-        <li>North Coast</li>
-      </ul>
-    ),
-  },
-  {
-    key: '15',
-    label: 'Is the deposit refundable?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>Refund depends on the cancellation policy of each Nest.</li>
-      </ul>
-    ),
-  },
+
   {
     key: '16',
     label: 'What is your cancellation policy?',
@@ -171,16 +63,7 @@ const items: CollapseProps['items'] = [
         <li>No refund for cancellations within 7 days of check-in.</li>
       </ul>
     ),
-  },
-  {
-    key: '17',
-    label: 'Why are the prices different from the website?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>Website prices apply to long-term stays only.</li>
-      </ul>
-    ),
-  },
+  }
 ];
 
 

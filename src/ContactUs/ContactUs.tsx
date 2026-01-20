@@ -1,125 +1,254 @@
-import {Button, ConfigProvider, Flex, Grid, Input, Select } from "antd";
-import "./ContactUS.css";
+import {
+  Alert,
+  Button,
+  ConfigProvider,
+  Flex,
+  Grid,
+  Input,
+} from "antd";
 import TextArea from "antd/es/input/TextArea";
-import { EnvironmentFilled, FacebookFilled, InstagramFilled, MailOutlined, PhoneOutlined, WhatsAppOutlined } from "@ant-design/icons";
+import "./ContactUS.css";
+import { useEffect, useState } from "react";
 import Emaill from "../Emaill/Emaill";
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
 
 const { useBreakpoint } = Grid;
 
-const optionss = [
-  { label: "Reservations" },
-  { label: "Leasing opportunities" },
-  { label: "Press" },
-  { label: "Collaborations" },
-];
-
 const ContactUs = () => {
-
-  const [value, setValue] = useState("");
-  const [touched, setTouched] = useState(false);
-
-  const [valuee, setValuee] = useState("");
-
-
-  const hasError = touched && value.trim() === "";
-
-  const hasErrorr = touched && valuee.trim() === "";
-
   const screens = useBreakpoint();
+
+  // Form field states
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [reason, setReason] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Touched for validation
+  const [touched, setTouched] = useState(false);
+  const [Emailtouched, setEmailTouched] = useState(false);
+  const [Reasontouched, setReasonTouched] = useState(false);
+
+  // Alert status: success | error | null
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+
+  // Validation errors
+  const hasNameError = touched && name.trim() === "";
+  const hasEmailError = Emailtouched && email.trim() === "";
+  const hasReasonError = Reasontouched && reason.trim() === "";
+
+  // Auto-hide alerts after 3 seconds
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => setSubmitStatus(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setTouched(true);
+
+  if (name.trim() === "" || email.trim() === "" || reason.trim() === "") {
+    setSubmitStatus("error");
+    return;
+  }
+
+  const templateParams = {
+    fullName: name,
+    email: email,
+    phone: phone,
+    reason: reason,
+    message: message,
+  };
+
+  try {
+    await emailjs.send(
+      "service_02w47lb",     // 🔁 your service ID
+      "template_wjprpoi",    // 🔁 your template ID
+      templateParams,
+      "tznqbnFJhkrknzyS_"       // 🔁 your public key
+    );
+
+    setSubmitStatus("success");
+    setName("");
+    setEmail("");
+    setPhone("");
+    setReason("");
+    setMessage("");
+    setTouched(false);
+  } catch (error) {
+    console.error(error);
+    setSubmitStatus("error");
+  }
+};
+
+
   return (
-
     <ConfigProvider
-    theme={{
-      components:{
-        Button:{
-         defaultBg:'#133848',
-         defaultHoverBg:'#CE8A39',
-         ghostBg:'transparent',
-         defaultActiveBg:'#CE8A39',
-         defaultHoverBorderColor:'transparent',
-         defaultHoverColor:'transparent',
-         defaultBorderColor:'transparent',
-         colorBgLayout:'black',
-         defaultActiveBorderColor:'transparent'
-         
-        }
+      theme={{
+        components: {
+          Button: {
+            defaultBg: "#133848",
+            defaultHoverBg: "#CE8A39",
+            ghostBg: "transparent",
+            defaultActiveBg: "#CE8A39",
+            defaultHoverBorderColor: "transparent",
+            defaultHoverColor: "transparent",
+            defaultBorderColor: "transparent",
+            colorBgLayout: "black",
+            defaultActiveBorderColor: "transparent",
+          },
+        },
+      }}
+    >
+      <div>
+        <Flex vertical={!screens.lg} style={{ marginBottom: "4rem" }}>
+          <div className={screens.lg ? "Image5" : "Image6"}>
+            <img
+              className="second-image5"
+              alt="cover"
+              src="/Contact_Us.jpeg"
+            />
+          </div>
+
+          <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+            <Flex
+              vertical
+              gap={20}
+              style={{
+                padding: "2.5rem 3rem",
+                backgroundColor: "white",
+                width: "100%",
+                boxShadow: "inset 0 2px 2px rgba(0, 0, 0, 0.3)",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "20px",
+                  color: "#292A2B",
+                  fontFamily: "sans-serif",
+                }}
+              >
+                Contact us
+              </p>
+
+              {/* Name */}
+              <Input
+                size="large"
+                name="fullName"
+                placeholder="Full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onBlur={() => setTouched(true)}
+                status={hasNameError ? "error" : ""}
+              />
+
+              {/* Email & Phone */}
+              <Flex gap={10}>
+                <Input
+                  size="large"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setEmailTouched(true)}
+                  status={hasEmailError ? "error" : ""}
+                />
+                <Input
+                  size="large"
+                  name="phone"
+                  placeholder="Number (+20)"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </Flex>
+
+              {/* Reason */}
+              <Input
+                size="large"
+                name="Reason"
+                placeholder="Reason"
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+                onBlur={() => setReasonTouched(true)}
+                status={hasReasonError ? "error" : ""}
+              />
+
+              {/* Message */}
+              <TextArea
+                name="message"
+                placeholder="Message"
+                autoSize={{ minRows: 4 }}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+
+              {/* Alerts */}
+              {/* {submitStatus === "success" && (
+                <Alert
+                  message="Success"
+                  description="Your message has been sent successfully."
+                  type="success"
+                  showIcon
+                  style={{ marginBottom: "1rem" }}
+                />
+              )}
+              {submitStatus === "error" && (
+                <Alert
+                  message="Error"
+                  description="Please fill all required fields or try again."
+                  type="error"
+                  showIcon
+                  style={{
+    position: "absolute",
+    top: 10,
+    left: 10,
+    right: 10,
+    zIndex: 10,
+    width:'50%'
+  }}
+  closable
+                  
+                 
+                />
+              )} */}
+              {submitStatus && (
+    <Alert
+      message={submitStatus === "success" ? "Success" : "Error"}
+      description={
+        submitStatus === "success"
+          ? "Your message has been sent successfully."
+          : "Please fill all required fields or try again."
       }
-    }}>
-    <div>
-    
-      
-      <Flex vertical={!screens.lg}>
-        <div className={screens.lg ? "Image5" : "Image6"}>
-          <img
-            className="second-image5"
-            alt="cover"
-            src="./contact-us-image.jpg"
-          ></img>
-        </div>
+      type={submitStatus}
+      showIcon
+      closable
+       style={{
+    position: "absolute",
+    top: 10,
+    left: 10,
+    right: 10,
+    zIndex: 10,
+    width:'50%'
+  }}
+    />
+  )}
 
-        <Flex
-          gap={20}
-          vertical
-          style={{
-            paddingTop: "2.5rem",
-            paddingBottom: "2.5rem",
-            paddingLeft: "3rem",
-            paddingRight: "3rem",
-            backgroundColor: "white",
-            width: "100%",
-            boxShadow: 'inset 0 2px 2px rgba(0, 0, 0, 0.3)'
-          }}
-        >
-          <p
-            style={{
-              fontSize: "20px",
-              color: "#292A2B",
-              fontFamily: "sans-serif",
-            }}
-          >
-            Contact us
-          </p>
-
-          <Input size="large" placeholder="Full name" value={value}
-      onChange={(e) => setValue(e.target.value)}
-      onBlur={() => setTouched(true)}
-      status={hasError ? "error" : ""}></Input>
-
-          <Flex gap={10}>
-            <Input size="large" placeholder="Email"   onChange={(e) => setValuee(e.target.value)}
-      onBlur={() => setTouched(true)}
-      status={hasErrorr ? "error" : ""}></Input>
-            <Input size="large" placeholder="Number (+20)"></Input>
-          </Flex>
-
-          <Select size="large" placeholder="Reason" options={optionss} />
-
-          <TextArea placeholder="Message" autoSize={{ minRows: 4 }} />
-
-          <Button size="large" style={{color:'white'}}>
-            Send message
-          </Button>
+              {/* Submit button */}
+              <Button size="large" htmlType="submit" style={{ color: "white" }}>
+                Send message
+              </Button>
+            </Flex>
+          </form>
         </Flex>
-      </Flex>
 
-      <Flex align="center" vertical={!screens.lg} gap={40} style={{ paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%' ,backgroundColor:'white' , borderRadius:'25px' }}>
-        <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <MailOutlined></MailOutlined> info@urbanhiveco.com</p>
-      <p style={{fontSize:'16px' , fontFamily:'sans-serif'}}> <EnvironmentFilled></EnvironmentFilled> Kamelizer Spaces, District 5, Sokhna Road</p>
-</Flex>
-<Flex gap={10}>
-      <FacebookFilled style={{fontSize:'28px'}}/>
-      <InstagramFilled style={{fontSize:'28px'}} />
-      <WhatsAppOutlined style={{fontSize:'28px'}}></WhatsAppOutlined>
-      </Flex>
-      </Flex>
-
-      <Emaill></Emaill>
-
-      
-    </div>
+        {/* Email component */}
+        <Emaill />
+      </div>
     </ConfigProvider>
   );
 };

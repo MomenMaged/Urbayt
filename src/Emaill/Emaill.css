@@ -2,15 +2,17 @@
  
     margin-top: 5%;
     font-size: 1.5rem;
-    color: white;
+transition: ease 0.3s;
+    
 }
+
 .footer{
-height: 50vh;
+
     background-color: #133848;
 }
 
 .footer2{
-height: 35vh;
+
     background-color: #133848;
 }
 

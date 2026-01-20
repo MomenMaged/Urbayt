@@ -23,8 +23,8 @@ const Cards = () => {
   const cards = [
     {
       Id:'1',
-      imgSrc1: "./KE_Nine_Oct23-9.webp",
-      imgSrc2: "./KE_Banafseg_Apr24-50.webp",
+      imgSrc1: "/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif",
+      imgSrc2: "/Bedroom_madintay.avif",
       title: "Modern Cozy Garden View @ Madinaty",
       price:'1750 EGP / Night',
       Availability:'Available now',
@@ -37,8 +37,8 @@ const Cards = () => {
     },
      {
       Id:'2',
-      imgSrc1: "./KE_Nine_Oct23-9.webp",
-      imgSrc2: "./KE_Banafseg_Apr24-50.webp",
+      imgSrc1: "/CFC_2.jpeg",
+      imgSrc2: "/CFC_3.jpeg",
       title: "Cairo Festival City",
       price:'89,000,000',
       Availability:'Not Available',
@@ -50,8 +50,8 @@ Bedrooms:'2',
     },
      {
       Id:'3',
-      imgSrc1: "./KE_Nine_Oct23-9.webp",
-      imgSrc2: "./KE_Banafseg_Apr24-50.webp",
+      imgSrc1: "/Sokhna_comming_soon.jpeg",
+      imgSrc2: "/Sokhna_2.jpeg",
       title: "Sokhna Blumar",
       price:'89,000,000',
       Availability:'Not Available',
@@ -63,8 +63,8 @@ Bedrooms:'3',
     },
      {
       Id:'4',
-      imgSrc1: "./KE_Nine_Oct23-9.webp",
-      imgSrc2: "./KE_Banafseg_Apr24-50.webp",
+      imgSrc1: "/Mountain_view.jpeg",
+      imgSrc2: "/Mountain_view_2.jpeg",
       title: "Mountain View - Hyde Park ",
       price:'89,000,000',
       Availability:'Not Available',
@@ -122,7 +122,7 @@ Bedrooms:'2',
           id={item.Id}
             className="Card_css" 
             hoverable
-            style={{ maxWidth: "350px", borderRadius: "10%" }}
+            style={{ maxWidth: "350px",borderRadius: "10%" }}
             cover={
               <div className="my_special_car">
               <Carousel arrows  dots={false} >
