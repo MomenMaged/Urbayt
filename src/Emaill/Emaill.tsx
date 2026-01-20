@@ -35,8 +35,8 @@ const screens = useBreakpoint();
       <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
         <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
 <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urbanhiveco.com</p>
-      <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled> Kamelizer Spaces, District 5, Sokhna Road</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urban-hive.co</p>
+      <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled>  Mountain View iCity - New Cairo</p>
 </Flex>
 <Flex gap={10}>
       <FacebookFilled style={{fontSize:'28px' , color:'white'}}/>
@@ -53,8 +53,8 @@ const screens = useBreakpoint();
 <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
         <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
 <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urbanhiveco.com</p>
-      <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled> Kamelizer Spaces, District 5, Sokhna Road</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urban-hive.co</p>
+      <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled>  Mountain View iCity - New Cairo</p>
 </Flex>
 <Flex gap={10}>
       <FacebookFilled style={{fontSize:'28px' , color:'white'}}/>

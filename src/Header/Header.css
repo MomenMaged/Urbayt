@@ -55,3 +55,18 @@
   border-bottom: 1px solid white; /* underline */
   font-weight: bold;
 }
+
+.logo img {
+  display: block;
+}
+
+.logo--large {
+  
+  height: 30px;
+  transition: all 0.3s ease;
+}
+
+.logo--small {
+  height: 25px;
+  transition: all 0.3s ease;
+}

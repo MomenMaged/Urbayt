@@ -33,7 +33,11 @@ console.log('clicked')    };
   return (
    
     <Header  className={isScrolled ? 'header header--small' : 'header'} >
-    <Link to="./"><p style={{color:'white' , fontSize:'20px' , fontWeight:'bold'}}><HomeFilled  style={{  fontSize:'30px', color:'#E2CAA2'}}/> URBAN HIVE</p></Link> 
+    <Link to="./"><img 
+    src={'/Logo1.png'}
+    alt="Urban Hive Logo"
+    className={isScrolled ? 'logo--small' : 'logo--large'}
+  /></Link> 
      {screens.lg&& !isScrolled ?
     <div style={{display:'flex', marginLeft:'auto'}}>
     

@@ -515,7 +515,12 @@ Active Management & Monitoring</p>
           
             {/* Example collapsed text section */}
             <div   style={{minWidth: screens.lg ? '300px' : '200px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
-              <HomeFilled style={{fontSize:'30px'}} />
+              
+              <img 
+    src={'/Home.png'}
+    alt="Urban Hive Logoo"
+    style={{height:'35px'}}
+  />
               <p style={{fontSize:'24px' , color:'#111212'}}>Step 1: Join the Hive</p>
               <p style={{fontSize:'16px' , color:'#292A2B' }}>Let UrbanHive handle your property and maximize its earning potential.</p>
             </div>
@@ -524,7 +529,11 @@ Active Management & Monitoring</p>
 
 
              <div   style={{ minWidth: screens.lg ? '300px' : '200px', height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
-              <HomeFilled style={{fontSize:'30px'}} />
+             <img 
+    src={'/Home.png'}
+    alt="Urban Hive Logoo"
+    style={{height:'35px'}}
+  />
               <p style={{fontSize:'24px' , color:'#111212'}}>Step 2: Property Assessment</p>
               <p style={{fontSize:'16px' , color:'#292A2B'}}>Our UrbanHive expert conducts an on-site visit to ensure your unit is ready for maximum performance in the Furnish & Rent program.</p>
             </div>
@@ -533,7 +542,11 @@ Active Management & Monitoring</p>
 
 
             <div  style={{minWidth: screens.lg ? '300px' : '200px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
-              <HomeFilled style={{fontSize:'30px'}} />
+              <img 
+    src={'/Home.png'}
+    alt="Urban Hive Logoo"
+    style={{height:'35px'}}
+  />
               <p style={{fontSize:'24px' , color:'#111212'}}>Step 3: Styling & Setup</p>
               <p style={{fontSize:'16px' , color:'#292A2B'}}>UrbanHive transforms your unit with premium furnishings and careful preparation, making it ready for guests and optimized for revenue.</p>
             </div>
@@ -542,7 +555,11 @@ Active Management & Monitoring</p>
 
 
             <div    style={{ minWidth: screens.lg ? '300px' : '200px' , height:'460px' , paddingTop:'2.5rem' ,paddingBottom:'2.5rem' , paddingRight:'1.5rem' ,paddingLeft:'1.5rem',borderRadius:'1.5rem' , backgroundColor:'white'}}>
-              <HomeFilled style={{fontSize:'30px'}} />
+              <img 
+    src={'/Home.png'}
+    alt="Urban Hive Logoo"
+    style={{height:'35px'}}
+  />
               <p style={{fontSize:'24px' , color:'#111212'}}>Step 4: Enjoy Hassle-Free Income</p>
               <p style={{fontSize:'16px' , color:'#292A2B' }}>With your unit fully managed and guest-ready, UrbanHive ensures steady returns while you relax.</p>
             </div>
