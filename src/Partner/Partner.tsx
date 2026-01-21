@@ -407,11 +407,11 @@ const navigate = useNavigate();
                 paddingLeft: "60px",
                 paddingRight: "60px",
                 marginTop: "10%",
-                backgroundColor: "white",
+                backgroundColor: "#133848",
                 
               }}
             >
-              <p style={{ fontSize: "40px", fontFamily: "sans-serif" }}>
+              <p style={{ fontSize: "40px", fontFamily: "sans-serif" , color:'#CE8A39' }}>
                 Everything is handled for you, start to finish.
               </p>
               <Flex
@@ -423,39 +423,39 @@ const navigate = useNavigate();
                 <Flex style={{ width: "30%" }} vertical align="center">
                   <img
                     width={"100%"}
-                    src="/WhatsApp Imageee 2025-12-06 at 8.30.41 AM.jpeg"
+                    src="/Money.png"
                     alt="Resort"
                   />
-                  <p style={{  fontSize: "24px", fontWeight: "bold" }}>
+                  <p style={{  fontSize: "24px", fontWeight: "bold", color:'white' }}>
                     Boost Your Earnings
                   </p>
-                  <p style={{ fontSize: "20px" }}>
+                  <p style={{ fontSize: "20px", color:'white' }}>
                     Unlock the full earning potential of your property with strategic hospitality management. From premium furnishing and styling to targeted guest acquisition, every aspect is designed to boost occupancy and revenue. With seamless operations, ongoing monitoring, and optimized pricing, your property becomes a steady, hassle-free income stream.
                   </p>
                 </Flex>
                 <Flex style={{ width: "30%" }} vertical align="center">
                   <img
                     width={"100%"}
-                    src="/WhatsApp Image 2025-12-06 at 8.30.41 AM.jpeg"
+                    src="/second.png"
                     alt="Resort"
                   />
-                  <p style={{  fontSize: "24px", fontWeight: "bold" }}>
+                  <p style={{  fontSize: "24px", fontWeight: "bold", color:'white' }}>
                     We Handle It All
                   </p>
-                  <p style={{ fontSize: "20px"}}>
+                  <p style={{ fontSize: "20px", color:'white'}}>
                    At UrbanHive, we handle every detail of your property so you can relax and enjoy the returns. From professional furnishing and styling to guest management, bookings, and maintenance, every step is expertly managed. With continuous monitoring and seamless operations, your property is in capable hands — giving you peace of mind and a steady, hassle-free income.
                   </p>
                 </Flex>
                 <Flex style={{ maxWidth: "30%" }} vertical align="center">
                   <img
                     width={"100%"}
-                    src="/WhatsApp Image 2025-12-06 at 8.30.40 AM.jpeg"
+                    src="/first.png"
                     alt="Resort"
                   />
-                  <p style={{ fontSize: "24px", fontWeight: "bold" }}>
+                  <p style={{ fontSize: "24px", fontWeight: "bold", color:'white' }}>
                     Active Management & Monitoring
                   </p>
-                  <p style={{ fontSize: "20px" }}>
+                  <p style={{ fontSize: "20px", color:'white' }}>
                     At UrbanHive, your property is always in expert hands. We actively manage every unit, from guest communications and bookings to maintenance and quality checks. Our ongoing monitoring ensures smooth operations, optimal occupancy, and maximum revenue, giving you confidence that your investment is performing at its best—24/7.
                   </p>
                 </Flex>
@@ -477,7 +477,7 @@ const navigate = useNavigate();
                 }}
               >
                 <h2
-                  style={{ color:'#CE8A39',fontSize:'20px' , fontFamily: "sans-serif", wordBreak: "break-word" }}
+                  style={{ color:'#CE8A39',fontSize:'30px' , fontFamily: "sans-serif", wordBreak: "break-word" , textAlign:'center' }}
                 >
                   Everything is handled for you, start to finish.
                 </h2>
@@ -490,8 +490,8 @@ const navigate = useNavigate();
                 >
                   <Flex style={{ width: "100%" }} vertical align="center">
                     <img
-                      width={"40%"}
-                      src="/illustrations1.svg"
+                      width={"60%"}
+                      src="/Money.png"
                       alt="Resort"
                     />
                     <p style={{ color:'white',fontSize: "24px", fontWeight: "bold" }}>
@@ -502,8 +502,8 @@ Boost Your Earnings</p>
                   </Flex>
                   <Flex style={{ width: "100%" }} vertical align="center">
                     <img
-                      width={"40%"}
-                      src="/illustrations2.svg"
+                      width={"60%"}
+                      src="/second.png"
                       alt="Resort"
                     />
                     <p style={{  color:'white',fontSize: "24px", fontWeight: "bold" }}>We Handle It All</p>
@@ -513,11 +513,11 @@ Boost Your Earnings</p>
                   </Flex>
                   <Flex style={{ maxWidth: "100%" }} vertical align="center">
                     <img
-                      width={"30%"}
-                      src="/illustrations3.svg"
+                      width={"60%"}
+                      src="/first.png"
                       alt="Resort"
                     />
-                    <p style={{color:'white', fontSize: "24px", fontWeight: "bold" }}>
+                    <p style={{textAlign:'center', color:'white', fontSize: "24px", fontWeight: "bold" }}>
 Active Management & Monitoring</p>
                     <p style={{ fontSize: "20px", color:'white' }}>
                       At UrbanHive, your property is always in expert hands. We actively manage every unit, from guest communications and bookings to maintenance and quality checks. Our ongoing monitoring ensures smooth operations, optimal occupancy, and maximum revenue, giving you confidence that your investment is performing at its best—24/7.
