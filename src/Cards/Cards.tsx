@@ -9,6 +9,7 @@ import { GiBathtub } from "react-icons/gi";
 
 import { FaPerson } from "react-icons/fa6";
 import { IoBedOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 
 
@@ -110,6 +111,12 @@ Bedrooms:'2',
     <div>
       <Flex vertical >
        {/* <h2 style={{paddingLeft:'5rem'}}> Number of Listings: {cards.length}</h2> */}
+       <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
         <Flex  wrap
         align="center" vertical={!screens.lg} style={ screens.lg ? { marginLeft: "3%" , marginRight:'3%'} : {}} justify="center" gap='3%'>
           {cards.map((item) => (
@@ -222,9 +229,27 @@ Bedrooms:'2',
           
           ))}
         </Flex>
+        </motion.div>
         </Flex>
+
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
         <FAQ></FAQ>
+
+        </motion.div>
+
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
         <Emaill></Emaill>
+        </motion.div>
       
     </div>
     </ConfigProvider>

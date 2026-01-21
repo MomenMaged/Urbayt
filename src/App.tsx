@@ -3,7 +3,7 @@ import {
 } from "antd";
 import Header_app from "./Header/Header_app";
 import Body from "./Body/Body";
-import { BrowserRouter as  Router,Route, Routes } from "react-router-dom";
+import {  Route, Routes, useLocation } from "react-router-dom";
 import Second_Caro from "./Second_Caro/Second_Caro";
 import Cards from "./Cards/Cards";
 import Listing from "./Listing/Listing";
@@ -12,33 +12,43 @@ import ContactUs from "./ContactUs/ContactUs";
 import WhatsAppButton from "./Whatsapp/Whatsapp";
 
 import Coming_soon from "./Coming_soon/Coming_soon";
+import { AnimatePresence, motion } from "framer-motion";
 
 
 const App = () => {
-  return (
-    
-     <Router>
-      <Layout style={{backgroundColor:'#E2CAA2'}}>
-        <Header_app  />
+  const location = useLocation();
 
-        <Routes>
-          <Route path="/" element={<Body />} />
-          <Route path="/about" element={<Second_Caro />} />
-          <Route path="/Cards" element={<Cards/>} />
-          <Route path="/Listing" element={<Listing/>} />
-          <Route path="/Partner" element={<Partner/>} />
-          <Route path="/ContactUs" element={<ContactUs/>} />
-          <Route path="/Listing_2" element={<Coming_soon/>} />
-          <Route path="/Listing_3" element={<Coming_soon/>} />
-          {/* <Route path="/media" element={<Media />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/contact" element={<Contact />} /> */}
-        </Routes>
-        <WhatsAppButton />
-      </Layout>
-    </Router>
+  return (
+    <Layout style={{ backgroundColor: "#E2CAA2" }}>
+      <Header_app />
+
+      <AnimatePresence mode="wait">
+        <motion.div
+   key={location.pathname}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -30 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          style={{ width: "100%" }}
+>
+
+          <Routes location={location}>
+            <Route path="/" element={<Body />} />
+            <Route path="/about" element={<Second_Caro />} />
+            <Route path="/Cards" element={<Cards />} />
+            <Route path="/Listing" element={<Listing />} />
+            <Route path="/Partner" element={<Partner />} />
+            <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/Listing_2" element={<Coming_soon />} />
+            <Route path="/Listing_3" element={<Coming_soon />} />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
+
+      <WhatsAppButton />
+    </Layout>
   );
 };
+
 
 export default App;

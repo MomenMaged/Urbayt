@@ -3,6 +3,7 @@ import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
 import Emaill from "../Emaill/Emaill";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Partner = () => {
   const { useBreakpoint } = Grid;
@@ -29,6 +30,13 @@ const navigate = useNavigate();
       }}
     >
       <div>
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
+      
         {screens.lg ? (
           <div className="background-container">
             {/* Background image */}
@@ -69,6 +77,7 @@ const navigate = useNavigate();
               </Flex>
             </div>
           </div>
+          
         ) : screens.md ? (
           <Flex vertical>
             <div className="background-container">
@@ -156,8 +165,16 @@ const navigate = useNavigate();
             </div>
           </Flex>
         )}
+        </motion.div>
 
         <div>
+
+          <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
           {screens.lg ? (
             <div>
               <Flex
@@ -368,9 +385,18 @@ const navigate = useNavigate();
               </Flex>
             </div>
           )}
+
+          </motion.div>
         </div>
 
+
         <div>
+          <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
           {screens.lg ? (
             <Flex
               vertical
@@ -501,7 +527,13 @@ Active Management & Monitoring</p>
               </Flex>
             </div>
           )}
-
+          </motion.div>
+ <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+      >
 <div>
   
   <Flex align="center" vertical style={{paddingRight:'10%' ,paddingLeft:'10%' , marginTop:'10%',marginBottom:'10%'}}>
@@ -568,12 +600,19 @@ Active Management & Monitoring</p>
 
   </Flex>
 </div>
+</motion.div>
 
 
 </div>
 {/* <FAQ></FAQ> */}
-
+<motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1 }}
+      >
 <Emaill></Emaill>
+</motion.div>
       </div>
     </ConfigProvider>
   );

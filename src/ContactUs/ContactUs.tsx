@@ -11,6 +11,7 @@ import "./ContactUS.css";
 import { useEffect, useState } from "react";
 import Emaill from "../Emaill/Emaill";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 
 const { useBreakpoint } = Grid;
@@ -105,8 +106,8 @@ const ContactUs = () => {
       }}
     >
       <div>
-        <Flex vertical={!screens.lg} style={{ marginBottom: "4rem" }}>
-          <div className={screens.lg ? "Image5" : "Image6"}>
+        <Flex vertical={!screens.lg}  style={{marginBottom: "4rem" , maxHeight: screens.lg ? "100vh" : "none" }}>
+          <div style={{ display: "flex" }} className={screens.lg ? "Image5" : "Image6"}>
             <img
               className="second-image5"
               alt="cover"
@@ -114,16 +115,17 @@ const ContactUs = () => {
             />
           </div>
 
-          <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+          <form style={{ width: "100%" , display: "flex" }} onSubmit={handleSubmit}>
             <Flex
+              
               vertical
-              gap={20}
-              style={{
-                padding: "2.5rem 3rem",
-                backgroundColor: "white",
-                width: "100%",
-                boxShadow: "inset 0 2px 2px rgba(0, 0, 0, 0.3)",
-              }}
+  gap={35}
+  style={{
+    padding: "2.5rem 3rem",
+    backgroundColor: "white",
+    width: "100%",
+    
+  }}
             >
               <p
                 style={{
@@ -247,7 +249,14 @@ const ContactUs = () => {
         </Flex>
 
         {/* Email component */}
+        <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
         <Emaill />
+        </motion.div>
       </div>
     </ConfigProvider>
   );

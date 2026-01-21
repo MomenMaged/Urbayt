@@ -1,18 +1,17 @@
 .Image5 {
   width: 60%;
-  height: 85vh;
-  overflow: hidden;
+  
 }
+
 .Image6 {
   width: 100%;
-  height: 50vh;
-  overflow: hidden;
+ height: 55vh;
 }
 
 .second-image5 {
   width: 100%;
-  height: 100%;
-  /* center vertically (default) */
+  height: 100%;     /* REQUIRED */
+  
 }
 
 .fasel2{

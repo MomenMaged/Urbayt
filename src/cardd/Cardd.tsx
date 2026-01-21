@@ -5,6 +5,7 @@ import { HomeFilled } from '@ant-design/icons';
 import Emaill from '../Emaill/Emaill';
 import { MdCancel } from 'react-icons/md';
 import { GiEntryDoor } from 'react-icons/gi';
+import { motion } from 'framer-motion';
 
 const { useBreakpoint } = Grid;
 
@@ -55,7 +56,12 @@ No refunds for cancellations made within 7 days of check in.</p> </Flex>
 );
 
   return (
-    
+    <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
     <div>
       {/* --- Top Cards --- */}
       <div style={{ marginTop: '10%', marginBottom: '10%', paddingLeft: '13%', paddingRight: '13%' }}>
@@ -71,6 +77,12 @@ No refunds for cancellations made within 7 days of check in.</p> </Flex>
       </div>
           
       {/* --- Nest Rules --- */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
       <div style={{ marginBottom: '10%', backgroundColor: 'white' }}>
         <div style={{ marginBottom: '10%', padding: '5%' }}>
           <h1 style={{ marginBottom: '40px' }}>UrbanHive Rules</h1>
@@ -120,9 +132,11 @@ No refunds for cancellations made within 7 days of check in.</p> </Flex>
           </Flex>
         </div>
       </div>
+      </motion.div>
 
       <Emaill />
     </div>
+    </motion.div>
   );
 };
 

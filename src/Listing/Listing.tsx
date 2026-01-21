@@ -24,6 +24,7 @@ import { GiTowel } from "react-icons/gi";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { FaKitchenSet, FaPerson } from "react-icons/fa6";
 import { SlSizeFullscreen } from "react-icons/sl";
+import { motion } from "framer-motion";
 
 const Listing = () => {
   const { useBreakpoint } = Grid;
@@ -64,6 +65,12 @@ const [open, setOpen] = useState(false);
       }
     }}>
     <div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
      {screens.lg ? (<div className="background-container">
         {/* Background image */}
         <img
@@ -250,10 +257,21 @@ const [open, setOpen] = useState(false);
       ); }} style={{color:'white',marginTop:'5%'}} className="classic-btn">Book now</button>
               </Flex>
             </div></Flex> )}
+            </motion.div>
 
+
+      
       <div>
         {screens.lg ? (
           <div>
+
+<motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+            
             <Flex
               gap={"5%"}
               align="center"
@@ -319,7 +337,15 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
                 </Flex>
               </Flex>
             </Flex>
+            </motion.div>
 
+
+<motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
             <Flex
               gap={"5%"}
               align="center"
@@ -416,9 +442,17 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
                 ></img>
               </div>
             </Flex>
+            </motion.div>
           </div>
         ) : (
           <div>
+
+            <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
             <Flex
               gap="5px"
               align="center"
@@ -482,6 +516,14 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
                 </Flex>
               </Flex>
             </Flex>
+            </motion.div>
+
+<motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
 
             <Flex
               gap="5px"
@@ -616,6 +658,8 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
               </Modal>
               
             </Flex>
+
+            </motion.div>
           </div>
         )}
       </div>
@@ -623,6 +667,8 @@ Wake up to breathtaking panoramic garden views, and step onto your balcony, the 
        
 
       <Cardd></Cardd>
+
+      
     </div>
     </ConfigProvider>
 
