@@ -1,9 +1,18 @@
 import type { MenuProps } from "antd";
-import { Menu } from "antd";
+import { Grid, Menu } from "antd";
 import "./DropDownMenu.css";
 import { Link } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
+
+
+
+const { useBreakpoint } = Grid;
+
+
+const App: React.FC = () => {
+
+  const screens = useBreakpoint();
 
 const items: MenuItem[] = [
   {
@@ -14,7 +23,7 @@ const items: MenuItem[] = [
           display: "flex",
           justifyContent: "center",
           width: "100%",
-          fontSize: "30px",
+          fontSize: screens.md  ? "30px" : "20px"
 
           
         }}
@@ -76,9 +85,7 @@ const items: MenuItem[] = [
   },
 ];
 
-
-const App: React.FC = () => {
-
+  
 
   return (
     <Menu 

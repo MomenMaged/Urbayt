@@ -91,13 +91,13 @@ const Menu = () => {
         >
            <div className="navigation__inner2">
              
-              <Link to="./cards" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Our Listings</a></Link>
+              <Link to="./cards" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">OUR LISTINGS</a></Link>
               <Link to="./madinaty" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">MADINATY</a></Link>
                <Link to="./cfc" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">SOKHNA</a></Link>
                 <Link to="./sokhna" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">CAIRO FESTIVAL CITY</a></Link>
               
               <Link to="./partner" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">JOIN OUR HIVE</a></Link>
-              <Link to="./contact-us" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">Contact us</a></Link>
+              <Link to="./contact-us" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">CONTACT US</a></Link>
             </div>
         </Modal>
       </ConfigProvider>

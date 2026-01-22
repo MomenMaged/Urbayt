@@ -7,8 +7,10 @@ const FAQ = () => {
     const screens = useBreakpoint();
 
 const items: CollapseProps['items'] = [
+  
+  
   {
-    key: '1',
+    key: '2',
     label: 'Can I stay with my fiancé/Boyfriend/Girlfriend?',
     children: (
       <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
@@ -18,14 +20,14 @@ const items: CollapseProps['items'] = [
       </ul>
     ),
   },
+
   {
-    key: '2',
-    label: 'Are visits allowed?',
+    key: '8',
+    label: 'Is WIFI internet available and reliable?',
     children: (
       <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>For Arab guests, visitors are allowed only if of the same gender.</li>
-        <li>Mixed-gender visitors must be 1st or 2nd degree relatives.</li>
-        <li>Otherwise, meetings must take place in public areas.</li>
+        <li>Yes, WiFi is available at all spaces.</li>
+        <li>We frequently test connections to ensure reliability.</li>
       </ul>
     ),
   },
@@ -42,16 +44,7 @@ const items: CollapseProps['items'] = [
     ),
   },
   
-  {
-    key: '8',
-    label: 'Is WIFI internet available and reliable?',
-    children: (
-      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>Yes, WiFi is available at all spaces.</li>
-        <li>We frequently test connections to ensure reliability.</li>
-      </ul>
-    ),
-  },
+  
 
   {
     key: '16',
@@ -63,7 +56,18 @@ const items: CollapseProps['items'] = [
         <li>No refund for cancellations within 7 days of check-in.</li>
       </ul>
     ),
-  }
+  },
+  {
+    key: '19',
+    label: 'Are visits allowed?',
+    children: (
+      <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
+        <li>For Arab guests, visitors are allowed only if of the same gender.</li>
+        <li>Mixed-gender visitors must be 1st or 2nd degree relatives.</li>
+        <li>Otherwise, meetings must take place in public areas.</li>
+      </ul>
+    ),
+  },
 ];
 
 

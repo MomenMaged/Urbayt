@@ -30,7 +30,7 @@ const screens = useBreakpoint();
     <div>
     {screens.lg?
     <Flex align="center" className="footer" vertical>
-            <Button onClick={()=>{navigate('/contact-us')}} style={{color:'black'}} className="Fontt">Contact us</Button>
+            <Button onClick={()=>{navigate('/contact-us')}} style={{color:'black'}} className="Fontt">CONTACT US</Button>
 
 
       <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
@@ -49,7 +49,7 @@ const screens = useBreakpoint();
     </Flex> : 
     
     <Flex align="center" className="footer2" vertical>
-      <Button onClick={()=>{navigate('/contact-us')}} style={{color:'black'}} className="Fontt">Contact us</Button>
+      <Button onClick={()=>{navigate('/contact-us')}} style={{color:'black'}} className="Fontt">CONTACT US</Button>
       
 <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
         <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
