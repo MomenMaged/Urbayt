@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 const { useBreakpoint } = Grid;
 
 const Body = () => {
+
   const screens = useBreakpoint();
 
   return (
@@ -28,7 +29,7 @@ const Body = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <Flex align="center" vertical className="space">

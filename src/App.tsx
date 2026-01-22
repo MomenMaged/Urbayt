@@ -35,12 +35,12 @@ const App = () => {
           <Routes location={location}>
             <Route path="/" element={<Body />} />
             <Route path="/about" element={<Second_Caro />} />
-            <Route path="/Cards" element={<Cards />} />
-            <Route path="/Listing" element={<Listing />} />
-            <Route path="/Partner" element={<Partner />} />
-            <Route path="/ContactUs" element={<ContactUs />} />
-            <Route path="/Listing_2" element={<Coming_soon />} />
-            <Route path="/Listing_3" element={<Coming_soon />} />
+            <Route path="/cards" element={<Cards />} />
+            <Route path="/madinaty" element={<Listing />} />
+            <Route path="/partner" element={<Partner />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/cfc" element={<Coming_soon />} />
+            <Route path="/sokhna" element={<Coming_soon />} />
           </Routes>
         </motion.div>
       </AnimatePresence>

@@ -136,7 +136,7 @@ Bedrooms:'2',
                 <img
                    onClick={() => {
     if (item.Availability !== "Not Available")  {
-      navigate('/Listing');
+      navigate('/madinaty');
     }
   }}
                   draggable={false}
@@ -146,7 +146,7 @@ Bedrooms:'2',
                 <img
                   onClick={() => {
     if (item.Availability !== "Not Available")  {
-      navigate('/Listing');
+      navigate('/madinaty');
     }
   }}
                   draggable={false}
@@ -162,7 +162,7 @@ Bedrooms:'2',
              
              onClick={() => {
     if (item.Availability !== "Not Available")  {
-      navigate('/Listing');
+      navigate('/madinaty');
     }
   }}
         >

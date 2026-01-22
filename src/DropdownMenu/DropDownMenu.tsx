@@ -15,6 +15,7 @@ const items: MenuItem[] = [
           justifyContent: "center",
           width: "100%",
           fontSize: "30px",
+
           
         }}
       >
@@ -83,7 +84,7 @@ const App: React.FC = () => {
     <Menu 
       mode="inline"
       selectable={false}
-      style={{ backgroundColor:'transparent', width: "80vw" , borderTop: '1.7px solid black', borderBottom: '1px solid black',}}
+      style={{ backgroundColor:'transparent', width: "80vw" , borderTop: '1.7px solid black', borderBottom: '1px solid black'}}
       items={items}
     />
   );

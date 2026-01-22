@@ -42,12 +42,12 @@ console.log('clicked')    };
     
     
     
-     <Link to="./Cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}> OUR LISTINGS</p></Link>
-    <Link to="./Listing"><p className={`menu__item ${currentPath === '/Listing' ? 'menu__item--active' : ''}`} >MADINATY</p></Link>
-   <Link to="./Listing_3"><p className={`menu__item ${currentPath === '/Listing_3' ? 'menu__item--active' : ''}`} >SOKHNA</p></Link>
-    <Link to="./Listing_2"><p className={`menu__item ${currentPath === '/Listing_2' ? 'menu__item--active' : ''}`} >CAIRO FESTIVAL CITY</p></Link>
-    <Link to="./Partner"><p className={`menu__item ${currentPath === '/Partner' ? 'menu__item--active' : ''}`} >JOIN OUR HIVE</p></Link>
-   <Link to="./ContactUs"><p className={`menu__item ${currentPath === '/ContactUs' ? 'menu__item--active' : ''}`} >CONTACT US</p></Link>
+     <Link to="./cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}> OUR LISTINGS</p></Link>
+    <Link to="./madinaty"><p className={`menu__item ${currentPath === '/Listing' ? 'menu__item--active' : ''}`} >MADINATY</p></Link>
+   <Link to="./sokhna"><p className={`menu__item ${currentPath === '/Listing_3' ? 'menu__item--active' : ''}`} >SOKHNA</p></Link>
+    <Link to="./cfc"><p className={`menu__item ${currentPath === '/Listing_2' ? 'menu__item--active' : ''}`} >CAIRO FESTIVAL CITY</p></Link>
+    <Link to="./partner"><p className={`menu__item ${currentPath === '/Partner' ? 'menu__item--active' : ''}`} >JOIN OUR HIVE</p></Link>
+   <Link to="./contact-us"><p className={`menu__item ${currentPath === '/ContactUs' ? 'menu__item--active' : ''}`} >CONTACT US</p></Link>
     </div> 
     : <div style={{display:'Flex',marginLeft:'auto'}}><Menu></Menu></div>
 }
