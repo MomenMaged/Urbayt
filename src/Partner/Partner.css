@@ -69,7 +69,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* same as background-size: cover */
+  object-fit: fill; /* same as background-size: cover */
   z-index: 0;
 }
 
@@ -158,4 +158,19 @@ font-size: 15px;
                       border-top-right-radius: 30px;
                       border-bottom-right-radius: 30px;
                     
+}
+
+.partner-button {
+  background-color: #CE8A39;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.partner-button:hover {
+  background-color: #E2CAA2;
 }

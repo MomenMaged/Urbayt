@@ -8,18 +8,18 @@ const FAQ = () => {
 
 const items: CollapseProps['items'] = [
   
-  
   {
-    key: '2',
-    label: 'Can I stay with my fiancé/Boyfriend/Girlfriend?',
+    key: '5',
+    label: 'What amenities are provided?',
     children: (
       <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>Following Egyptian law, if any of the couple holds an Arab passport, a marriage certificate is required.</li>
-        <li>If either person is Egyptian or Arab, they must submit an official marriage proof — “Orfi” or unofficial documents are not accepted.</li>
-        <li>Non-Arab passport holders may stay together without the need for a marriage certificate.</li>
+        <li>Cooking essentials and toiletries.</li>
+        <li>Hotel-grade necessities (sugar, tea, coffee, tissue paper).</li>
+        <li>Cleaning once per week.</li>
       </ul>
     ),
   },
+  
 
   {
     key: '8',
@@ -33,13 +33,13 @@ const items: CollapseProps['items'] = [
   },
   
   {
-    key: '5',
-    label: 'What amenities are provided?',
+    key: '2',
+    label: 'Can I stay with my fiancé/Boyfriend/Girlfriend?',
     children: (
       <ul style={{borderBottom: '1.1px solid black' , paddingBottom:'2%'}}>
-        <li>Cooking essentials and toiletries.</li>
-        <li>Hotel-grade necessities (sugar, tea, coffee, tissue paper).</li>
-        <li>Cleaning once per week.</li>
+        <li>Following Egyptian law, if any of the couple holds an Arab passport, a marriage certificate is required.</li>
+        <li>If either person is Egyptian or Arab, they must submit an official marriage proof — “Orfi” or unofficial documents are not accepted.</li>
+        <li>Non-Arab passport holders may stay together without the need for a marriage certificate.</li>
       </ul>
     ),
   },

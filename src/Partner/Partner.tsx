@@ -103,26 +103,27 @@ const navigate = useNavigate();
                 justify="center"
                 vertical
                 style={{
-                  backgroundColor: "White",
+                 backgroundColor: "#133848",
                   width: "100%",
                   height: "60vh",
                 }}
               >
-                <p style={{ marginBottom: "2%", fontSize: "48px" }}>
+                <p style={{ marginBottom: "2%", fontSize: "38px" , color:'white' }}>
                  GROW WITH THE HIVE
                 </p>
-                <h3>
-                 Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
+                <h3 style={{color:'white' , marginBottom: "7%" }}>
+                  Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                 </h3>
-                <Button onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} size="large">
+                <button className="partner-button" onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} >
                   Partner with UrbanHive
-                </Button>
+                </button>
+                
               </Flex>
             </div>
           </Flex>
         ) : (
-          <Flex vertical>
-            <div className="background-container" style={{ height: "60vh" }}>
+          <div>
+            <div className="background-container" style={{ height: "55vh" }}>
               {/* Background image */}
               <img
                 src={
@@ -145,25 +146,24 @@ const navigate = useNavigate();
                 justify="center"
                 vertical
                 style={{
-                  backgroundColor: "White",
+                  backgroundColor: "#133848",
                   width: "100%",
                   height: "100%",
                   padding: "5%",
                 }}
               >
-                <p style={{ marginBottom: "2%", fontSize: "48px" }}>
-                  Let's Grow Together
+                <p style={{ marginBottom: "2%", fontSize: "38px" , color:'white' }}>
+                 GROW WITH THE HIVE
                 </p>
-                <h3>
-                  Are you a developer, landlord, or investor? Let's bring
-                  hospitality to life — together
+                <h3 style={{color:'white' , marginBottom: "7%" }}>
+                  Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                 </h3>
-                <Button onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} size="large">
+                <button className="partner-button" onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} >
                   Partner with UrbanHive
-                </Button>
+                </button>
               </Flex>
             </div>
-          </Flex>
+          </div>
         )}
         </motion.div>
 

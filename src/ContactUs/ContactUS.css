@@ -1,11 +1,13 @@
 .Image5 {
   width: 60%;
+  justify-content: center;
   
 }
 
 .Image6 {
   width: 100%;
  height: 55vh;
+ justify-content: center;
 }
 
 .second-image5 {
@@ -50,4 +52,9 @@
   background-color: #133848; /* dark blue like your theme */
   border-radius: 8px;
   padding: 12px 24px;
+}
+
+.ant-skeleton.ant-skeleton-element {
+    display: inline-block;
+    width: 100%;
 }

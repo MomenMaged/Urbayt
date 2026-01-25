@@ -5,6 +5,7 @@ import {
   Flex,
   Grid,
   Input,
+  Skeleton,
 } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import "./ContactUS.css";
@@ -33,6 +34,8 @@ const ContactUs = () => {
 
   // Alert status: success | error | null
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+
+  const [imageLoading, setImageLoading] = useState(true);
 
   // Validation errors
   const hasNameError = touched && name.trim() === "";
@@ -108,10 +111,31 @@ const ContactUs = () => {
       <div>
         <Flex vertical={!screens.lg}  style={{marginBottom: "4rem" , maxHeight: screens.lg ? "100vh" : "none" }}>
           <div style={{ display: "flex" }} className={screens.lg ? "Image5" : "Image6"}>
+
+{imageLoading && (
+    
+   
+      <Skeleton.Image
+        active
+
+        style={{
+          width: "100%",
+          height: "100%",
+                 
+        }}
+        
+      />
+      
+    
+  )}
+
             <img
               className="second-image5"
               alt="cover"
               src="/Contact_Us.jpeg"
+              style={{ display: imageLoading ? "none" : "block" }}
+    onLoad={() => setImageLoading(false)}
+    onError={() => setImageLoading(false)}
             />
           </div>
 
