@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "./Cardd.css";
-import { Flex, Grid } from 'antd';
+import { Flex, Grid, Skeleton } from 'antd';
 import { HomeFilled } from '@ant-design/icons';
 import Emaill from '../Emaill/Emaill';
 import { MdCancel } from 'react-icons/md';
@@ -13,6 +13,8 @@ const Cardd = () => {
   const screens = useBreakpoint();
   const [isExpanded, setIsExpanded] = useState(false); // <-- State for collapse toggle
   const [isExpand, setIsExpand] = useState(false); // <-- State for collapse toggle
+
+  const [imageLoading, setImageLoading] = useState(true);
 
 const titless = [
     {
@@ -65,10 +67,23 @@ No refunds for cancellations made within 7 days of check in.</p> </Flex>
     <div>
       {/* --- Top Cards --- */}
       <div style={{ marginTop: '10%', marginBottom: '10%', paddingLeft: '13%', paddingRight: '13%' }}>
-        <Flex  gap={'10%'} justify='center' vertical={!screens.lg}>
+        <Flex  gap={'5%'} justify='center' vertical={!screens.lg}>
           {titless.map((i) => (
             <Flex vertical align='center' >
-              <img className={ screens.lg ?'Imagee':'imagee2'} src={i.image2} alt="Resort" />
+
+              {imageLoading && (<Skeleton.Image
+        active
+      className={ screens.lg ?'Imagee':'skeleton1'}
+
+        style={{
+          width: "100%",
+          height:"100%", 
+                       
+        }}/>)}
+              
+              <img className={ screens.lg ?'Imagee':'imagee2'} src={i.image2} alt="Resort"  style={{ display: imageLoading ? "none" : "block" }}
+    onLoad={() => setImageLoading(false)}
+    onError={() => setImageLoading(false)}/>
               <p style={{fontWeight:'bold'}}>{i.feature}</p>
               <p>{i.DescriptionT}</p>
             </Flex>

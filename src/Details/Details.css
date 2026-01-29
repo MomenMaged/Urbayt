@@ -10,3 +10,8 @@
   /* center vertically (default) */
 }
 
+.ant-skeleton.ant-skeleton-element {
+    display: inline-block;
+    width: 100%;
+}
+

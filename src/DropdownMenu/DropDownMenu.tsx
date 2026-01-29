@@ -35,7 +35,11 @@ const items: MenuItem[] = [
       {
         key: "11",
         label: (
-          <a href="https://airbnb.com/h/uurbanhive">
+          <a  onClick={()=>{window.open(
+                              "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425",
+                              "_blank",
+                              "noopener,noreferrer",
+                            );}}>
             <span
               style={{
                 display: "flex",

@@ -1,17 +1,20 @@
 import "./Body.css";
-import { Flex, Grid } from "antd";
+import { Flex, Grid, Skeleton } from "antd";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 import Details from "../Details/Details";
 import Caro from "../Caro/Caro";
 import Emaill from "../Emaill/Emaill";
 import FAQ from "../FAQ/FAQ";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const { useBreakpoint } = Grid;
 
 const Body = () => {
 
   const screens = useBreakpoint();
+
+  const [videoLoading, setVideoLoading] = useState(true);
 
   return (
     <div>
@@ -38,14 +41,34 @@ const Body = () => {
             <DropDownMenu />
           </Flex>
 
+{videoLoading &&
+(
+<Skeleton.Image
+        active
+
+        style={{
+          width: "100%",
+          height: "30vh",
+              marginTop:'3%'   
+        }}
+        
+      />
+
+)}
+
           <video
-            style={{ marginTop: "3%" }}
+            
             className="videoo"
             width="90%"
             autoPlay
             muted
             loop
             playsInline
+            style={{ display: videoLoading ? "none" : "block" , marginTop: "3%"  }}
+    onLoadedData={() => setVideoLoading(false)}
+    onError={() => setVideoLoading(false)}
+    
+            
           >
             <source
               src="/458700_Finance_District_3840x2160.mp4"

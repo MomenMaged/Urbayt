@@ -1,11 +1,14 @@
-import { Collapse, CollapseProps, ConfigProvider, Flex, Grid } from 'antd'
+import { Collapse, CollapseProps, ConfigProvider, Flex, Grid, Skeleton } from 'antd'
 import './Details.css'
+import { useState } from 'react';
 
 
 const { useBreakpoint } = Grid;
 const Details = () => {
 
     const screens = useBreakpoint();
+
+    const [imageLoading, setImageLoading] = useState(true);
 
 const items: CollapseProps['items'] = [
   {
@@ -53,11 +56,36 @@ const onChange = (key: string | string[]) => {
               justify="space-between"
               style={{ width: "80%", marginTop: "20vh", marginLeft: "10%" }}
             >
+
+
+
               <div className="Image">
+
+                {imageLoading && (
+    
+   
+      <Skeleton.Image
+        active
+
+        style={{
+          width: "100%",
+          height:"80vh", 
+                       
+        }}
+        
+      />
+     
+      
+    
+  )}
               <img
                 className="second-image"
                 alt="cover"
                 src="/Details.jpeg"
+
+                style={{ display: imageLoading ? "none" : "block" }}
+    onLoad={() => setImageLoading(false)}
+    onError={() => setImageLoading(false)}
               ></img>
             </div>
               
@@ -76,10 +104,31 @@ const onChange = (key: string | string[]) => {
               vertical
               style={{ width: "80%", marginLeft: "10%", marginTop: "10vh"  }}
             >
+
+              {imageLoading && (
+    
+   
+      <Skeleton.Image
+        active
+
+        style={{
+          width: "100%",
+          height:"45vh", 
+                       
+        }}
+        
+      />
+     
+      
+    
+  )}
               <img
                 className="second-image"
                 alt="cover"
                 src="/Details.jpeg"
+                style={{ display: imageLoading ? "none" : "block" }}
+    onLoad={() => setImageLoading(false)}
+    onError={() => setImageLoading(false)}
               ></img>
               <Flex vertical >
                  <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>

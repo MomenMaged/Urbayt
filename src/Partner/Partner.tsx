@@ -1,15 +1,18 @@
 import "./Partner.css";
-import { Button, Col, ConfigProvider, Flex, Grid, Row } from "antd";
+import { Button, Col, ConfigProvider, Flex, Grid, Row, Skeleton } from "antd";
 import Emaill from "../Emaill/Emaill";
 import { FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Partner = () => {
   const { useBreakpoint } = Grid;
-const navigate = useNavigate();
+
   const screens = useBreakpoint();
   console.warn({ screens });
+
+   const [imageLoading, setImageLoading] = useState(true);
 
   return (
     <ConfigProvider
@@ -40,12 +43,27 @@ const navigate = useNavigate();
         {screens.lg ? (
           <div className="background-container">
             {/* Background image */}
+
+            {imageLoading && (<Skeleton.Image
+                active
+                className="background-image"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                }}
+              />)}
+
+
             <img
               src={
                 "/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
               }
               alt="Background"
               className="background-image"
+
+               style={{ display: imageLoading ? "none" : "block" }}
+                onLoad={() => setImageLoading(false)}
+                onError={() => setImageLoading(false)}
             />
 
             {/* Optional dark overlay */}
@@ -69,7 +87,11 @@ const navigate = useNavigate();
                     <h3 style={{ color:'#E2CAA2', paddingLeft: "30px", paddingRight: "30px" }}>
                      Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                     </h3>
-                    <Button onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} size="large">
+                    <Button onClick={()=>{window.open(
+                              "https://forms.gle/vUgRo5f4PqF7GoRAA",
+                              "_blank",
+                              "noopener,noreferrer",
+                            );}} style={{ color: "white" }} size="large">
                       Partner with UrbanHive
                     </Button>
                   </Flex>
@@ -82,12 +104,25 @@ const navigate = useNavigate();
           <Flex vertical>
             <div className="background-container">
               {/* Background image */}
+
+              {imageLoading && ( <Skeleton.Image
+                  active
+                  className="background-image"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />)}
               <img
                 src={
                   "/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
                 }
                 alt="Background"
                 className="background-image"
+
+                style={{ display: imageLoading ? "none" : "block" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
               />
 
               {/* Optional dark overlay */}
@@ -114,7 +149,11 @@ const navigate = useNavigate();
                 <h3 style={{color:'white' , marginBottom: "7%" }}>
                   Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                 </h3>
-                <button className="partner-button" onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} >
+                <button className="partner-button" onClick={()=>{window.open(
+                              "https://forms.gle/vUgRo5f4PqF7GoRAA",
+                              "_blank",
+                              "noopener,noreferrer",
+                            );}} style={{ color: "white" }} >
                   Partner with UrbanHive
                 </button>
                 
@@ -125,12 +164,25 @@ const navigate = useNavigate();
           <div>
             <div className="background-container" style={{ height: "55vh" }}>
               {/* Background image */}
+{imageLoading && (<Skeleton.Image
+                  active
+                  className="background-image"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />)}
+              
               <img
                 src={
                   "/WhatsApp Image 2025-12-06 at 9.01.13 AM.jpeg"
                 }
                 alt="Background"
                 className="background-image"
+
+                 style={{ display: imageLoading ? "none" : "block" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
               />
 
               {/* Optional dark overlay */}
@@ -158,7 +210,11 @@ const navigate = useNavigate();
                 <h3 style={{color:'white' , marginBottom: "7%" }}>
                   Developer, landlord, or investor? Let’s grow the UrbanHive experience together.
                 </h3>
-                <button className="partner-button" onClick={()=>{navigate('/ContactUs')}} style={{ color: "white" }} >
+                <button className="partner-button" onClick={()=>{window.open(
+                              "https://forms.gle/vUgRo5f4PqF7GoRAA",
+                              "_blank",
+                              "noopener,noreferrer",
+                            );}} style={{ color: "white" }} >
                   Partner with UrbanHive
                 </button>
               </Flex>
@@ -278,11 +334,24 @@ const navigate = useNavigate();
                 </Flex>
 
                 <div style={{ width: "50%" }}>
+{imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "50vh",
+                  }}
+                />)}
+
                   <img
-                    style={{ height: "100%", borderRadius: "20px" }}
+                    
                     className="second-image"
                     alt="cover"
                     src="/Join_our_hive.jpeg"
+style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
+
                   ></img>
                 </div>
               </Flex>
@@ -375,11 +444,25 @@ const navigate = useNavigate();
                 </div>
 
                 <div style={{ width: "80%" }}>
+
+                  {imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "60vh",
+                  }}
+                />)}
+
+
                   <img
-                    style={{ height: "100%", borderRadius: "20px" }}
+                    
                     className="second-image"
                     alt="cover"
                     src="/Join_our_hive.jpeg"
+                    style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                   ></img>
                 </div>
               </Flex>
@@ -421,10 +504,22 @@ const navigate = useNavigate();
                 justify="center"
               >
                 <Flex style={{ width: "30%" }} vertical align="center">
+                  {imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "20vh",
+                  }}
+                />)}
+
                   <img
                     width={"100%"}
                     src="/Money.png"
                     alt="Resort"
+                     style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                   />
                   <p style={{  fontSize: "24px", fontWeight: "bold", color:'white' }}>
                     Boost Your Earnings
@@ -434,10 +529,23 @@ const navigate = useNavigate();
                   </p>
                 </Flex>
                 <Flex style={{ width: "30%" }} vertical align="center">
+
+                  {imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "20vh",
+                  }}
+                />)}
+
                   <img
                     width={"100%"}
                     src="/second.png"
                     alt="Resort"
+                    style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                   />
                   <p style={{  fontSize: "24px", fontWeight: "bold", color:'white' }}>
                     We Handle It All
@@ -447,10 +555,23 @@ const navigate = useNavigate();
                   </p>
                 </Flex>
                 <Flex style={{ maxWidth: "30%" }} vertical align="center">
+{imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "20vh",
+                    
+                  }}
+                />)}
+
                   <img
                     width={"100%"}
                     src="/first.png"
                     alt="Resort"
+                     style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                   />
                   <p style={{ fontSize: "24px", fontWeight: "bold", color:'white' }}>
                     Active Management & Monitoring
@@ -489,10 +610,23 @@ const navigate = useNavigate();
                   justify="center"
                 >
                   <Flex style={{ width: "100%" }} vertical align="center">
+{imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "20vh",
+                    
+                  }}
+                />)}
+
                     <img
                       width={"60%"}
                       src="/Money.png"
                       alt="Resort"
+                      style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                     />
                     <p style={{ color:'white',fontSize: "24px", fontWeight: "bold" }}>
 Boost Your Earnings</p>
@@ -501,10 +635,23 @@ Boost Your Earnings</p>
                     </p>
                   </Flex>
                   <Flex style={{ width: "100%" }} vertical align="center">
+
+                    {imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "20vh",
+                    
+                  }}
+                />)}
                     <img
                       width={"60%"}
                       src="/second.png"
                       alt="Resort"
+                       style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                     />
                     <p style={{  color:'white',fontSize: "24px", fontWeight: "bold" }}>We Handle It All</p>
                     <p style={{ fontSize: "20px", color:'white' }}>
@@ -512,10 +659,23 @@ Boost Your Earnings</p>
                     </p>
                   </Flex>
                   <Flex style={{ maxWidth: "100%" }} vertical align="center">
+
+                    {imageLoading && (<Skeleton.Image
+                  active
+                  className="second-image"
+                  style={{
+                    width: "100%",
+                    height: "20vh",
+                    
+                  }}
+                />)}
                     <img
                       width={"60%"}
                       src="/first.png"
                       alt="Resort"
+                      style={{ display: imageLoading ? "none" : "block" , height: "100%", borderRadius: "20px" }}
+                  onLoad={() => setImageLoading(false)}
+                  onError={() => setImageLoading(false)}
                     />
                     <p style={{textAlign:'center', color:'white', fontSize: "24px", fontWeight: "bold" }}>
 Active Management & Monitoring</p>
