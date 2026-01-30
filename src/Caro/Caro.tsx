@@ -40,17 +40,17 @@ const Caro = () => {
     <Carousel
       className="custom-carousel"
       dotPosition="bottom"
-      autoplay
+     
       autoplaySpeed={2000}
     >
       {carouselImages.map((item, index) => (
         <Content key={index} style={{ padding: 0, margin: 0 }}>
           <Flex gap="middle" align="center" vertical>
-            <div className="CoverImg">
+            <div className="CoverImg3">
               {imageLoading && (
                 <Skeleton.Image
                   active
-                  className="cover-image"
+                  className="cover-image3"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -58,13 +58,33 @@ const Caro = () => {
                 />
               )}
               <img
-                className="cover-image"
+                className="cover-image3"
                 alt={item.alt}
                 src={item.src}
                 style={{ display: imageLoading ? "none" : "block" }}
                 onLoad={() => setImageLoading(false)}
                 onError={() => setImageLoading(false)}
               />
+
+               {/* <video
+            
+            className="cover-image"
+            width="90%"
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ display: imageLoading? "none" : "block" , marginTop: "0%"  }}
+    onLoadedData={() => setImageLoading(false)}
+    onError={() => setImageLoading(false)}
+    
+            
+          >
+            <source
+              src="/458700_Finance_District_3840x2160.mp4"
+              type="video/mp4"
+            />
+          </video> */}
             </div>
           </Flex>
         </Content>

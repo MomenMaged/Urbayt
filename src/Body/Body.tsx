@@ -25,7 +25,47 @@ const Body = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <Caro />
+        
+         <div className="CoverImg">
+              {videoLoading && (
+                <Skeleton.Image
+                  active
+                  className="cover-image"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
+              )}
+              {/* <img
+                className="cover-image"
+                alt={item.alt}
+                src={item.src}
+                style={{ display: imageLoading ? "none" : "block" }}
+                onLoad={() => setImageLoading(false)}
+                onError={() => setImageLoading(false)}
+              /> */}
+
+               <video
+            
+            className="cover-image"
+            width="90%"
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ display: videoLoading? "none" : "block" , marginTop: "0%"  }}
+    onLoadedData={() => setVideoLoading(false)}
+    onError={() => setVideoLoading(false)}
+    
+            
+          >
+            <source
+              src="/458700_Finance_District_3840x2160.mp4"
+              type="video/mp4"
+            />
+          </video>
+            </div>
       </motion.div>
 
       {/* Hero Section */}
@@ -35,13 +75,17 @@ const Body = () => {
         viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <Flex align="center" vertical className="space">
+        <Flex  vertical className="space">
           <Flex align="center" vertical className="space">
             <h1 className="titlee">STAY CONNECTED. STAY COMFORTABLE.</h1>
             <DropDownMenu />
+            
           </Flex>
+          <Caro></Caro>
+       
+       
 
-{videoLoading &&
+{/* {videoLoading &&
 (
 <Skeleton.Image
         active
@@ -74,7 +118,9 @@ const Body = () => {
               src="/458700_Finance_District_3840x2160.mp4"
               type="video/mp4"
             />
-          </video>
+          </video> */}
+
+
           
 
           {screens.lg ? (
@@ -140,6 +186,7 @@ const Body = () => {
             </div>
           )}
         </Flex>
+        
 
       </motion.div>
 
