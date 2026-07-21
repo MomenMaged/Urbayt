@@ -33,6 +33,7 @@ const Cards = () => {
       imgSrc1: "/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif",
       imgSrc2: "/Bedroom_madintay.avif",
       title: "Modern Cozy Garden View @ Madinaty",
+      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
       price: "1750 EGP / Night",
       Availability: "Available now",
       Bedrooms: "2",
@@ -42,9 +43,23 @@ const Cards = () => {
     },
     {
       Id: "2",
+      imgSrc1: "/Sokhna_comming_soon.jpeg",
+      imgSrc2: "/Sokhna_2.jpeg",
+      title: "Sokhna Blumar",
+      link: "https://www.airbnb.ae/h/urbanhive-blumar-3",
+      price: "89,000,000",
+      Availability: "Available now",
+      Bedrooms: "3",
+      Bathrooms: "2",
+      Max_guests: "6",
+      Area: "150 SQM",
+    },
+    {
+      Id: "3",
       imgSrc1: "/CFC_2.jpeg",
       imgSrc2: "/CFC_3.jpeg",
       title: "Cairo Festival City",
+      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
       price: "89,000,000",
       Availability: "Not Available",
       Bedrooms: "2",
@@ -53,22 +68,11 @@ const Cards = () => {
       Area: "140 SQM",
     },
     {
-      Id: "3",
-      imgSrc1: "/Sokhna_comming_soon.jpeg",
-      imgSrc2: "/Sokhna_2.jpeg",
-      title: "Sokhna Blumar",
-      price: "89,000,000",
-      Availability: "Not Available",
-      Bedrooms: "3",
-      Bathrooms: "2",
-      Max_guests: "6",
-      Area: "150 SQM",
-    },
-    {
       Id: "4",
       imgSrc1: "/Mountain_view.jpeg",
       imgSrc2: "/Mountain_view_2.jpeg",
       title: "Mountain View - Hyde Park ",
+      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
       price: "89,000,000",
       Availability: "Not Available",
       Bedrooms: "2",
@@ -81,6 +85,7 @@ const Cards = () => {
       imgSrc1: "/Comming_soon1.jpeg",
       imgSrc2: "/Comming_soon2.jpeg",
       title: "Coming soon",
+      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
       price: "89,000,000",
       Availability: "Not Available",
       Bedrooms: "2",
@@ -195,13 +200,14 @@ const Cards = () => {
                         >
                           {item.price}
                         </p>
+                        
                         <Button
                           disabled={item.Availability === "Not Available"}
                           style={{ color: "white" }}
                           onClick={(e) => {
                             e.stopPropagation();
                             window.open(
-                              "https://www.airbnb.com/",
+                              item.link,
                               "_blank",
                               "noopener,noreferrer",
                             );
@@ -211,6 +217,7 @@ const Cards = () => {
                             ? "Coming soon!"
                             : "Book now"}
                         </Button>
+
                       </Flex>
                       <p className="available">{item.Availability}</p>
                     </div>

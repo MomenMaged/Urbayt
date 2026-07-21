@@ -4,7 +4,7 @@ import "./Whatsapp.css";
 import { motion } from "framer-motion";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "01065399999960600"; // Replace with your number
+  const phoneNumber = "+201299926170"; // Replace with your number
   const message = "Hello! I’d like to know more about your services."; // optional message
 
   const handleClick = () => {
