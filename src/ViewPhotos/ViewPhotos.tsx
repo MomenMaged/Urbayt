@@ -44,15 +44,15 @@ const ViewPhotos: React.FC<ImageModalProps> = ({open ,onClose}) => {
         >
           <Image
             width={'30%'}
-            src="/Madenaty_4.avif"
+            src="/AS-URBAN-HIVE-MADINATY-1.jpg"
           />
           <Image
             width={'30%'}
-            src="/Madenaty_5.avif"
+            src="/AS-URBAN-HIVE-MADINATY-2.jpg"
           />
           <Image
             width={'30%'}
-            src="/Madenaty_6.avif"
+            src="/AS-URBAN-HIVE-MADINATY-4.jpg"
           />
         </div>
         
@@ -73,15 +73,15 @@ const ViewPhotos: React.FC<ImageModalProps> = ({open ,onClose}) => {
           >
             <Image
               width={'30%'}
-              src="/Madenaty_7.avif"
+              src="/AS-URBAN-HIVE-MADINATY-5.jpg"
             />
             <Image
               width={'30%'}
-              src="/Madenaty_8.avif"
+              src="/AS-URBAN-HIVE-MADINATY-10.jpg"
             />
             <Image
               width={'30%'}
-              src="/Madenaty_9.avif"
+              src="/AS-URBAN-HIVE-MADINATY-7.jpg"
             />
           </div>
         </Image.PreviewGroup>

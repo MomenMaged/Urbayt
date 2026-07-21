@@ -508,7 +508,7 @@ const Listing = () => {
                     <img
                       className="second-image"
                       alt="cover"
-                      src="/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif"
+                      src="/AS-URBAN-HIVE-MADINATY-8.jpg"
                       style={{ display: imageLoading ? "none" : "block" }}
                       onLoad={() => setImageLoading(false)}
                       onError={() => setImageLoading(false)}
@@ -628,7 +628,7 @@ const Listing = () => {
                   <img
                     className="second-image"
                     alt="cover"
-                    src="/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif"
+                    src="/AS-URBAN-HIVE-MADINATY-8.jpg"
  style={{ display: imageLoading ? "none" : "block" }}
                     onLoad={() => setImageLoading(false)}
                     onError={() => setImageLoading(false)}

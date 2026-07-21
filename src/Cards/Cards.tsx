@@ -30,8 +30,8 @@ const Cards = () => {
   const cards = [
     {
       Id: "1",
-      imgSrc1: "/b56aae16-2d17-41b3-969f-0a1e4082d0e1.avif",
-      imgSrc2: "/Bedroom_madintay.avif",
+      imgSrc1: "/AS-URBAN-HIVE-MADINATY-6.jpg",
+      imgSrc2: "/AS-URBAN-HIVE-MADINATY-1.jpg",
       title: "Modern Cozy Garden View @ Madinaty",
       link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
       price: "1750 EGP / Night",
@@ -164,6 +164,7 @@ const Cards = () => {
                             draggable={false}
                             alt="example"
                             src={item.imgSrc1}
+                           
                           />
                           <img
                             onClick={() => {
