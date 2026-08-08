@@ -13,6 +13,7 @@ import WhatsAppButton from "./Whatsapp/Whatsapp";
 
 import Coming_soon from "./Coming_soon/Coming_soon";
 import { AnimatePresence, motion } from "framer-motion";
+import Listing_2 from "./Listing_2/Listing_2";
 
 
 const App = () => {
@@ -40,7 +41,7 @@ const App = () => {
             <Route path="/partner" element={<Partner />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/cfc" element={<Coming_soon />} />
-            <Route path="/sokhna" element={<Coming_soon />} />
+            <Route path="/sokhna" element={<Listing_2/>} />
           </Routes>
         </motion.div>
       </AnimatePresence>

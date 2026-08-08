@@ -35,13 +35,25 @@ const screens = useBreakpoint();
 
       <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
         <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01299926170</p>
 <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urban-hive.co</p>
       <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled>  Mountain View iCity - New Cairo</p>
 </Flex>
 <Flex gap={10}>
-      <FacebookFilled style={{fontSize:'28px' , color:'white'}}/>
-      <InstagramFilled style={{fontSize:'28px' , color:'white'}} />
+      <FacebookFilled onClick={() => {
+                      window.open(
+                        "https://www.facebook.com/share/195sHyD9C5/",
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
+                    }} style={{fontSize:'28px' , color:'white'}}/>
+      <InstagramFilled onClick={() => {
+                      window.open(
+                        "https://www.instagram.com/uurbanhive?igsh=a3FxNTZ4bnczMnY=",
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
+                    }} style={{fontSize:'28px' , color:'white'}} />
       <WhatsAppOutlined style={{fontSize:'28px' , color:'white'}}></WhatsAppOutlined>
       </Flex>
       </Flex>
@@ -53,13 +65,25 @@ const screens = useBreakpoint();
       
 <Flex align="center" vertical={!screens.lg} gap={40} style={{ width:'100%',paddingTop:'1.25rem',paddingBottom:'1.25rem',paddingLeft:'1.25rem',paddingRight:'2rem',  marginTop:'3%'  }}>
         <Flex vertical={!screens.lg || !screens.md} align="center" gap={'5%'} className={ screens.lg? "fasel2" : "fasel3"} style={{width:'100%'}}>
-<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01065360600</p>
+<p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <PhoneOutlined></PhoneOutlined> 01299926170</p>
 <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <MailOutlined></MailOutlined> info@urban-hive.co</p>
       <p style={{fontSize:'16px' , fontFamily:'sans-serif' , color:'white'}}> <EnvironmentFilled></EnvironmentFilled>  Mountain View iCity - New Cairo</p>
 </Flex>
 <Flex gap={10}>
-      <FacebookFilled style={{fontSize:'28px' , color:'white'}}/>
-      <InstagramFilled style={{fontSize:'28px' , color:'white'}} />
+      <FacebookFilled onClick={() => {
+                      window.open(
+                        "https://www.facebook.com/share/195sHyD9C5/",
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
+                    }} style={{fontSize:'28px' , color:'white'}}/>
+      <InstagramFilled onClick={() => {
+                      window.open(
+                        "https://www.instagram.com/uurbanhive?igsh=a3FxNTZ4bnczMnY=",
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
+                    }} style={{fontSize:'28px' , color:'white'}} />
       <WhatsAppOutlined style={{fontSize:'28px' , color:'white'}}></WhatsAppOutlined>
       </Flex>
       </Flex>
