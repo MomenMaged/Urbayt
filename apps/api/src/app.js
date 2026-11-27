@@ -29,6 +29,11 @@ export function createApp() {
   );
   app.use(express.json({ limit: "200kb" }));
 
+  // Opening the API's address in a browser shows that it's up.
+  app.get("/", (req, res) => {
+    res.json({ name: "Urban Hive API", status: "ok", health: "/api/health" });
+  });
+
   app.use("/api", apiRoutes);
 
   app.use(notFoundHandler);
