@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 import Details from "../Details/Details";
@@ -17,6 +17,8 @@ const Body = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
+  // Visitors who turned on "reduce motion" see the still poster instead of the video.
+  const reduceMotion = useReducedMotion();
 
   // Parallax: the video drifts slower than the page and the copy fades out.
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -33,18 +35,24 @@ const Body = () => {
     <div>
       <section ref={heroRef} className="uh-hero">
         <motion.div className="uh-hero__media" style={{ y: videoY }}>
-          <img src="/home_page.jpeg" alt="" aria-hidden className="uh-hero__poster" />
-          <video
-            className={`uh-hero__video ${videoReady ? "is-ready" : ""}`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onLoadedData={() => setVideoReady(true)}
-          >
-            <source src="/458700_Finance_District_3840x2160.mp4" type="video/mp4" />
-          </video>
+          {/* The video's first frame, shown instantly while the video loads. */}
+          <img src="/videos/hero-living-room-poster.webp" alt="" aria-hidden className="uh-hero__poster" />
+          {!reduceMotion && (
+            <video
+              className={`uh-hero__video ${videoReady ? "is-ready" : ""}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/videos/hero-living-room-poster.webp"
+              onLoadedData={() => setVideoReady(true)}
+            >
+              {/* Phones get the lighter 720p file (0.7 MB), larger screens 1080p (2.3 MB). */}
+              <source src="/videos/hero-living-room-720.mp4" type="video/mp4" media="(max-width: 768px)" />
+              <source src="/videos/hero-living-room-1080.mp4" type="video/mp4" />
+            </video>
+          )}
         </motion.div>
         <div className="uh-hero__overlay" />
 
