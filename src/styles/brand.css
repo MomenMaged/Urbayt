@@ -1,0 +1,426 @@
+/*
+ * UrbanHive design tokens and shared building blocks.
+ * The brand colours are fixed; everything else (spacing, radius, motion)
+ * is defined here so pages stay consistent.
+ */
+:root {
+  --uh-navy: #133848;
+  --uh-gold: #CE8A39;
+  --uh-sand: #E2CAA2;
+  --uh-white: #ffffff;
+  --uh-ink: #292A2B;
+
+  /* Same colours at lower opacity, for overlays, borders and shadows. */
+  --uh-navy-90: rgba(19, 56, 72, 0.9);
+  --uh-navy-60: rgba(19, 56, 72, 0.6);
+  --uh-navy-15: rgba(19, 56, 72, 0.15);
+  --uh-gold-25: rgba(206, 138, 57, 0.25);
+  --uh-white-15: rgba(255, 255, 255, 0.15);
+
+  --uh-radius-sm: 10px;
+  --uh-radius: 18px;
+  --uh-radius-lg: 28px;
+  --uh-shadow: 0 20px 45px -22px rgba(19, 56, 72, 0.55);
+  --uh-shadow-lift: 0 30px 60px -25px rgba(19, 56, 72, 0.6);
+  --uh-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --uh-header-h: 108px;
+  --uh-container: 1240px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--uh-gold);
+  color: var(--uh-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--uh-gold);
+  outline-offset: 3px;
+}
+
+.uh-public {
+  padding-top: var(--uh-header-h);
+  color: var(--uh-ink);
+}
+
+.uh-public a {
+  text-decoration: none;
+}
+
+.uh-container {
+  width: min(var(--uh-container), 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.uh-section {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography                                                          */
+/* ------------------------------------------------------------------ */
+
+.uh-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--uh-gold);
+}
+
+.uh-eyebrow::before {
+  content: "";
+  width: 2.2rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.uh-title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--uh-navy);
+}
+
+.uh-title--light {
+  color: var(--uh-white);
+}
+
+.uh-title--gold {
+  color: var(--uh-gold);
+}
+
+.uh-lead {
+  margin: 0;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.75;
+}
+
+/* ------------------------------------------------------------------ */
+/* Buttons                                                             */
+/* ------------------------------------------------------------------ */
+
+.uh-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.7rem;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font: 700 0.85rem/1 'Circe', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.35s var(--uh-ease),
+    border-color 0.35s var(--uh-ease),
+    transform 0.35s var(--uh-ease),
+    box-shadow 0.35s var(--uh-ease);
+}
+
+/* Fill that sweeps in from the left on hover. */
+.uh-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--uh-ease);
+}
+
+.uh-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.uh-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--uh-shadow);
+}
+
+.uh-btn:active {
+  transform: translateY(0);
+}
+
+.uh-btn svg {
+  transition: transform 0.35s var(--uh-ease);
+}
+
+.uh-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.uh-btn--primary {
+  background: var(--uh-navy);
+  color: var(--uh-white);
+}
+
+.uh-btn--primary::before {
+  background: var(--uh-gold);
+}
+
+.uh-btn--gold {
+  background: var(--uh-gold);
+  color: var(--uh-white);
+}
+
+.uh-btn--gold::before {
+  background: var(--uh-navy);
+}
+
+.uh-btn--ghost {
+  background: transparent;
+  color: var(--uh-white);
+  border-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.uh-btn--ghost::before {
+  background: var(--uh-white);
+}
+
+.uh-btn--ghost:hover {
+  color: var(--uh-navy);
+  border-color: var(--uh-white);
+}
+
+.uh-btn--outline {
+  background: transparent;
+  color: var(--uh-navy);
+  border-color: var(--uh-navy);
+}
+
+.uh-btn--outline::before {
+  background: var(--uh-navy);
+}
+
+.uh-btn--outline:hover {
+  color: var(--uh-white);
+}
+
+.uh-btn--block {
+  width: 100%;
+}
+
+.uh-btn:disabled,
+.uh-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+.uh-btn:disabled::before,
+.uh-btn[aria-disabled="true"]::before {
+  display: none;
+}
+
+.uh-link {
+  color: var(--uh-navy);
+  font-weight: 700;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  background-image: linear-gradient(var(--uh-gold), var(--uh-gold));
+  background-size: 0 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--uh-ease), color 0.35s var(--uh-ease);
+}
+
+.uh-link:hover {
+  color: var(--uh-gold);
+  background-size: 100% 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Images                                                              */
+/* ------------------------------------------------------------------ */
+
+.uh-img {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    100deg,
+    rgba(19, 56, 72, 0.08) 20%,
+    rgba(255, 255, 255, 0.35) 40%,
+    rgba(19, 56, 72, 0.08) 60%
+  );
+  background-size: 220% 100%;
+  animation: uh-shimmer 1.4s linear infinite;
+}
+
+.uh-img--loaded {
+  animation: none;
+  background: transparent;
+}
+
+.uh-img > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.7s var(--uh-ease), transform 1.2s var(--uh-ease);
+}
+
+.uh-img--loaded > img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes uh-shimmer {
+  from { background-position: 120% 0; }
+  to { background-position: -120% 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Badges                                                              */
+/* ------------------------------------------------------------------ */
+
+.uh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.uh-badge--available {
+  background: var(--uh-white);
+  color: var(--uh-navy);
+}
+
+.uh-badge--available::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--uh-gold);
+  box-shadow: 0 0 0 0 var(--uh-gold);
+  animation: uh-ping 2s infinite;
+}
+
+.uh-badge--soon {
+  background: var(--uh-navy);
+  color: var(--uh-sand);
+}
+
+@keyframes uh-ping {
+  0% { box-shadow: 0 0 0 0 rgba(206, 138, 57, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(206, 138, 57, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(206, 138, 57, 0); }
+}
+
+/* ------------------------------------------------------------------ */
+/* Ant Design collapse, restyled for the brand                         */
+/* ------------------------------------------------------------------ */
+
+.uh-collapse.ant-collapse {
+  border-top: 1.5px solid var(--uh-navy);
+  border-radius: 0;
+}
+
+.uh-collapse.ant-collapse > .ant-collapse-item {
+  border-bottom: 1px solid var(--uh-navy-15);
+}
+
+.uh-collapse.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding: 1.35rem 0.25rem;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--uh-navy);
+  transition: color 0.3s var(--uh-ease), padding 0.3s var(--uh-ease);
+}
+
+.uh-collapse.ant-collapse > .ant-collapse-item > .ant-collapse-header:hover {
+  color: var(--uh-gold);
+  padding-left: 0.75rem;
+}
+
+.uh-collapse .ant-collapse-content-box {
+  padding: 0 0.25rem 1.25rem !important;
+  line-height: 1.7;
+}
+
+.uh-collapse .ant-collapse-content-box ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.uh-collapse .ant-collapse-content-box li::marker {
+  color: var(--uh-gold);
+}
+
+.uh-collapse-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 0.75rem;
+  transition: transform 0.4s var(--uh-ease), background 0.3s, color 0.3s;
+}
+
+.uh-collapse-icon--open {
+  transform: rotate(45deg);
+  background: var(--uh-navy);
+  border-color: var(--uh-navy);
+  color: var(--uh-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Not-found page */
+.uh-not-found {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding-block: clamp(5rem, 15vh, 9rem);
+  text-align: center;
+}
+
+.uh-not-found img {
+  width: 64px;
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+
+.uh-not-found .uh-btn {
+  margin-top: 1.5rem;
+}

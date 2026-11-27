@@ -1,50 +1,176 @@
+/* ------------------------------- Hero ------------------------------- */
 
-
-.space{
-margin-top: 30px;
-
-
-}
-.spacee{
-color: white;
-background-color: #133848;
-height: 65vh;
-width: 100%;
-margin-top: 3%;
-
-}
-.spaceee{
-color: white;
-background-color: #133848;
-padding-bottom: 5%;
-width: 100%;
-margin-top: 5%;
-
-}
-.videoo{
-margin-top: 5px;
-border-radius: 10%;
-}
-
-.titlee {
-  text-align: center;          /* centers the text itself */
-  overflow-wrap: break-word;   /* breaks long words if needed */
-  max-width: 90%;              /* prevents edge overflow */
-  margin: 0 auto;              /* keeps it centered in the container */
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  color: #133848; /* responsive font size */
-}
-
-.CoverImg {
-  width: 100%;
-  height: 60vh;
+.uh-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 560px;
+  height: calc(100vh - var(--uh-header-h));
   overflow: hidden;
+  background: var(--uh-navy);
 }
 
-.cover-image {
+.uh-hero__media {
+  position: absolute;
+  inset: -2% 0 -2% 0;
+}
+
+.uh-hero__poster,
+.uh-hero__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;        /* fills the box, cropping overflow */
-  object-position: 50% 50%; /* center vertically (default) */
+  object-fit: cover;
 }
 
+.uh-hero__video {
+  opacity: 0;
+  transition: opacity 1.2s var(--uh-ease);
+}
+
+.uh-hero__video.is-ready {
+  opacity: 1;
+}
+
+.uh-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(19, 56, 72, 0.92) 0%, rgba(19, 56, 72, 0.35) 45%, rgba(19, 56, 72, 0.15) 100%);
+}
+
+.uh-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(var(--uh-container), 100% - 2.5rem);
+  margin: 0 auto;
+  padding-bottom: clamp(4.5rem, 11vh, 7rem);
+  color: var(--uh-white);
+}
+
+.uh-hero__title {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.28em;
+  max-width: 15ch;
+  margin: 0 0 2rem;
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.uh-hero__content .uh-eyebrow {
+  color: var(--uh-sand);
+}
+
+/* Each word slides up from behind its own mask. */
+.uh-hero__word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.uh-hero__word > span {
+  display: inline-block;
+}
+
+.uh-hero__word:nth-child(2) > span,
+.uh-hero__word:nth-child(4) > span {
+  color: var(--uh-sand);
+}
+
+.uh-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.uh-hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 1;
+  width: 26px;
+  height: 42px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transform: translateX(-50%);
+}
+
+.uh-hero__scroll span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: var(--uh-gold);
+  animation: uh-scroll-cue 1.8s var(--uh-ease) infinite;
+}
+
+@keyframes uh-scroll-cue {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .uh-hero__scroll {
+    display: none;
+  }
+}
+
+/* ------------------------- Book now + gallery ------------------------ */
+
+.uh-home-intro {
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.uh-home-intro__gallery {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ------------------------------- About ------------------------------- */
+
+.uh-about {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(4rem, 9vw, 7rem);
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+  background: var(--uh-navy);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.uh-about__mark {
+  position: absolute;
+  left: -70px;
+  bottom: -90px;
+  width: 380px;
+  opacity: 0.05;
+  filter: invert(1);
+  pointer-events: none;
+}
+
+.uh-about__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.uh-about .uh-title {
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .uh-about__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}

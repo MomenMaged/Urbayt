@@ -1,0 +1,259 @@
+.uh-admin {
+  min-height: 100vh;
+}
+
+.uh-admin-loading {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.uh-admin__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 64px;
+  padding: 0 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.uh-admin__brand img {
+  height: 20px;
+}
+
+.uh-admin__brand span {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #CE8A39;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.uh-admin .ant-layout-sider .ant-menu {
+  margin-top: 0.75rem;
+}
+
+.uh-admin__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid rgba(19, 56, 72, 0.08);
+}
+
+.uh-admin__user {
+  color: rgba(19, 56, 72, 0.7);
+}
+
+.uh-admin__content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.75rem clamp(1rem, 3vw, 2.5rem) 4rem;
+}
+
+.uh-admin__page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.uh-admin__page-head h2 {
+  margin: 0 0 0.25rem;
+  color: #133848;
+}
+
+.uh-admin__card {
+  margin-bottom: 24px;
+}
+
+.uh-admin__card .ant-card-head-title {
+  color: #133848;
+}
+
+.uh-admin__sticky {
+  position: sticky;
+  top: 24px;
+}
+
+.uh-admin__side-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.uh-admin__table .ant-table {
+  border-radius: 14px;
+}
+
+.uh-admin__thumb {
+  display: block;
+  width: 72px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.uh-admin__thumb--empty {
+  display: grid;
+  place-items: center;
+  background: #f0e6d6;
+  color: rgba(19, 56, 72, 0.6);
+  font-size: 0.7rem;
+}
+
+.uh-admin__title-link {
+  font-weight: 700;
+  color: #133848;
+}
+
+.uh-admin__muted {
+  color: rgba(19, 56, 72, 0.55);
+  font-size: 0.85rem;
+}
+
+.uh-admin__amenities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.6rem 1rem;
+  width: 100%;
+}
+
+.uh-admin__amenities svg {
+  margin-right: 0.3rem;
+  color: #CE8A39;
+  vertical-align: -2px;
+}
+
+/* ------------------------------ Login ------------------------------- */
+
+.uh-admin-login {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(206, 138, 57, 0.28), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(226, 202, 162, 0.18), transparent 40%),
+    #133848;
+}
+
+.uh-admin-login__box {
+  width: min(420px, 100%);
+}
+
+.uh-admin-login__logo {
+  display: block;
+  height: 30px;
+  margin: 0 auto 1.75rem;
+}
+
+.uh-admin-login__card {
+  padding: 2.25rem;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.55);
+}
+
+.uh-admin-login__card h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+  color: #133848;
+}
+
+.uh-admin-login__card > p {
+  margin: 0 0 1.5rem;
+  color: rgba(19, 56, 72, 0.65);
+}
+
+/* ------------------------------ Photos ------------------------------ */
+
+.uh-photos__hint {
+  margin: 1rem 0 0.5rem;
+}
+
+.uh-photos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.uh-photo {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(19, 56, 72, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  cursor: grab;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
+.uh-photo:hover {
+  box-shadow: 0 10px 24px -14px rgba(19, 56, 72, 0.5);
+}
+
+.uh-photo.is-dragging {
+  opacity: 0.4;
+}
+
+.uh-photo.is-over {
+  border-color: #CE8A39;
+  transform: scale(1.03);
+  box-shadow: 0 0 0 2px #CE8A39;
+}
+
+.uh-photo__img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f0e6d6;
+}
+
+.uh-photo__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uh-photo__cover {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #CE8A39;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.uh-photo__num {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(19, 56, 72, 0.85);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.uh-photo__actions {
+  display: flex;
+  justify-content: space-between;
+}

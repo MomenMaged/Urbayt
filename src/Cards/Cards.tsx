@@ -1,305 +1,85 @@
-import {
-  Button,
-  Card,
-  Carousel,
-  ConfigProvider,
-  Flex,
-  Grid,
-  Skeleton,
-} from "antd";
-import "./Cards.css";
-import { HomeOutlined } from "@ant-design/icons";
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import ListingCard from "../components/ListingCard";
+import { Reveal } from "../components/Motion";
+import { useListings } from "../hooks/usePublicData";
 import Emaill from "../Emaill/Emaill";
 import FAQ from "../FAQ/FAQ";
+import "./Cards.css";
 
-import { useNavigate } from "react-router-dom";
-import { GiBathtub } from "react-icons/gi";
+const FILTERS = [
+  { key: "all", label: "All" },
+  { key: "available", label: "Available now" },
+  { key: "coming_soon", label: "Coming soon" },
+] as const;
 
-import { FaPerson } from "react-icons/fa6";
-import { IoBedOutline } from "react-icons/io5";
-import { motion } from "framer-motion";
-import { useState } from "react";
-
-const { useBreakpoint } = Grid;
+type Filter = (typeof FILTERS)[number]["key"];
 
 const Cards = () => {
-  const [imageLoading, setImageLoading] = useState(true);
-  const navigate = useNavigate();
-  const screens = useBreakpoint();
+  const { listings, loading } = useListings();
+  const [filter, setFilter] = useState<Filter>("all");
 
-  const cards = [
-    {
-      Id: "1",
-      imgSrc1: "/AS-URBAN-HIVE-MADINATY-6.jpg",
-      imgSrc2: "/AS-URBAN-HIVE-MADINATY-1.jpg",
-      title: "Modern Cozy Garden View @ Madinaty",
-      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
-      price: "1750 EGP / Night",
-      Availability: "Available now",
-      Bedrooms: "2",
-      Bathrooms: "1",
-      Max_guests: "4",
-      Area: "79 SQM",
-    },
-    {
-      Id: "2",
-      imgSrc1: "/Sokhna_comming_soon.jpeg",
-      imgSrc2: "/Sokhna_2.jpeg",
-      title: "Sokhna Blumar",
-      link: "https://www.airbnb.ae/h/urbanhive-blumar-3",
-      price: "89,000,000",
-      Availability: "Available now",
-      Bedrooms: "3",
-      Bathrooms: "2",
-      Max_guests: "6",
-      Area: "150 SQM",
-    },
-    {
-      Id: "3",
-      imgSrc1: "/CFC_2.jpeg",
-      imgSrc2: "/CFC_3.jpeg",
-      title: "Cairo Festival City",
-      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
-      price: "89,000,000",
-      Availability: "Not Available",
-      Bedrooms: "2",
-      Bathrooms: "2",
-      Max_guests: "4",
-      Area: "140 SQM",
-    },
-    {
-      Id: "4",
-      imgSrc1: "/Mountain_view.jpeg",
-      imgSrc2: "/Mountain_view_2.jpeg",
-      title: "Mountain View - Hyde Park ",
-      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
-      price: "89,000,000",
-      Availability: "Not Available",
-      Bedrooms: "2",
-      Bathrooms: "2",
-      Max_guests: "4",
-      Area: "145 SQM",
-    },
-    {
-      Id: "5",
-      imgSrc1: "/Comming_soon1.jpeg",
-      imgSrc2: "/Comming_soon2.jpeg",
-      title: "Coming soon",
-      link: "https://www.airbnb.com/rooms/1211501666253889491?guests=1&adults=1&s=67&unique_share_id=d087c953-20cd-4482-b835-261fb787a425&source_impression_id=p3_1784652808_P35BNIQGKhJ3G_4y",
-      price: "89,000,000",
-      Availability: "Not Available",
-      Bedrooms: "2",
-      Bathrooms: "1",
-      Max_guests: "5",
-      Area: "180 CM",
-    },
-  ];
+  const visible = useMemo(
+    () => (filter === "all" ? listings : listings.filter((listing) => listing.status === filter)),
+    [listings, filter],
+  );
 
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Button: {
-            defaultBg: "#133848",
-            defaultHoverBg: "#CE8A39",
-            ghostBg: "transparent",
-            defaultActiveBg: "#CE8A39",
-            defaultHoverBorderColor: "transparent",
-            defaultHoverColor: "transparent",
-            defaultBorderColor: "transparent",
-            colorBgLayout: "black",
-            defaultActiveBorderColor: "transparent",
-            colorBgContainerDisabled: "#133848",
-          },
-        },
-      }}
-    >
-      <div>
-        <Flex vertical>
-          {/* <h2 style={{paddingLeft:'5rem'}}> Number of Listings: {cards.length}</h2> */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Flex
-              wrap
-              align="center"
-              vertical={!screens.lg}
-              style={screens.lg ? { marginLeft: "3%", marginRight: "3%" } : {}}
-              justify="center"
-              gap="3%"
-            >
-              {cards.map((item) => (
-                <Card
-                  id={item.Id}
-                  className="Card_css"
-                  hoverable
-                  style={{ maxWidth: "350px", borderRadius: "10%" }}
-                  cover={
-                    <div className="my_special_car">
-                      {imageLoading && (
-                        <Skeleton.Image
-                          active
-                          style={{
-                            width: "100%",
-                            height: "200px",
-                            borderTopRightRadius: "37px",
-                            borderTopLeftRadius: "37px",
-                          }}
-                        />
-                      )}
-                      <div
-                        style={{ display: imageLoading ? "none" : "block" }}
-                        onLoad={() => setImageLoading(false)}
-                      >
-                        <Carousel arrows dots={false}>
-                          <img
-                            onClick={() => {
-                              if (item.Availability !== "Not Available") {
-                                navigate("/madinaty");
-                              }
-                            }}
-                            draggable={false}
-                            alt="example"
-                            src={item.imgSrc1}
-                           
-                          />
-                          <img
-                            onClick={() => {
-                              if (item.Availability !== "Not Available") {
-                                navigate("/madinaty");
-                              }
-                            }}
-                            draggable={false}
-                            alt="example"
-                            src={item.imgSrc2}
-                          />
-                        </Carousel>
-                      </div>
-                    </div>
-                  }
+    <div>
+      <section className="uh-container uh-listings">
+        <Reveal className="uh-listings__head">
+          <div>
+            <p className="uh-eyebrow">Our listings</p>
+            <h1 className="uh-title">Find your space in the Hive.</h1>
+          </div>
+
+          <div className="uh-filter" role="tablist" aria-label="Filter listings">
+            {FILTERS.map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                role="tab"
+                aria-selected={filter === item.key}
+                className={`uh-filter__item ${filter === item.key ? "is-active" : ""}`}
+                onClick={() => setFilter(item.key)}
+              >
+                {filter === item.key && (
+                  <motion.span
+                    layoutId="uh-filter-pill"
+                    className="uh-filter__pill"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <span className="uh-filter__label">{item.label}</span>
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        <motion.div layout className="uh-card-grid">
+          {loading
+            ? Array.from({ length: 3 }, (_, i) => <div key={i} className="uh-card-skeleton uh-img" />)
+            : visible.map((listing, i) => (
+                <motion.div
+                  key={listing.id}
+                  layout
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Flex
-                    vertical
-                    onClick={() => {
-                      if (item.Availability !== "Not Available") {
-                        navigate("/madinaty");
-                      }
-                    }}
-                  >
-                    <div style={{ height: "100px" }}>
-                      <p className="card_title">{item.title}</p>
-                      <Flex align="center" justify="space-between">
-                        <p
-                          className={`card_title ${
-                            item.Availability === "Not Available"
-                              ? "blur-text"
-                              : ""
-                          }`}
-                        >
-                          {item.price}
-                        </p>
-                        
-                        <Button
-                          disabled={item.Availability === "Not Available"}
-                          style={{ color: "white" }}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(
-                              item.link,
-                              "_blank",
-                              "noopener,noreferrer",
-                            );
-                          }}
-                        >
-                          {item.Availability === "Not Available"
-                            ? "Coming soon!"
-                            : "Book now"}
-                        </Button>
-
-                      </Flex>
-                      <p className="available">{item.Availability}</p>
-                    </div>
-
-                    <Flex
-                      justify="space-between"
-                      wrap
-                      style={{ marginTop: "-25px" }}
-                    >
-                      <Flex
-                        className="para"
-                        gap={3}
-                        align="center"
-                        justify="center"
-                      >
-                        <IoBedOutline />
-                        <p>Bedroom: {item.Bedrooms}</p>
-                      </Flex>
-                      <Flex
-                        className="para"
-                        gap={3}
-                        align="center"
-                        justify="center"
-                      >
-                        <GiBathtub />
-                        <p>Bathroom: {item.Bathrooms}</p>
-                      </Flex>
-                      <Flex
-                        className="para"
-                        gap={3}
-                        align="center"
-                        justify="center"
-                      >
-                        <FaPerson />
-                        <p>Max Guests: {item.Max_guests}</p>
-                      </Flex>
-                      <Flex
-                        className="para"
-                        gap={3}
-                        align="center"
-                        justify="center"
-                      >
-                        <HomeOutlined />
-                        <p>Area: {item.Area}</p>
-                      </Flex>
-                      {/* <p className="para">
-                  <GiBathtub /> {" "}Bathroom: {item.Bathrooms}
-                </p>
-                <p className="para">
-                  <FaPerson /> Max Guests: {item.Max_guests}
-                </p>
-                <p className="para">
-                  <HomeOutlined /> Area: {item.Area}
-                </p> */}
-                    </Flex>
-                  </Flex>
-                </Card>
+                  <ListingCard listing={listing} />
+                </motion.div>
               ))}
-            </Flex>
-          </motion.div>
-        </Flex>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-        >
-          <FAQ></FAQ>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Emaill></Emaill>
-        </motion.div>
-      </div>
-    </ConfigProvider>
+        {!loading && visible.length === 0 && (
+          <p className="uh-listings__empty">No listings here yet — check back soon.</p>
+        )}
+      </section>
+
+      <FAQ />
+      <Emaill />
+    </div>
   );
 };
 

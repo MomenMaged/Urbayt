@@ -1,13 +1,107 @@
-.booknoww {
-    
-          display: "flex";
-          justify-content: center;
-          width: "100%";
-          font-size: "30px";
-          
-        
+.uh-booknow {
+  width: min(var(--uh-container), 100% - 2.5rem);
+  margin: 0 auto;
+  border-top: 1.5px solid var(--uh-navy);
+  border-bottom: 1px solid var(--uh-navy);
 }
-.ant-menu-item:active,
-.ant-menu-submenu-title:active {
-  background-color: transparent !important;
+
+.uh-booknow__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.4rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--uh-navy);
+  font: 800 clamp(1.25rem, 3vw, 1.9rem)/1 'Circe', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: color 0.3s, letter-spacing 0.5s var(--uh-ease);
+}
+
+.uh-booknow__toggle:hover {
+  color: var(--uh-gold);
+  letter-spacing: 0.18em;
+}
+
+.uh-booknow__chevron {
+  font-size: 0.6em;
+  transition: transform 0.5s var(--uh-ease);
+}
+
+.uh-booknow--open .uh-booknow__chevron {
+  transform: rotate(180deg);
+}
+
+.uh-booknow__panel {
+  overflow: hidden;
+}
+
+.uh-booknow__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0 0 1.5rem;
+  list-style: none;
+}
+
+.uh-booknow__item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 0.65rem;
+  border: none;
+  border-radius: var(--uh-radius);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--uh-navy);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.35s, transform 0.35s var(--uh-ease), box-shadow 0.35s;
+}
+
+.uh-booknow__item:hover {
+  background: var(--uh-white);
+  transform: translateY(-3px);
+  box-shadow: var(--uh-shadow);
+}
+
+.uh-booknow__thumb {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--uh-radius-sm);
+}
+
+.uh-booknow__info {
+  display: grid;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.uh-booknow__info strong {
+  font-size: 0.98rem;
+}
+
+.uh-booknow__info small {
+  color: var(--uh-gold);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.uh-booknow__arrow {
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  transition: transform 0.35s var(--uh-ease), color 0.3s;
+}
+
+.uh-booknow__item:hover .uh-booknow__arrow {
+  transform: translateX(4px);
+  color: var(--uh-gold);
 }

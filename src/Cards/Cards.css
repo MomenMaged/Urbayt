@@ -1,64 +1,64 @@
-.Card_css{
-   margin-top: 3%;
-   margin-bottom: 3%;
-   
-     
+.uh-listings {
+  padding-top: clamp(3rem, 6vw, 5rem);
 }
 
-.Title2{
-     word-wrap: break-word;     /* older syntax, still widely supported */
-  overflow-wrap: break-word; /* modern syntax — preferred */
-  white-space: normal;  
-  width: 400;
+.uh-listings__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.75rem;
 }
 
-.card_title{
-margin-top: -8px;
-font-size: 16px;
-font-weight: 700;
-
-
+.uh-listings__head .uh-title {
+  margin: 0;
 }
 
-.available{
-  margin-top: -10px;
-  border-bottom: 1px solid black;
- 
-
+.uh-listings__empty {
+  padding: 3rem 0;
+  text-align: center;
+  font-size: 1.1rem;
 }
 
-.para{
- margin-bottom:-20px;
- margin-right: -5px;
+.uh-card-skeleton {
+  height: 520px;
+  border-radius: var(--uh-radius-lg);
 }
 
-.my_special_car .ant-carousel .slick-slide img {
-  width: 100%;
-  height: 250px;
-  display: block;
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
-  
+.uh-filter {
+  display: inline-flex;
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 0 0 1px var(--uh-navy-15);
 }
 
-
-.Card_css .ant-card-cover {
-  overflow: hidden;
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
-
-  
-  
+.uh-filter__item {
+  position: relative;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--uh-navy);
+  font: 700 0.8rem/1 'Circe', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-
-
-
-
-
-
-.blur-text {
-  filter: blur(3px);
-  user-select: none;
+.uh-filter__item.is-active {
+  color: var(--uh-white);
 }
 
+.uh-filter__pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--uh-navy);
+}
+
+.uh-filter__label {
+  position: relative;
+}

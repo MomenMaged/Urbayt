@@ -1,286 +1,146 @@
-import {
-  Alert,
-  Button,
-  ConfigProvider,
-  Flex,
-  Grid,
-  Input,
-  Skeleton,
-} from "antd";
-import TextArea from "antd/es/input/TextArea";
-import "./ContactUS.css";
-import { useEffect, useState } from "react";
-import Emaill from "../Emaill/Emaill";
+import { useState } from "react";
+import { ConfigProvider, Form, Input } from "antd";
+import { AnimatePresence, motion } from "framer-motion";
+import { CheckCircleFilled, EnvironmentFilled, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import { FaArrowRight } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-import { motion } from "framer-motion";
+import Emaill from "../Emaill/Emaill";
+import { EASE, MaskReveal, Reveal } from "../components/Motion";
+import SmartImage from "../components/SmartImage";
+import { CONTACT } from "../data/site";
+import "./ContactUS.css";
 
+// EmailJS identifiers (public by design: they're used from the browser).
+const EMAILJS_SERVICE = "service_02w47lb";
+const EMAILJS_TEMPLATE = "template_wjprpoi";
+const EMAILJS_PUBLIC_KEY = "tznqbnFJhkrknzyS_";
 
-const { useBreakpoint } = Grid;
+interface ContactForm {
+  fullName: string;
+  email: string;
+  phone?: string;
+  reason: string;
+  message?: string;
+}
+
+type Status = "idle" | "sending" | "sent" | "error";
 
 const ContactUs = () => {
-  const screens = useBreakpoint();
+  const [form] = Form.useForm<ContactForm>();
+  const [status, setStatus] = useState<Status>("idle");
 
-  // Form field states
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [reason, setReason] = useState("");
-  const [message, setMessage] = useState("");
-
-  // Touched for validation
-  const [touched, setTouched] = useState(false);
-  const [Emailtouched, setEmailTouched] = useState(false);
-  const [Reasontouched, setReasonTouched] = useState(false);
-
-  // Alert status: success | error | null
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
-
-  const [imageLoading, setImageLoading] = useState(true);
-
-  // Validation errors
-  const hasNameError = touched && name.trim() === "";
-  const hasEmailError = Emailtouched && email.trim() === "";
-  const hasReasonError = Reasontouched && reason.trim() === "";
-
-  // Auto-hide alerts after 3 seconds
-  useEffect(() => {
-    if (submitStatus) {
-      const timer = setTimeout(() => setSubmitStatus(null), 3000);
-      return () => clearTimeout(timer);
+  const handleSubmit = async (values: ContactForm) => {
+    setStatus("sending");
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE,
+        EMAILJS_TEMPLATE,
+        {
+          fullName: values.fullName,
+          email: values.email,
+          phone: values.phone ?? "",
+          reason: values.reason,
+          message: values.message ?? "",
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+      form.resetFields();
+      setStatus("sent");
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
     }
-  }, [submitStatus]);
-
-  // Handle form submission
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setTouched(true);
-
-  if (name.trim() === "" || email.trim() === "" || reason.trim() === "") {
-    setSubmitStatus("error");
-    return;
-  }
-
-  const templateParams = {
-    fullName: name,
-    email: email,
-    phone: phone,
-    reason: reason,
-    message: message,
   };
-
-  try {
-    await emailjs.send(
-      "service_02w47lb",     // 🔁 your service ID
-      "template_wjprpoi",    // 🔁 your template ID
-      templateParams,
-      "tznqbnFJhkrknzyS_"       // 🔁 your public key
-    );
-
-    setSubmitStatus("success");
-    setName("");
-    setEmail("");
-    setPhone("");
-    setReason("");
-    setMessage("");
-    setTouched(false);
-  } catch (error) {
-    console.error(error);
-    setSubmitStatus("error");
-  }
-};
-
 
   return (
     <ConfigProvider
       theme={{
-        components: {
-          Button: {
-            defaultBg: "#133848",
-            defaultHoverBg: "#CE8A39",
-            ghostBg: "transparent",
-            defaultActiveBg: "#CE8A39",
-            defaultHoverBorderColor: "transparent",
-            defaultHoverColor: "transparent",
-            defaultBorderColor: "transparent",
-            colorBgLayout: "black",
-            defaultActiveBorderColor: "transparent",
-          },
-        },
+        token: { colorPrimary: "#133848", borderRadius: 12, controlHeightLG: 50, fontSize: 15 },
       }}
     >
       <div>
-        <Flex vertical={!screens.lg}  style={{marginBottom: "4rem" , maxHeight: screens.lg ? "100vh" : "none" }}>
-          <div style={{ display: "flex" }} className={screens.lg ? "Image5" : "Image6"}>
+        <section className="uh-container uh-contact">
+          <MaskReveal className="uh-contact__media">
+            <SmartImage src="/Contact_Us.jpeg" alt="UrbanHive" eager />
+            <div className="uh-contact__info">
+              <a href={CONTACT.phoneHref}>
+                <PhoneOutlined /> {CONTACT.phone}
+              </a>
+              <a href={`mailto:${CONTACT.email}`}>
+                <MailOutlined /> {CONTACT.email}
+              </a>
+              <span>
+                <EnvironmentFilled /> {CONTACT.address}
+              </span>
+            </div>
+          </MaskReveal>
 
-{imageLoading && (
-    
-   
-      <Skeleton.Image
-        active
+          <Reveal delay={0.15} className="uh-contact__card">
+            <AnimatePresence mode="wait">
+              {status === "sent" ? (
+                <motion.div
+                  key="sent"
+                  className="uh-contact__sent"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: EASE }}
+                >
+                  <CheckCircleFilled className="uh-contact__check" />
+                  <h2 className="uh-title">Thank you!</h2>
+                  <p className="uh-lead">Your message has been sent successfully. We’ll be in touch soon.</p>
+                  <button type="button" className="uh-btn uh-btn--outline" onClick={() => setStatus("idle")}>
+                    Send another message
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                  <p className="uh-eyebrow">Contact us</p>
+                  <h1 className="uh-title">We’d love to hear from you.</h1>
 
-        style={{
-          width: "100%",
-          height: "100%",
-                 
-        }}
-        
-      />
-      
-    
-  )}
+                  <Form form={form} layout="vertical" size="large" requiredMark={false} onFinish={handleSubmit}>
+                    <Form.Item name="fullName" label="Full name" rules={[{ required: true, whitespace: true, message: "Please enter your name" }]}>
+                      <Input placeholder="Full name" autoComplete="name" />
+                    </Form.Item>
+                    <div className="uh-contact__row">
+                      <Form.Item
+                        name="email"
+                        label="Email"
+                        rules={[
+                          { required: true, message: "Please enter your email" },
+                          { type: "email", message: "That doesn’t look like an email address" },
+                        ]}
+                      >
+                        <Input placeholder="Email" autoComplete="email" />
+                      </Form.Item>
+                      <Form.Item name="phone" label="Phone">
+                        <Input placeholder="Number (+20)" autoComplete="tel" />
+                      </Form.Item>
+                    </div>
+                    <Form.Item name="reason" label="Reason" rules={[{ required: true, whitespace: true, message: "Please tell us why you’re reaching out" }]}>
+                      <Input placeholder="Reason" />
+                    </Form.Item>
+                    <Form.Item name="message" label="Message">
+                      <Input.TextArea placeholder="Message" autoSize={{ minRows: 4 }} />
+                    </Form.Item>
 
-            <img
-              className="second-image5"
-              alt="cover"
-              src="/Contact_Us.jpeg"
-              style={{ display: imageLoading ? "none" : "block" }}
-    onLoad={() => setImageLoading(false)}
-    onError={() => setImageLoading(false)}
-            />
-          </div>
+                    {status === "error" && (
+                      <p className="uh-contact__error" role="alert">
+                        Something went wrong sending your message. Please try again, or reach us on WhatsApp.
+                      </p>
+                    )}
 
-          <form style={{ width: "100%" , display: "flex" }} onSubmit={handleSubmit}>
-            <Flex
-              
-              vertical
-  gap={35}
-  style={{
-    padding: "2.5rem 3rem",
-    backgroundColor: "white",
-    width: "100%",
-    
-  }}
-            >
-              <p
-                style={{
-                  fontSize: "20px",
-                  color: "#292A2B",
-                  fontFamily: "sans-serif",
-                }}
-              >
-                Contact us
-              </p>
-
-              {/* Name */}
-              <Input
-                size="large"
-                name="fullName"
-                placeholder="Full name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onBlur={() => setTouched(true)}
-                status={hasNameError ? "error" : ""}
-              />
-
-              {/* Email & Phone */}
-              <Flex gap={10}>
-                <Input
-                  size="large"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => setEmailTouched(true)}
-                  status={hasEmailError ? "error" : ""}
-                />
-                <Input
-                  size="large"
-                  name="phone"
-                  placeholder="Number (+20)"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </Flex>
-
-              {/* Reason */}
-              <Input
-                size="large"
-                name="Reason"
-                placeholder="Reason"
-                value={reason}
-                onChange={(e) => setReason(e.target.value)}
-                onBlur={() => setReasonTouched(true)}
-                status={hasReasonError ? "error" : ""}
-              />
-
-              {/* Message */}
-              <TextArea
-                name="message"
-                placeholder="Message"
-                autoSize={{ minRows: 4 }}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-
-              {/* Alerts */}
-              {/* {submitStatus === "success" && (
-                <Alert
-                  message="Success"
-                  description="Your message has been sent successfully."
-                  type="success"
-                  showIcon
-                  style={{ marginBottom: "1rem" }}
-                />
+                    <button type="submit" className="uh-btn uh-btn--primary uh-btn--block" disabled={status === "sending"}>
+                      {status === "sending" ? "Sending…" : "Send message"} <FaArrowRight />
+                    </button>
+                  </Form>
+                </motion.div>
               )}
-              {submitStatus === "error" && (
-                <Alert
-                  message="Error"
-                  description="Please fill all required fields or try again."
-                  type="error"
-                  showIcon
-                  style={{
-    position: "absolute",
-    top: 10,
-    left: 10,
-    right: 10,
-    zIndex: 10,
-    width:'50%'
-  }}
-  closable
-                  
-                 
-                />
-              )} */}
-              {submitStatus && (
-    <Alert
-      message={submitStatus === "success" ? "Success" : "Error"}
-      description={
-        submitStatus === "success"
-          ? "Your message has been sent successfully."
-          : "Please fill all required fields or try again."
-      }
-      type={submitStatus}
-      showIcon
-      closable
-       style={{
-    position: "absolute",
-    top: 10,
-    left: 10,
-    right: 10,
-    zIndex: 10,
-    width:'50%'
-  }}
-    />
-  )}
+            </AnimatePresence>
+          </Reveal>
+        </section>
 
-              {/* Submit button */}
-              <Button size="large" htmlType="submit" style={{ color: "white" }}>
-                Send message
-              </Button>
-            </Flex>
-          </form>
-        </Flex>
-
-        {/* Email component */}
-        <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-      >
         <Emaill />
-        </motion.div>
       </div>
     </ConfigProvider>
   );

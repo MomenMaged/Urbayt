@@ -1,54 +1,146 @@
-# React + TypeScript + Vite
+# Urban Hive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Urban Hive website (React + Vite, deployed on Vercel) and its API
+(Express + PostgreSQL, in [`server/`](server/)). The API powers the admin
+panel at `/admin`, where listings and photos are added, edited and deleted.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+portfolio-m/
+├── src/            Website (public pages + admin panel in src/admin)
+├── public/         Static images and video
+└── server/         API: Express + PostgreSQL
+    ├── db/schema.sql
+    ├── scripts/    migrate, seed, create-admin
+    └── src/        layered architecture, see below
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## API architecture
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The API is split into layers. A request travels down through them, and each
+layer only talks to the one below it:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+request → routes → middleware → controllers → services → repositories → PostgreSQL
+```
+
+| Folder | Job | Knows about |
+| --- | --- | --- |
+| `routes/` | Maps each URL and method to a controller function, and attaches middleware | Express |
+| `middleware/` | Runs before controllers: admin sign-in check, photo uploads, login rate limit, turning errors into JSON | Express, services |
+| `controllers/` | Reads the request, validates it, calls a service, sends the response (status codes, cache headers) | HTTP, validators, services |
+| `validators/` | Rules for incoming data (Zod schemas) | Nothing else |
+| `services/` | Business rules: "a listing must exist before adding photos", "photos being reordered must share one owner", password checks and login tokens, image resizing | Repositories, never HTTP |
+| `repositories/` | All SQL. One per table: listings, photos, admins | The database |
+| `mappers/` | Turns database rows into API objects | Nothing else |
+| `config/` | Environment settings and the database connection | Nothing else |
+| `utils/` | Shared error classes (`notFound`, `badRequest`…) | Nothing else |
+
+Two entry files tie it together: `app.js` builds the Express app (security
+headers, CORS, routes, error handling) and `index.js` starts it.
+
+**Where to make a change:**
+
+- New field on listings → `db/schema.sql`, `validators/listing.validator.js`,
+  the column map in `repositories/listing.repository.js`, and
+  `mappers/listing.mapper.js`.
+- New rule (for example "at most 30 photos per listing") → the service.
+- New endpoint → a controller method plus one line in `routes/`.
+
+The scripts in `scripts/` use the same repositories and validators, so seed
+data goes through the same rules as the admin panel.
+
+## Run it locally
+
+You need Node 20+ and a PostgreSQL database (a local install, or a free
+hosted one from [Neon](https://neon.tech) or [Supabase](https://supabase.com)).
+
+**1. API**
+
+```bash
+cd server
+npm install
+cp .env.example .env        # then fill in DATABASE_URL and JWT_SECRET
+npm run db:migrate          # creates the tables
+npm run db:seed             # imports the current listings and photos
+npm run create-admin -- you@example.com "a long password"
+npm run dev                 # http://localhost:4000
+```
+
+**2. Website** (in another terminal, from the project root)
+
+```bash
+npm install
+npm run dev                 # http://localhost:5173
+```
+
+The dev server forwards `/api` to the API on port 4000. Open
+<http://localhost:5173/admin> and sign in with the admin you created.
+
+## The admin panel
+
+- **Listings**: create, edit, hide/show and delete listings. Each listing has a
+  title, headline, location, description, price, booking link, bedrooms,
+  bathrooms, guests, area and amenities.
+- **Photos**: drag photos in to upload them. They're resized and converted to
+  WebP automatically, so large phone photos are fine. Drag to reorder; the first
+  photo is the cover used on cards and as the page's main image.
+- **Home carousel**: the slideshow on the home page.
+
+Changes appear on the website within about a minute (the API's public responses
+are cached for 60 seconds).
+
+Listing pages live at `/listings/<web-address>`. The original links still work:
+`/madinaty`, `/sokhna` and `/cfc` show the listings with the web addresses
+`madinaty`, `sokhna` and `cairo-festival-city`.
+
+If the API can't be reached, the public site falls back to the content built
+into `src/data/fallback.ts`, so it never shows an empty page.
+
+## Deploying
+
+**Database**: create a PostgreSQL database (Neon, Supabase, Render or Railway
+all have free tiers) and copy its connection string.
+
+**API**: deploy `server/` to any Node host (Render, Railway, Fly.io…):
+
+| Setting | Value |
+| --- | --- |
+| Root directory | `server` |
+| Build command | `npm install` |
+| Start command | `npm start` |
+| `DATABASE_URL` | your connection string |
+| `DATABASE_SSL` | `true` for hosted databases |
+| `JWT_SECRET` | a long random string, see `server/.env.example` |
+| `CORS_ORIGIN` | your site's address, e.g. `https://urban-hive.co` |
+
+Then run `npm run db:migrate`, `npm run db:seed` and `npm run create-admin`
+once against the production database (from your machine with the production
+`DATABASE_URL` in `server/.env`, or from the host's shell).
+
+**Website**: in Vercel, set `VITE_API_URL` to the API's address (for example
+`https://urban-hive-api.onrender.com`) and redeploy.
+
+## API reference
+
+Public:
+
+| Method | Path | |
+| --- | --- | --- |
+| GET | `/api/listings` | Published listings with photos |
+| GET | `/api/listings/:slug` | One published listing |
+| GET | `/api/gallery/home_carousel` | Home carousel photos |
+| GET | `/api/photos/:id` | Image file (cached for a year) |
+
+Admin (needs `Authorization: Bearer <token>` from `POST /api/auth/login`):
+
+| Method | Path | |
+| --- | --- | --- |
+| GET, POST | `/api/admin/listings` | List all / create |
+| GET, PATCH, DELETE | `/api/admin/listings/:id` | Read / update / delete (deletes its photos too) |
+| POST | `/api/admin/listings/:id/photos` | Upload photos (multipart field `photos`, up to 12 per request) |
+| GET | `/api/admin/gallery/home_carousel` | Carousel photos |
+| POST | `/api/admin/gallery/home_carousel/photos` | Upload carousel photos |
+| PUT | `/api/admin/photos/order` | Save photo order: `{ "ids": [3, 1, 2] }` |
+| PATCH, DELETE | `/api/admin/photos/:id` | Change description / delete |
+
+Login is limited to 10 attempts per 15 minutes per IP.

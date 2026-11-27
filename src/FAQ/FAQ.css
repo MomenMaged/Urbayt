@@ -1,11 +1,25 @@
-.Image2 {
-  width: 40vw;
-  height: 90vh;
-  overflow: hidden;
+.uh-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
 }
 
-.second-image2 {
-  width: 100%;
-  height: 100%;
-  /* center vertically (default) */
+.uh-faq__intro {
+  position: sticky;
+  top: 110px;
+}
+
+.uh-faq__toggle {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 860px) {
+  .uh-faq {
+    grid-template-columns: 1fr;
+  }
+
+  .uh-faq__intro {
+    position: static;
+  }
 }

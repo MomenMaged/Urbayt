@@ -1,224 +1,134 @@
-import "./Body.css";
-import { Flex, Grid, Skeleton } from "antd";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 import Details from "../Details/Details";
 import Caro from "../Caro/Caro";
 import Emaill from "../Emaill/Emaill";
 import FAQ from "../FAQ/FAQ";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { EASE, Reveal } from "../components/Motion";
+import "./Body.css";
 
-const { useBreakpoint } = Grid;
+const HEADLINE = ["STAY", "CONNECTED.", "STAY", "COMFORTABLE."];
 
 const Body = () => {
+  const navigate = useNavigate();
+  const heroRef = useRef<HTMLElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
 
-  const screens = useBreakpoint();
+  // Parallax: the video drifts slower than the page and the copy fades out.
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const copyY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  const [videoLoading, setVideoLoading] = useState(true);
+  const openBooking = () => {
+    setBookingOpen(true);
+    document.getElementById("book-now")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
 
   return (
     <div>
-      {/* Hero Carousel */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        
-         <div className="CoverImg">
-              {videoLoading && (
-                <Skeleton.Image
-                  active
-                  className="cover-image"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              )}
-              {/* <img
-                className="cover-image"
-                alt={item.alt}
-                src={item.src}
-                style={{ display: imageLoading ? "none" : "block" }}
-                onLoad={() => setImageLoading(false)}
-                onError={() => setImageLoading(false)}
-              /> */}
-
-               <video
-            
-            className="cover-image"
-            width="90%"
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ display: videoLoading? "none" : "block" , marginTop: "0%"  }}
-    onLoadedData={() => setVideoLoading(false)}
-    onError={() => setVideoLoading(false)}
-    
-            
-          >
-            <source
-              src="/458700_Finance_District_3840x2160.mp4"
-              type="video/mp4"
-            />
-          </video>
-            </div>
-      </motion.div>
-
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        <Flex  vertical className="space">
-          <Flex align="center" vertical className="space">
-            <h1 className="titlee">STAY CONNECTED. STAY COMFORTABLE.</h1>
-            <DropDownMenu />
-            
-          </Flex>
-          <Caro></Caro>
-       
-       
-
-{/* {videoLoading &&
-(
-<Skeleton.Image
-        active
-
-        style={{
-          width: "100%",
-          height: "30vh",
-              marginTop:'3%'   
-        }}
-        
-      />
-
-)}
-
+      <section ref={heroRef} className="uh-hero">
+        <motion.div className="uh-hero__media" style={{ y: videoY }}>
+          <img src="/home_page.jpeg" alt="" aria-hidden className="uh-hero__poster" />
           <video
-            
-            className="videoo"
-            width="90%"
+            className={`uh-hero__video ${videoReady ? "is-ready" : ""}`}
             autoPlay
             muted
             loop
             playsInline
-            style={{ display: videoLoading ? "none" : "block" , marginTop: "3%"  }}
-    onLoadedData={() => setVideoLoading(false)}
-    onError={() => setVideoLoading(false)}
-    
-            
+            preload="auto"
+            onLoadedData={() => setVideoReady(true)}
           >
-            <source
-              src="/458700_Finance_District_3840x2160.mp4"
-              type="video/mp4"
-            />
-          </video> */}
+            <source src="/458700_Finance_District_3840x2160.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
+        <div className="uh-hero__overlay" />
 
+        <motion.div className="uh-hero__content" style={{ y: copyY, opacity: copyOpacity }}>
+          <motion.p
+            className="uh-eyebrow"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
+          >
+            Welcome to the Hive
+          </motion.p>
 
-          
-
-          {screens.lg ? (
-            <div className="spacee">
-              <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-              <Flex
-                align="center"
-                justify="space-between"
-                style={{ width: "80%", marginTop: "20vh", marginLeft: "10%" }}
-              >
-                <h1
-                  style={{
-                    width: "30%",
-                    color: "#CE8A39",
-                    textAlign: "center",
-                  }}
+          <h1 className="uh-hero__title" aria-label={HEADLINE.join(" ")}>
+            {HEADLINE.map((word, i) => (
+              <span key={i} className="uh-hero__word" aria-hidden>
+                <motion.span
+                  initial={{ y: "110%" }}
+                  animate={{ y: "0%" }}
+                  transition={{ duration: 1, ease: EASE, delay: 0.45 + i * 0.12 }}
                 >
-                  URBAN LUXURY FOR FAMILIES, COUPLES, AND SOLO TRAVELERS.
-                </h1>
-                <div style={{ width: "45%" }}>
-                  UrbanHive is where considered design meets heartfelt
-                  hospitality. Every element is shaped to make your stay
-                  simpler, cozier, and more inspiring. Our spaces bring people
-                  closer and transform ordinary days into cherished memories.
-                  Here, home isn’t a place you enter, it’s a feeling that stays
-                  with you.
-                </div>
-              </Flex>
-              </motion.div>
-            </div>
-          ) : (
-            <div className="spaceee">
-               <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-              <Flex
-                align="center"
-                justify="space-between"
-                vertical
-                style={{ padding: "5%" }}
-              >
-                <h1 style={{ color: "#CE8A39", textAlign: "center" }}>
-                  URBAN LUXURY FOR FAMILIES, COUPLES, AND SOLO TRAVELERS.
-                </h1>
-                <div>
-                  UrbanHive is where considered design meets heartfelt
-                  hospitality. Every element is shaped to make your stay simpler,
-                  cozier, and more inspiring. Our spaces bring people closer and
-                  transform ordinary days into cherished memories. Here, home
-                  isn’t a place you enter, it’s a feeling that stays with you.
-                </div>
-              </Flex>
-              </motion.div>
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
 
-            </div>
-          )}
-        </Flex>
-        
+          <motion.div
+            className="uh-hero__actions"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 1.1 }}
+          >
+            <button type="button" className="uh-btn uh-btn--gold" onClick={openBooking}>
+              Book now <FaArrowRight />
+            </button>
+            <button type="button" className="uh-btn uh-btn--ghost" onClick={() => navigate("/cards")}>
+              Explore listings
+            </button>
+          </motion.div>
+        </motion.div>
 
-      </motion.div>
+        <motion.button
+          type="button"
+          className="uh-hero__scroll"
+          aria-label="Scroll down"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6 }}
+          onClick={() => document.getElementById("home-intro")?.scrollIntoView({ behavior: "smooth" })}
+        >
+          <span />
+        </motion.button>
+      </section>
 
-      {/* Details Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Details />
-      </motion.div>
+      <section id="home-intro" className="uh-home-intro">
+        <DropDownMenu open={bookingOpen} onToggle={() => setBookingOpen((open) => !open)} />
+        <div className="uh-home-intro__gallery">
+          <Caro />
+        </div>
+      </section>
 
-      {/* FAQ Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-      >
-        <FAQ />
-      </motion.div>
+      <section className="uh-about">
+        <img src="/Home.png" alt="" aria-hidden className="uh-about__mark" />
+        <div className="uh-container uh-about__inner">
+          <Reveal x={-40} y={0}>
+            <h2 className="uh-title uh-title--gold">
+              URBAN LUXURY FOR FAMILIES, COUPLES, AND SOLO TRAVELERS.
+            </h2>
+          </Reveal>
+          <Reveal x={40} y={0} delay={0.15}>
+            <p className="uh-lead">
+              UrbanHive is where considered design meets heartfelt hospitality. Every element is
+              shaped to make your stay simpler, cozier, and more inspiring. Our spaces bring people
+              closer and transform ordinary days into cherished memories. Here, home isn’t a place
+              you enter, it’s a feeling that stays with you.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-      {/* Email Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Emaill />
-      </motion.div>
+      <Details />
+      <FAQ />
+      <Emaill />
     </div>
   );
 };

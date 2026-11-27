@@ -1,95 +1,38 @@
-import { Flex, Carousel, Skeleton } from "antd";
-import { Content } from "antd/es/layout/layout";
+import { Carousel } from "antd";
+import { useGallery } from "../hooks/usePublicData";
+import SmartImage from "../components/SmartImage";
+import { Reveal } from "../components/Motion";
 import "./Caro.css";
-import { useState } from "react";
 
-const carouselImages = [
-  {
-    src: "/home_page.jpeg",
-    alt: "Home Page Cover",
-  },
-  {
-    src: "/Home_page2.jpeg",
-    alt: "Madinaty Gate",
-  },
-  {
-    src: "/Home_page3.jpeg",
-    alt: "Madinaty0y Gate",
-  },
-  {
-    src: "/Home_page4.jpeg",
-    alt: "Madi;naty Gate",
-  },
-  {
-    src: "/Home_page5.jpeg",
-    alt: "Maqdinatky Gate",
-  },
-  {
-    src: "/Home_page6.jpeg",
-    alt: "Madainatqey Gate",
-  },
-  {
-    src: "/Home_page7.jpeg",
-    alt: "Madinadtyq Gate",
-  },
-];
-
+/** Home page photo carousel. Photos are managed under "Home carousel" in the admin panel. */
 const Caro = () => {
-  const [imageLoading, setImageLoading] = useState(true);
-  return (
-    <Carousel
-      className="custom-carousel"
-      dotPosition="bottom"
-     
-      autoplaySpeed={2000}
-    >
-      {carouselImages.map((item, index) => (
-        <Content key={index} style={{ padding: 0, margin: 0 }}>
-          <Flex gap="middle" align="center" vertical>
-            <div className="CoverImg3">
-              {imageLoading && (
-                <Skeleton.Image
-                  active
-                  className="cover-image3"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              )}
-              <img
-                className="cover-image3"
-                alt={item.alt}
-                src={item.src}
-                style={{ display: imageLoading ? "none" : "block" }}
-                onLoad={() => setImageLoading(false)}
-                onError={() => setImageLoading(false)}
-              />
+  const { photos, loading } = useGallery("home_carousel");
 
-               {/* <video
-            
-            className="cover-image"
-            width="90%"
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ display: imageLoading? "none" : "block" , marginTop: "0%"  }}
-    onLoadedData={() => setImageLoading(false)}
-    onError={() => setImageLoading(false)}
-    
-            
-          >
-            <source
-              src="/458700_Finance_District_3840x2160.mp4"
-              type="video/mp4"
-            />
-          </video> */}
+  if (loading) {
+    return <div className="uh-caro uh-caro__frame uh-img" />;
+  }
+  if (photos.length === 0) return null;
+
+  return (
+    <Reveal className="uh-caro">
+      <Carousel
+        className="uh-caro__frame"
+        effect="fade"
+        autoplay
+        autoplaySpeed={4500}
+        speed={900}
+        pauseOnHover
+        dotPosition="bottom"
+      >
+        {photos.map((photo, index) => (
+          <div key={photo.id}>
+            <div className="uh-caro__slide">
+              <SmartImage src={photo.url} alt={photo.alt} eager={index === 0} />
             </div>
-          </Flex>
-        </Content>
-      ))}
-    </Carousel>
+          </div>
+        ))}
+      </Carousel>
+    </Reveal>
   );
 };
 

@@ -1,145 +1,35 @@
-import { Collapse, CollapseProps, ConfigProvider, Flex, Grid, Skeleton } from 'antd'
-import './Details.css'
-import { useState } from 'react';
+import type { CollapseProps } from "antd";
+import BrandCollapse from "../components/BrandCollapse";
+import { MaskReveal, Reveal } from "../components/Motion";
+import SmartImage from "../components/SmartImage";
+import "./Details.css";
 
+const perks = (
+  <ul>
+    <li>24/7 CONCIERGE</li>
+    <li>DEDICATED ON PROPERTY SECURITY</li>
+    <li>BUSINESS LOUNGE</li>
+  </ul>
+);
 
-const { useBreakpoint } = Grid;
-const Details = () => {
-
-    const screens = useBreakpoint();
-
-    const [imageLoading, setImageLoading] = useState(true);
-
-const items: CollapseProps['items'] = [
-  {
-    key: '1',
-    label: '2BR APARTHOTEL | MADINATY',
-    children: <p><ul><li>24/7 CONCIERGE </li>
-    <li>DEDICATED ON PROPERTY SECURITY </li>
-    <li>BUSINESS LOUNGE</li></ul></p>,
-  },
-  {
-    key: '2',
-    label: '3BR POOL/SEA VIEW | BLUMAR',
-    children: <p><ul><li>24/7 CONCIERGE </li>
-    <li>DEDICATED ON PROPERTY SECURITY </li>
-    <li>BUSINESS LOUNGE</li></ul></p>,
-  },
-  {
-    key: '3',
-    label: '2BR GARDEN VIEW | CFC',
-    children: <p><ul><li>24/7 CONCIERGE </li>
-    <li>DEDICATED ON PROPERTY SECURITY </li>
-    <li>BUSINESS LOUNGE</li></ul></p>,
-  },
+const items: CollapseProps["items"] = [
+  { key: "1", label: "2BR APARTHOTEL | MADINATY", children: perks },
+  { key: "2", label: "3BR POOL/SEA VIEW | BLUMAR", children: perks },
+  { key: "3", label: "2BR GARDEN VIEW | CFC", children: perks },
 ];
 
-const onChange = (key: string | string[]) => {
-    console.log(key);
-  };
+const Details = () => (
+  <section className="uh-section uh-container uh-details">
+    <MaskReveal className="uh-details__media">
+      <SmartImage src="/Details.jpeg" alt="UrbanHive interior" className="uh-details__img" />
+    </MaskReveal>
 
-  return (
-     <ConfigProvider
-    theme={{
-      components:{
-        Collapse:{
-         
+    <Reveal delay={0.15} className="uh-details__text">
+      <p className="uh-eyebrow">The UrbanHive standard</p>
+      <h2 className="uh-title">WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h2>
+      <BrandCollapse items={items} />
+    </Reveal>
+  </section>
+);
 
-        }
-      }
-    }}>
-    <div>
-     {screens.lg ? (
-          <div >
-            <Flex gap={'10%'}
-              align="center"
-              justify="space-between"
-              style={{ width: "80%", marginTop: "20vh", marginLeft: "10%" }}
-            >
-
-
-
-              <div className="Image">
-
-                {imageLoading && (
-    
-   
-      <Skeleton.Image
-        active
-
-        style={{
-          width: "100%",
-          height:"80vh", 
-                       
-        }}
-        
-      />
-     
-      
-    
-  )}
-              <img
-                className="second-image"
-                alt="cover"
-                src="/Details.jpeg"
-
-                style={{ display: imageLoading ? "none" : "block" }}
-    onLoad={() => setImageLoading(false)}
-    onError={() => setImageLoading(false)}
-              ></img>
-            </div>
-              
-<Flex vertical  style={{width:'40%'}}>
-              <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>
-              <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} ghost expandIconPosition='end' size='large' items={items} onChange={onChange} />
-           </Flex>
-            </Flex>
-          </div>
-        ) : (
-          <div >
-            <Flex
-            gap='5px'
-              align="center"
-              justify="space-between"
-              vertical
-              style={{ width: "80%", marginLeft: "10%", marginTop: "10vh"  }}
-            >
-
-              {imageLoading && (
-    
-   
-      <Skeleton.Image
-        active
-
-        style={{
-          width: "100%",
-          height:"45vh", 
-                       
-        }}
-        
-      />
-     
-      
-    
-  )}
-              <img
-                className="second-image"
-                alt="cover"
-                src="/Details.jpeg"
-                style={{ display: imageLoading ? "none" : "block" }}
-    onLoad={() => setImageLoading(false)}
-    onError={() => setImageLoading(false)}
-              ></img>
-              <Flex vertical >
-                 <h1 style={{width:'100%'}}>WHERE EVERY DETAIL ELEVATES THE EXPERIENCE.</h1>
-              <Collapse style={{  backgroundColor:'transparent', borderTop: '1.7px solid black'}} ghost expandIconPosition='end' size='large' items={items} onChange={onChange} />
-           </Flex>
-            </Flex>
-          </div>
-        )}
-        </div>
-        </ConfigProvider>
-  )
-}
-
-export default Details
+export default Details;

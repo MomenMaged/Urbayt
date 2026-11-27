@@ -1,108 +1,78 @@
-import{ useState } from "react";
-import { ConfigProvider ,Modal, Space } from "antd";
-import { createStyles} from "antd-style";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { EASE } from "../components/Motion";
+import { SOCIAL_LINKS } from "../data/site";
 import "./Menu.css";
-import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
 
-const useStyle = createStyles(({ token }) => ({
-  "my-modal-body": {
-    background: "transparent",
-    padding: token.paddingSM,
+interface MenuProps {
+  open: boolean;
+  onClose: () => void;
+  items: { to: string; label: string }[];
+}
+
+const panel: Variants = {
+  closed: { clipPath: "circle(0% at calc(100% - 44px) 54px)", transition: { duration: 0.6, ease: EASE } },
+  open: {
+    clipPath: "circle(150% at calc(100% - 44px) 54px)",
+    transition: { duration: 0.8, ease: EASE, staggerChildren: 0.06, delayChildren: 0.2 },
   },
-  "my-modal-mask": {},
-  "my-modal-header": {
-    borderBottom: `1px dotted ${token.colorPrimary}`,
-  },
-  //   'my-modal-footer': {
-  //     color: token.colorPrimary,
-  //   },
-  "my-modal-content": {
-    border: "1px solid #333",
-  },
-}));
+};
 
-// const { useBreakpoint } = Grid;
+const link: Variants = {
+  closed: { opacity: 0, y: 30 },
+  open: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+};
 
-const Menu = () => {
-  const [isModalOpen, setIsModalOpen] = useState([false, false]);
-  const { styles } = useStyle();
-  // const token = useTheme();
-
-  const toggleModal = (idx: number, target: boolean) => {
-    setIsModalOpen((p) => {
-      p[idx] = target;
-      return [...p];
-    });
-  };
-
-  const classNames = {
-    body: styles["my-modal-body"],
-    mask: styles["my-modal-mask"],
-    header: styles["my-modal-header"],
-    // footer: styles['my-modal-footer'],
-    content: styles["my-modal-content"],
-  };
-
-  const modalStyles = {
-    // header: {
-    //   borderLeft: `5px solid ${token.colorPrimary}`,
-    //   borderRadius: 0,
-    //   paddingInlineStart: 5,
-    // },
-    // body: {
-    //   borderRadius: 5,
-    // },
-    mask: {
-      backdropFilter: "blur(10px)",
-    },
-    // footer: {
-    //   borderTop: '1px solid #333',
-    // },
-    content: {
-      boxShadow: "none",
-      backgroundColor: "transparent",
-    },
-  };
-
-  // const screens = useBreakpoint();
+/** Full-screen navigation for tablets and phones. */
+const Menu = ({ open, onClose, items }: MenuProps) => {
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (event: KeyboardEvent) => event.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
 
   return (
-    <>
-      <Space>
-        
-        <MenuOutlined onClick={() => toggleModal(1, true)} style={{ marginTop:'20px', fontSize:'35px', color:'#f2f2f2'}}/>
-      </Space>
-      <ConfigProvider
-        modal={{
-          classNames,
-          styles: modalStyles,
-        }}
-      >
-        <Modal
-        footer={null}
-        closeIcon={<CloseOutlined style={{ fontSize: 20, color: 'white' }} />}
-          style={{ top: "0px"}}
-          open={isModalOpen[1]}
-          width={"100%"}
-          height={"100%"}
-          onOk={() => toggleModal(1, false)}
-          onCancel={() => toggleModal(1, false)}
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="uh-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+          variants={panel}
+          initial="closed"
+          animate="open"
+          exit="closed"
         >
-           <div className="navigation__inner2">
-             
-              <Link to="./cards" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">OUR LISTINGS</a></Link>
-              <Link to="./madinaty" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">MADINATY</a></Link>
-               <Link to="./cfc" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">SOKHNA</a></Link>
-                <Link to="./sokhna" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">CAIRO FESTIVAL CITY</a></Link>
-              
-              <Link to="./partner" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">JOIN OUR HIVE</a></Link>
-              <Link to="./contact-us" onClick={()=>toggleModal(1,false)}><a className="menu-panel__item2">CONTACT US</a></Link>
-            </div>
-        </Modal>
-      </ConfigProvider>
-    </>
+          <img src="/Home.png" alt="" aria-hidden className="uh-menu__mark" />
+          <nav className="uh-menu__nav">
+            {items.map((item, index) => (
+              <motion.div key={item.to} variants={link}>
+                <NavLink to={item.to} className="uh-menu__link" onClick={onClose}>
+                  <span className="uh-menu__index">0{index + 1}</span>
+                  {item.label}
+                </NavLink>
+              </motion.div>
+            ))}
+          </nav>
+          <motion.div className="uh-menu__social" variants={link}>
+            {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                <Icon />
+              </a>
+            ))}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
-}; 
+};
 
 export default Menu;

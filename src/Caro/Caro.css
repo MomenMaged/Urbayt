@@ -1,25 +1,43 @@
-.custom-carousel .slick-dots {
-  bottom: 50px !important;
-  z-index: 1;
+.uh-caro {
+  width: min(var(--uh-container), 100% - 2.5rem);
+  margin: 0 auto;
 }
 
-.CoverImg3{
-  width: 100%;
-  height: 60vh;
+.uh-caro__frame,
+.uh-caro.uh-img {
+  height: clamp(320px, 65vh, 680px);
   overflow: hidden;
-  margin-top: 3%;
-  
-  
+  border-radius: var(--uh-radius-lg);
+  box-shadow: var(--uh-shadow-lift);
 }
 
-.cover-image3{
+.uh-caro__slide {
+  height: clamp(320px, 65vh, 680px);
+}
+
+.uh-caro__slide .uh-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* fills the box, cropping overflow */
-  object-position: 50% 50%; 
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;/* center vertically (default) */
 }
 
+/* Slow "Ken Burns" zoom on the slide that is showing. */
+.uh-caro .slick-active .uh-img--loaded > img {
+  animation: uh-kenburns 9s ease-out both;
+}
+
+@keyframes uh-kenburns {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+.uh-caro .slick-dots {
+  bottom: 22px !important;
+}
+
+.uh-caro .slick-dots li button {
+  background: var(--uh-white) !important;
+}
+
+.uh-caro .slick-dots li.slick-active button {
+  background: var(--uh-gold) !important;
+}

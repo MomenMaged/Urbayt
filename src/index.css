@@ -1,7 +1,9 @@
-body{
-    font-family: 'Circe', Arial, Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    background-color:  #E2CAA2;
-    padding-top: 108px;
+@import "./styles/brand.css";
+
+body {
+  margin: 0;
+  font-family: 'Circe', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-color: #E2CAA2;
 }

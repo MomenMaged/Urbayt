@@ -1,72 +1,138 @@
-.menu__item{
-    font: 700 14px / 16px 'Circe', Arial, Helvetica, sans-serif;
-    color: WHITE;
-    letter-spacing: 0px;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 15px 15px;
-    -webkit-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    position: relative;
-
-    
-    
-}
-
-.menu__item:hover{color: #CE8A39;}
-
-.header {
-  position:fixed;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  height: 108px;
+.uh-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  height: var(--uh-header-h);
   display: flex;
   align-items: center;
-  background-color: #133848;
-  transition: all 0.3s ease; /* smooth animation */
-  padding: 0 20px;
+  gap: 2rem;
+  padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+  background-color: var(--uh-navy);
+  transition:
+    height 0.45s var(--uh-ease),
+    box-shadow 0.45s var(--uh-ease),
+    background-color 0.45s var(--uh-ease);
 }
 
-.header--small {
-  height: 70px;           /* smaller height when scrolled */
-  background-color: #133848; /* optional: darker color */
+.uh-header--small {
+  height: 70px;
+  background-color: var(--uh-navy-90);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.6);
 }
 
-.header__icon {
-  font-size: 50px;
-  color: white;
-  transition: font-size 0.3s ease;
-}
-
-.header--small .header__icon {
-  font-size: 35px; /* shrink the icon too */
-}
-
-.header__menu {
+.uh-header__logo {
   display: flex;
+  flex-shrink: 0;
+}
+
+.uh-header__logo img {
+  height: 30px;
+  transition: height 0.45s var(--uh-ease), transform 0.45s var(--uh-ease);
+}
+
+.uh-header__logo:hover img {
+  transform: scale(1.04);
+}
+
+.uh-header--small .uh-header__logo img {
+  height: 25px;
+}
+
+.uh-header__nav {
+  display: flex;
+  align-items: center;
   margin-left: auto;
 }
 
-.menu__item--active {
-  border-bottom: 1px solid white; /* underline */
-  font-weight: bold;
+.uh-header__link {
+  position: relative;
+  padding: 0.9rem 0.95rem;
+  font: 700 14px/16px 'Circe', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--uh-white);
+  white-space: nowrap;
+  transition: color 0.35s var(--uh-ease);
 }
 
-.logo img {
-  display: block;
+.uh-header__link::after {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 0.45rem;
+  height: 2px;
+  background: var(--uh-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--uh-ease);
 }
 
-.logo--large {
-  
-  height: 30px;
-  transition: all 0.3s ease;
+.uh-header__link:hover {
+  color: var(--uh-gold);
 }
 
-.logo--small {
-  height: 25px;
-  transition: all 0.3s ease;
+.uh-header__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.uh-header__link.active {
+  color: var(--uh-gold);
+}
+
+.uh-header__underline {
+  position: absolute;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 0.45rem;
+  height: 2px;
+  background: var(--uh-gold);
+}
+
+/* Hamburger that morphs into an X. */
+.uh-burger {
+  display: none;
+  position: relative;
+  z-index: 1002;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.uh-burger span {
+  position: absolute;
+  left: 9px;
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--uh-white);
+  transition: transform 0.45s var(--uh-ease), opacity 0.3s, top 0.45s var(--uh-ease), width 0.45s var(--uh-ease);
+}
+
+.uh-burger span:nth-child(1) { top: 14px; }
+.uh-burger span:nth-child(2) { top: 21px; width: 18px; }
+.uh-burger span:nth-child(3) { top: 28px; }
+
+.uh-burger:hover span:nth-child(2) {
+  width: 26px;
+  background: var(--uh-gold);
+}
+
+.uh-burger--open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.uh-burger--open span:nth-child(2) { opacity: 0; }
+.uh-burger--open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+@media (max-width: 1180px) {
+  .uh-header__nav {
+    display: none;
+  }
+
+  .uh-burger {
+    display: block;
+  }
 }

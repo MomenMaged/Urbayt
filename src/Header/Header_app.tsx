@@ -1,60 +1,74 @@
-import {  Grid } from 'antd'
-import { Header } from 'antd/es/layout/layout';
-import { useEffect, useState } from 'react'
-import './Header.css'
-import Menu from '../Menu/Menu';
-import { Link , useLocation } from 'react-router-dom';
-
-
-const { useBreakpoint } = Grid;
-
+import { useCallback, useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import Menu from "../Menu/Menu";
+import { EASE } from "../components/Motion";
+import { NAV_ITEMS } from "../data/site";
+import "./Header.css";
 
 const Header_app = () => {
-
-  const location = useLocation();
-const currentPath = location.pathname;
-
-  const screens = useBreakpoint(); // returns an object with current breakpoints
-
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50); // if scrolled more than 50px
-    
-console.log('clicked')    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close the mobile menu whenever the page changes.
+  useEffect(closeMenu, [location.pathname, closeMenu]);
+
   return (
-   
-    <Header  className={isScrolled ? 'header header--small' : 'header'} >
-    <Link to="./"><img 
-    src={'/Logo1.png'}
-    alt="Urban Hive Logo"
-    className={isScrolled ? 'logo--small' : 'logo--large'}
-  /></Link> 
-     {screens.lg&& !isScrolled ?
-    <div style={{display:'flex', marginLeft:'auto'}}>
-    
-    
-    
-     <Link to="./cards"><p className={`menu__item ${currentPath === '/Cards' ? 'menu__item--active' : ''}`}> OUR LISTINGS</p></Link>
-    <Link to="./madinaty"><p className={`menu__item ${currentPath === '/Listing' ? 'menu__item--active' : ''}`} >MADINATY</p></Link>
-   <Link to="./sokhna"><p className={`menu__item ${currentPath === '/Listing_3' ? 'menu__item--active' : ''}`} >SOKHNA</p></Link>
-    <Link to="./cfc"><p className={`menu__item ${currentPath === '/Listing_2' ? 'menu__item--active' : ''}`} >CAIRO FESTIVAL CITY</p></Link>
-    <Link to="./partner"><p className={`menu__item ${currentPath === '/Partner' ? 'menu__item--active' : ''}`} >JOIN OUR HIVE</p></Link>
-   <Link to="./contact-us"><p className={`menu__item ${currentPath === '/ContactUs' ? 'menu__item--active' : ''}`} >CONTACT US</p></Link>
-    </div> 
-    : <div style={{display:'Flex',marginLeft:'auto'}}><Menu></Menu></div>
-}
-    </Header>
+    <>
+      <motion.header
+        className={`uh-header ${isScrolled ? "uh-header--small" : ""}`}
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: EASE }}
+      >
+        <Link to="/" className="uh-header__logo" aria-label="Urban Hive home">
+          <img src="/Logo1.png" alt="Urban Hive" />
+        </Link>
 
-  
-  )
-}
+        <nav className="uh-header__nav" aria-label="Main">
+          {NAV_ITEMS.map((item) => (
+            <NavLink key={item.to} to={item.to} className="uh-header__link">
+              {({ isActive }) => (
+                <>
+                  {item.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="uh-nav-underline"
+                      className="uh-header__underline"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                </>
+              )}
+            </NavLink>
+          ))}
+        </nav>
 
-export default Header_app
+        <button
+          type="button"
+          className={`uh-burger ${menuOpen ? "uh-burger--open" : ""}`}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </motion.header>
+
+      <Menu open={menuOpen} onClose={closeMenu} items={NAV_ITEMS} />
+    </>
+  );
+};
+
+export default Header_app;
