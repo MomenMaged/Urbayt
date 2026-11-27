@@ -1,13 +1,13 @@
 import multer from "multer";
+import { ACCEPTED_IMAGE_TYPES, PHOTO_LIMITS } from "@urban-hive/shared";
 import { badRequest } from "../utils/errors.js";
 
-const ACCEPTED_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/avif", "image/gif"]);
+const ACCEPTED_TYPES = new Set(ACCEPTED_IMAGE_TYPES);
 
-/** Must match UPLOAD_BATCH_SIZE in the website's src/admin/api.ts. */
-export const MAX_FILES_PER_UPLOAD = 12;
-const MAX_UPLOAD_MB = Number(process.env.MAX_UPLOAD_MB) || 15;
+const MAX_FILES_PER_UPLOAD = PHOTO_LIMITS.maxFilesPerRequest;
+const MAX_UPLOAD_MB = Number(process.env.MAX_UPLOAD_MB) || PHOTO_LIMITS.maxFileMb;
 
-/** Accepts up to 12 images in the multipart field "photos", kept in memory as `req.files`. */
+/** Accepts up to PHOTO_LIMITS.maxFilesPerRequest images in the multipart field "photos", kept in memory as `req.files`. */
 export const uploadPhotos = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: MAX_UPLOAD_MB * 1024 * 1024, files: MAX_FILES_PER_UPLOAD },

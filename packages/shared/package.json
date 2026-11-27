@@ -1,0 +1,13 @@
+{
+  "name": "@urban-hive/shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rules and types shared by the Urban Hive website and API",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  }
+}

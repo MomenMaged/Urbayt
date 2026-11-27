@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { LISTING_STATUSES } from "@urban-hive/shared";
 
 /** Trims free text and turns "" into null. */
 const optionalText = (max) =>
@@ -35,7 +36,7 @@ const fields = {
   locationDescription: optionalText(5000),
   pricePerNight: optionalAmount,
   currency: z.string().trim().toUpperCase().length(3),
-  status: z.enum(["available", "coming_soon"]),
+  status: z.enum(LISTING_STATUSES),
   bedrooms: optionalCount,
   bathrooms: optionalCount,
   maxGuests: optionalCount,

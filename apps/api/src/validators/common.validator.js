@@ -1,6 +1,5 @@
 import { z } from "zod";
-
-export const GALLERY_SECTIONS = ["home_carousel"];
+import { GALLERY_SECTIONS } from "@urban-hive/shared";
 
 /** A positive integer id from a URL parameter. */
 export const idParam = z.coerce.number().int().positive();

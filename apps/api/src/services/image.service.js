@@ -1,9 +1,10 @@
 import sharp from "sharp";
+import { PHOTO_LIMITS } from "@urban-hive/shared";
 import { badRequest } from "../utils/errors.js";
 
 /**
  * Normalises an uploaded image for the web: applies the camera's rotation,
- * caps the longest side at 2400px and re-encodes as WebP. Photos straight
+ * caps the longest side (2400px) and re-encodes as WebP. Photos straight
  * from a phone usually shrink from several MB to a few hundred KB.
  *
  * @param {{ buffer: Buffer, originalname: string }} file
@@ -12,7 +13,7 @@ export async function processImage(file) {
   try {
     const { data, info } = await sharp(file.buffer)
       .rotate()
-      .resize({ width: 2400, height: 2400, fit: "inside", withoutEnlargement: true })
+      .resize({ width: PHOTO_LIMITS.maxSide, height: PHOTO_LIMITS.maxSide, fit: "inside", withoutEnlargement: true })
       .webp({ quality: 82 })
       .toBuffer({ resolveWithObject: true });
     return {

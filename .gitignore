@@ -28,3 +28,8 @@ node_modules/
 bin/
 obj/
 *.log
+
+# Environment files hold secrets (database password, JWT secret). Never commit them.
+.env
+.env.*
+!.env.example

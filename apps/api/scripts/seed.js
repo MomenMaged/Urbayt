@@ -10,7 +10,8 @@ import { photoRepository } from "../src/repositories/photo.repository.js";
 import { processImage } from "../src/services/image.service.js";
 import { createListingSchema } from "../src/validators/listing.validator.js";
 
-const PUBLIC_DIR = new URL("../../public/", import.meta.url);
+// The website's static images, in the web app of this monorepo.
+const PUBLIC_DIR = new URL("../../web/public/", import.meta.url);
 
 // What every UrbanHive space offers, per the FAQ on the website.
 const BASE_AMENITIES = ["wifi", "weekly_cleaning", "kitchen", "toiletries"];

@@ -1,18 +1,55 @@
 # Urban Hive
 
-The Urban Hive website (React + Vite, deployed on Vercel) and its API
-(Express + PostgreSQL, in [`server/`](server/)). The API powers the admin
-panel at `/admin`, where listings and photos are added, edited and deleted.
+The Urban Hive website and admin panel (React + Vite) and their API
+(Express + PostgreSQL), in one monorepo. The admin panel at `/admin` is where
+listings and photos are added, edited and deleted.
 
 ```
 portfolio-m/
-├── src/            Website (public pages + admin panel in src/admin)
-├── public/         Static images and video
-└── server/         API: Express + PostgreSQL
-    ├── db/schema.sql
-    ├── scripts/    migrate, seed, create-admin
-    └── src/        layered architecture, see below
+├── package.json        npm workspaces + the commands below
+├── scripts/dev.mjs     runs the API and the website together
+├── apps/
+│   ├── web/            @urban-hive/web: website + admin panel (src/admin)
+│   │   └── public/     static images and video
+│   └── api/            @urban-hive/api: Express + PostgreSQL
+│       ├── db/schema.sql
+│       ├── scripts/    migrate, seed, create-admin
+│       ├── api/        Vercel entry point
+│       └── src/        layered architecture, see below
+└── packages/
+    └── shared/         @urban-hive/shared: rules and types both apps use
 ```
+
+## Commands
+
+Run everything from the project root:
+
+| Command | What it does |
+| --- | --- |
+| `npm install` | Installs everything for all packages (one `node_modules`, one lockfile) |
+| `npm run dev` | Starts the API (port 4000) and the website (port 5173) together |
+| `npm run dev:web` / `npm run dev:api` | Starts just one of them |
+| `npm run build` | Builds the website into `apps/web/dist` |
+| `npm run lint` | Lints the website |
+| `npm run db:migrate` | Creates or updates the database tables |
+| `npm run db:seed` | Imports the original listings and photos into an empty database |
+| `npm run create-admin -- you@example.com "password"` | Creates an admin, or resets their password |
+
+To add a package to one app: `npm install <package> -w @urban-hive/web`
+(or `-w @urban-hive/api`).
+
+## Shared package
+
+[`packages/shared`](packages/shared/) holds what the website and the API must
+agree on, so they can't drift apart:
+
+- the listing statuses and gallery names,
+- photo limits: files per upload, maximum file size, stored image size,
+- accepted image types,
+- the TypeScript types for a listing and a photo (the API's response shape).
+
+The database's `CHECK` constraints in `apps/api/db/schema.sql` mirror the
+statuses and gallery names, so update them together.
 
 ## API architecture
 
@@ -51,30 +88,21 @@ data goes through the same rules as the admin panel.
 
 ## Run it locally
 
-You need Node 20+ and a PostgreSQL database (a local install, or a free
-hosted one from [Neon](https://neon.tech) or [Supabase](https://supabase.com)).
-
-**1. API**
+You need Node 22 and a PostgreSQL database (a local install, or a free
+hosted one from [Supabase](https://supabase.com) or [Neon](https://neon.tech)).
 
 ```bash
-cd server
 npm install
-cp .env.example .env        # then fill in DATABASE_URL and JWT_SECRET
-npm run db:migrate          # creates the tables
-npm run db:seed             # imports the current listings and photos
+cp apps/api/.env.example apps/api/.env    # then fill in DATABASE_URL and JWT_SECRET
+npm run db:migrate                        # creates the tables
+npm run db:seed                           # imports the current listings and photos
 npm run create-admin -- you@example.com "a long password"
-npm run dev                 # http://localhost:4000
+npm run dev                               # API on :4000, website on :5173
 ```
 
-**2. Website** (in another terminal, from the project root)
-
-```bash
-npm install
-npm run dev                 # http://localhost:5173
-```
-
-The dev server forwards `/api` to the API on port 4000. Open
+The website's dev server forwards `/api` to the API on port 4000. Open
 <http://localhost:5173/admin> and sign in with the admin you created.
+Ctrl+C stops both.
 
 ## The admin panel
 
@@ -94,39 +122,46 @@ Listing pages live at `/listings/<web-address>`. The original links still work:
 `madinaty`, `sokhna` and `cairo-festival-city`.
 
 If the API can't be reached, the public site falls back to the content built
-into `src/data/fallback.ts`, so it never shows an empty page.
+into `apps/web/src/data/fallback.ts`, so it never shows an empty page.
 
 ## Deploying
 
-**Database**: create a PostgreSQL database (Neon, Supabase, Render or Railway
-all have free tiers) and copy its connection string.
+The website and the API are **two Vercel projects connected to this same
+repository**, each pointing at its own folder. Both use the repository's root
+`package-lock.json`; Vercel detects the npm workspaces and installs from the root.
 
-Run `npm run db:migrate`, `npm run db:seed` and `npm run create-admin` once
-against the production database, from your machine with its `DATABASE_URL`
-in `server/.env`.
+**Database**: run `npm run db:migrate`, `npm run db:seed` and
+`npm run create-admin` once against the production database, from your
+machine with its `DATABASE_URL` in `apps/api/.env`.
+
+### Website on Vercel
+
+| Setting | Value |
+| --- | --- |
+| Root Directory | `apps/web` |
+| Framework Preset | Vite |
+| Include files outside the root directory | Enabled (the default), needed for `packages/shared` |
+| `VITE_API_URL` | the API's address, e.g. `https://urbayt-api.vercel.app` |
 
 ### API on Vercel
 
-The API is a **second Vercel project** from the same GitHub repository, with
-its root directory set to `server`. On Vercel it runs as a serverless function:
-[`server/api/index.js`](server/api/index.js) exports the app and
-[`server/vercel.json`](server/vercel.json) sends every request to it.
+The API runs as a serverless function:
+[`apps/api/api/index.js`](apps/api/api/index.js) exports the app and
+[`apps/api/vercel.json`](apps/api/vercel.json) sends every request to it.
 
-1. Vercel → **Add New → Project** → import this repository.
-2. **Root Directory**: `server`. **Framework Preset**: Other. Leave the build
-   and output settings empty.
-3. **Environment Variables**:
+| Setting | Value |
+| --- | --- |
+| Root Directory | `apps/api` |
+| Framework Preset | Other (leave build and output settings empty) |
+| Include files outside the root directory | Enabled (the default) |
+| `DATABASE_URL` | Supabase **transaction pooler** string (port **6543**) |
+| `DATABASE_SSL` | `true` |
+| `DATABASE_POOL_MAX` | `3` |
+| `JWT_SECRET` | a long random string |
+| `CORS_ORIGIN` | the website's address(es), e.g. `https://urban-hive.co,https://urbayt.vercel.app` |
 
-   | Name | Value |
-   | --- | --- |
-   | `DATABASE_URL` | Supabase **transaction pooler** string (port **6543**) |
-   | `DATABASE_SSL` | `true` |
-   | `DATABASE_POOL_MAX` | `3` |
-   | `JWT_SECRET` | a long random string (can be the one in your `server/.env`) |
-   | `CORS_ORIGIN` | the website's address(es), e.g. `https://urban-hive.co,https://urbayt.vercel.app` |
-
-4. Deploy, then open `https://<api-project>.vercel.app/api/health`. It should
-   show `{"ok":true}`.
+After deploying, `https://<api-project>.vercel.app/api/health` should show
+`{"ok":true}`.
 
 Things to know on Vercel:
 
@@ -137,13 +172,8 @@ Things to know on Vercel:
 
 ### API on another host
 
-Render, Railway or Fly.io work too: root directory `server`, build command
+Render, Railway or Fly.io work too: root directory `apps/api`, build command
 `npm install`, start command `npm start`, and the same environment variables.
-
-### Website
-
-In the website's Vercel project, set `VITE_API_URL` to the API's address
-(for example `https://urbayt-api.vercel.app`) and redeploy.
 
 ## API reference
 

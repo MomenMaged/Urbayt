@@ -40,8 +40,8 @@ image2:'/f40f1e58-9dc9-467b-bbaf-8a1e1ce0919c.avif'
 ]
 
   const longText = (`
-    You'll be staying in someone's home, so please treat it with care and respect. Check-in after 2:00 PM and Checkout before 11:00 AM
-Door Access will deactivate automatically at the check out time, if you need to get access after 11:00 AM, please reach out to our team. Quiet hours are 10:00 PM - 7:00 AM. No parties or events are allowed at any of our properties. Smoking is not allowed inside any of our properties. For your peace of mind, the home is equipped with smoke detectors and carbon monoxide detectors. Couples should provide proof of marriage as per local Egyptian laws. There are exterior security cameras monitoring the front door for added security.
+    You'll be staying in someone's home, so please treat it with care and respect. Check-in after 2:00 PM and Checkout before 11:00 AM
+Door Access will deactivate automatically at the check out time, if you need to get access after 11:00 AM, please reach out to our team. Quiet hours are 10:00 PM - 7:00 AM. No parties or events are allowed at any of our properties. Smoking is not allowed inside any of our properties. For your peace of mind, the home is equipped with smoke detectors and carbon monoxide detectors. Couples should provide proof of marriage as per local Egyptian laws. There are exterior security cameras monitoring the front door for added security.
   `);
 
   const Cancel=(

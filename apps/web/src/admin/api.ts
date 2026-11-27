@@ -1,3 +1,4 @@
+import { PHOTO_LIMITS } from "@urban-hive/shared";
 import { ApiError, request, resolveListing, resolvePhoto } from "../api/client";
 import type { GallerySection, Listing, ListingInput, Photo } from "../api/types";
 
@@ -23,12 +24,11 @@ async function adminRequest<T>(path: string, options: { method?: string; body?: 
   }
 }
 
-/** Must match MAX_FILES_PER_UPLOAD on the server. */
-const MAX_FILES_PER_REQUEST = 12;
+const MAX_FILES_PER_REQUEST = PHOTO_LIMITS.maxFilesPerRequest;
 /** Hosts limit request size (Vercel: 4.5 MB), so each upload request stays under this. */
 const MAX_BYTES_PER_REQUEST = 4 * 1024 * 1024;
 /** The server stores photos at most this many pixels on the longest side. */
-const MAX_SIDE = 2400;
+const MAX_SIDE = PHOTO_LIMITS.maxSide;
 
 /**
  * Shrinks a photo in the browser before upload, to the size the server keeps

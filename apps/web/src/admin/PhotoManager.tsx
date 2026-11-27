@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { App, Button, Input, Popconfirm, Tooltip, Upload } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined, DeleteOutlined, InboxOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
+import { ACCEPTED_IMAGE_TYPES, PHOTO_LIMITS } from "@urban-hive/shared";
 import type { Photo } from "../api/types";
 import { adminApi, errorMessage } from "./api";
 
-const ACCEPT = "image/jpeg,image/png,image/webp,image/avif,image/gif";
-const MAX_MB = 15;
+const ACCEPT = ACCEPTED_IMAGE_TYPES.join(",");
+const MAX_MB = PHOTO_LIMITS.maxFileMb;
 
 interface PhotoManagerProps {
   photos: Photo[];
