@@ -52,11 +52,11 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
   const isJson = response.headers.get("content-type")?.includes("application/json");
   const data = isJson ? await response.json() : null;
   if (!response.ok || !isJson) {
-    throw new ApiError(
-      response.status,
-      data?.error ?? `The server responded with ${response.status}.`,
-      data?.details,
-    );
+    const fallback =
+      response.status === 413
+        ? "That upload is too large. Try fewer or smaller photos at a time."
+        : `The server responded with ${response.status}.`;
+    throw new ApiError(response.status, data?.error ?? fallback, data?.details);
   }
   return data as T;
 }

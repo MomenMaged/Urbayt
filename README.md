@@ -101,24 +101,49 @@ into `src/data/fallback.ts`, so it never shows an empty page.
 **Database**: create a PostgreSQL database (Neon, Supabase, Render or Railway
 all have free tiers) and copy its connection string.
 
-**API**: deploy `server/` to any Node host (Render, Railway, Fly.io…):
+Run `npm run db:migrate`, `npm run db:seed` and `npm run create-admin` once
+against the production database, from your machine with its `DATABASE_URL`
+in `server/.env`.
 
-| Setting | Value |
-| --- | --- |
-| Root directory | `server` |
-| Build command | `npm install` |
-| Start command | `npm start` |
-| `DATABASE_URL` | your connection string |
-| `DATABASE_SSL` | `true` for hosted databases |
-| `JWT_SECRET` | a long random string, see `server/.env.example` |
-| `CORS_ORIGIN` | your site's address, e.g. `https://urban-hive.co` |
+### API on Vercel
 
-Then run `npm run db:migrate`, `npm run db:seed` and `npm run create-admin`
-once against the production database (from your machine with the production
-`DATABASE_URL` in `server/.env`, or from the host's shell).
+The API is a **second Vercel project** from the same GitHub repository, with
+its root directory set to `server`. On Vercel it runs as a serverless function:
+[`server/api/index.js`](server/api/index.js) exports the app and
+[`server/vercel.json`](server/vercel.json) sends every request to it.
 
-**Website**: in Vercel, set `VITE_API_URL` to the API's address (for example
-`https://urban-hive-api.onrender.com`) and redeploy.
+1. Vercel → **Add New → Project** → import this repository.
+2. **Root Directory**: `server`. **Framework Preset**: Other. Leave the build
+   and output settings empty.
+3. **Environment Variables**:
+
+   | Name | Value |
+   | --- | --- |
+   | `DATABASE_URL` | Supabase **transaction pooler** string (port **6543**) |
+   | `DATABASE_SSL` | `true` |
+   | `DATABASE_POOL_MAX` | `3` |
+   | `JWT_SECRET` | a long random string (can be the one in your `server/.env`) |
+   | `CORS_ORIGIN` | the website's address(es), e.g. `https://urban-hive.co,https://urbayt.vercel.app` |
+
+4. Deploy, then open `https://<api-project>.vercel.app/api/health`. It should
+   show `{"ok":true}`.
+
+Things to know on Vercel:
+
+- Requests are limited to 4.5 MB. The admin panel shrinks photos in the browser
+  and splits uploads so each request stays under it.
+- The login limit (10 tries per 15 minutes) is counted per running instance,
+  so it's looser than on a single server.
+
+### API on another host
+
+Render, Railway or Fly.io work too: root directory `server`, build command
+`npm install`, start command `npm start`, and the same environment variables.
+
+### Website
+
+In the website's Vercel project, set `VITE_API_URL` to the API's address
+(for example `https://urbayt-api.vercel.app`) and redeploy.
 
 ## API reference
 

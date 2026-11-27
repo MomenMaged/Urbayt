@@ -24,13 +24,85 @@ async function adminRequest<T>(path: string, options: { method?: string; body?: 
 }
 
 /** Must match MAX_FILES_PER_UPLOAD on the server. */
-const UPLOAD_BATCH_SIZE = 12;
+const MAX_FILES_PER_REQUEST = 12;
+/** Hosts limit request size (Vercel: 4.5 MB), so each upload request stays under this. */
+const MAX_BYTES_PER_REQUEST = 4 * 1024 * 1024;
+/** The server stores photos at most this many pixels on the longest side. */
+const MAX_SIDE = 2400;
+
+/**
+ * Shrinks a photo in the browser before upload, to the size the server keeps
+ * anyway. Phone photos drop from several MB to well under 1 MB, so uploads
+ * are faster and fit hosting limits. The server still checks and re-encodes
+ * every image. If the browser can't read a file, it is sent unchanged.
+ */
+async function shrinkImage(file: File): Promise<File> {
+  if (file.type === "image/gif") return file; // keep animations intact
+  try {
+    const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
+    const scale = Math.min(1, MAX_SIDE / Math.max(bitmap.width, bitmap.height));
+    if (scale === 1 && file.size < 1024 * 1024) {
+      bitmap.close();
+      return file;
+    }
+
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(bitmap.width * scale);
+    canvas.height = Math.round(bitmap.height * scale);
+    const context = canvas.getContext("2d")!;
+    context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    bitmap.close();
+
+    const toBlob = (type: string) =>
+      new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, type, 0.9));
+    // WebP keeps transparency; browsers that can't encode it return PNG,
+    // in which case use JPEG on a white background.
+    let blob = await toBlob("image/webp");
+    let extension = "webp";
+    if (!blob || blob.type !== "image/webp") {
+      context.globalCompositeOperation = "destination-over";
+      context.fillStyle = "#ffffff";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      blob = await toBlob("image/jpeg");
+      extension = "jpg";
+    }
+    if (!blob || blob.size >= file.size) return file;
+
+    const name = `${file.name.replace(/\.[^.]+$/, "")}.${extension}`;
+    return new File([blob], name, { type: blob.type });
+  } catch {
+    return file;
+  }
+}
+
+/** Groups files into requests of at most 12 files and ~4 MB each. */
+function batchBySize(files: File[]) {
+  const batches: File[][] = [];
+  let current: File[] = [];
+  let bytes = 0;
+  for (const file of files) {
+    const full = current.length >= MAX_FILES_PER_REQUEST || bytes + file.size > MAX_BYTES_PER_REQUEST;
+    if (current.length > 0 && full) {
+      batches.push(current);
+      current = [];
+      bytes = 0;
+    }
+    current.push(file);
+    bytes += file.size;
+  }
+  if (current.length > 0) batches.push(current);
+  return batches;
+}
 
 async function uploadInBatches(path: string, files: File[]) {
+  // One at a time: a decoded phone photo can take ~50 MB of memory.
+  const prepared: File[] = [];
+  for (const file of files) prepared.push(await shrinkImage(file));
+
   const uploaded: Photo[] = [];
-  for (let i = 0; i < files.length; i += UPLOAD_BATCH_SIZE) {
+  for (const batch of batchBySize(prepared)) {
     const body = new FormData();
-    files.slice(i, i + UPLOAD_BATCH_SIZE).forEach((file) => body.append("photos", file));
+    batch.forEach((file) => body.append("photos", file));
     const { photos } = await adminRequest<{ photos: Photo[] }>(path, { method: "POST", body });
     uploaded.push(...photos.map(resolvePhoto));
   }

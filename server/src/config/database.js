@@ -15,7 +15,9 @@ export const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   // Most hosted Postgres providers (Supabase, Neon, Render, Railway) require SSL.
   ssl: process.env.DATABASE_SSL === "true" ? { rejectUnauthorized: false } : undefined,
-  max: 10,
+  // Connections kept open per server instance. On serverless hosts (Vercel)
+  // many instances run at once, so keep this small there, e.g. 3.
+  max: Number(process.env.DATABASE_POOL_MAX) || 10,
 });
 
 pool.on("error", (err) => {
