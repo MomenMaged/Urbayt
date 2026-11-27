@@ -49,3 +49,17 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+/* Smaller and tucked closer to the corner on phones, so it covers less content. */
+@media (max-width: 480px) {
+  .whatsapp-button {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 20px;
+  }
+
+  .whatsapp-button .anticon {
+    font-size: 26px !important;
+  }
+}

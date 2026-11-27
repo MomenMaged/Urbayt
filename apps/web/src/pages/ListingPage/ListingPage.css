@@ -4,8 +4,9 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: 600px;
-  height: calc(100vh - var(--uh-header-h));
+  /* Grows instead of hiding text under the header on short screens. */
+  min-height: max(560px, calc(100vh - var(--uh-header-h)));
+  min-height: max(560px, calc(100svh - var(--uh-header-h)));
   overflow: hidden;
   background: var(--uh-navy);
 }
@@ -34,6 +35,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
+  padding-top: clamp(2.5rem, 7vh, 5rem);
   padding-bottom: clamp(2.5rem, 7vh, 4.5rem);
 }
 
@@ -57,7 +59,7 @@
 .uh-lp-hero__title {
   max-width: 18ch;
   margin: 0 0 2rem;
-  font-size: clamp(2.2rem, 5.5vw, 4.4rem);
+  font-size: clamp(2rem, min(5.5vw, 8vh), 4.4rem);
   line-height: 1.02;
   font-weight: 800;
 }
@@ -374,11 +376,6 @@
 
   .uh-lp-split__media .uh-img {
     aspect-ratio: 4 / 3;
-  }
-
-  .uh-lp-hero {
-    height: auto;
-    min-height: 82vh;
   }
 
   .uh-lp-hero__card {

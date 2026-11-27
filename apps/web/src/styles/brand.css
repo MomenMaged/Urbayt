@@ -45,6 +45,9 @@ html {
 .uh-public {
   padding-top: var(--uh-header-h);
   color: var(--uh-ink);
+  /* Content sliding in from the side must never make the page scroll sideways.
+     clip (unlike hidden) keeps position: sticky working. */
+  overflow-x: clip;
 }
 
 .uh-public a {
@@ -374,9 +377,19 @@ html {
   color: var(--uh-gold);
 }
 
-.uh-collapse-icon {
-  display: grid;
-  place-items: center;
+/* Ant Design's own icon styles are more specific, so repeat the parent class. */
+.uh-collapse.ant-collapse .ant-collapse-expand-icon {
+  height: auto;
+}
+
+.uh-collapse .uh-collapse-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  line-height: 0;
+  vertical-align: middle;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -385,7 +398,7 @@ html {
   transition: transform 0.4s var(--uh-ease), background 0.3s, color 0.3s;
 }
 
-.uh-collapse-icon--open {
+.uh-collapse .uh-collapse-icon--open {
   transform: rotate(45deg);
   background: var(--uh-navy);
   border-color: var(--uh-navy);

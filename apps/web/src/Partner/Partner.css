@@ -4,8 +4,10 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 600px;
-  height: calc(100vh - var(--uh-header-h));
+  /* Grows instead of hiding text under the header on short screens. */
+  min-height: max(560px, calc(100vh - var(--uh-header-h)));
+  min-height: max(560px, calc(100svh - var(--uh-header-h)));
+  padding-block: clamp(2.5rem, 7vh, 4rem);
   overflow: hidden;
   background: var(--uh-navy);
 }
@@ -44,7 +46,7 @@
 
 .uh-partner-hero__title {
   margin: 0 0 1rem;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-size: clamp(2rem, min(5vw, 8vh), 3.6rem);
   line-height: 1.02;
   font-weight: 800;
   color: var(--uh-sand);

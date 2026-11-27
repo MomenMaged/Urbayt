@@ -18,6 +18,6 @@
     "create-admin": "npm run create-admin -w @urban-hive/api --"
   },
   "engines": {
-    "node": ">=22"
+    "node": "22.x"
   }
 }

@@ -1,11 +1,16 @@
 /* ------------------------------- Hero ------------------------------- */
 
+/*
+ * Fills the screen below the header, but grows when the text needs more room
+ * (short laptop screens, zoomed browsers) instead of pushing it under the
+ * header. svh = the visible height on phones, excluding browser toolbars.
+ */
 .uh-hero {
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: 560px;
-  height: calc(100vh - var(--uh-header-h));
+  min-height: max(520px, calc(100vh - var(--uh-header-h)));
+  min-height: max(520px, calc(100svh - var(--uh-header-h)));
   overflow: hidden;
   background: var(--uh-navy);
 }
@@ -45,6 +50,7 @@
   z-index: 1;
   width: min(var(--uh-container), 100% - 2.5rem);
   margin: 0 auto;
+  padding-top: clamp(2.5rem, 7vh, 5rem);
   padding-bottom: clamp(4.5rem, 11vh, 7rem);
   color: var(--uh-white);
 }
@@ -55,7 +61,8 @@
   column-gap: 0.28em;
   max-width: 15ch;
   margin: 0 0 2rem;
-  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  /* Scales with the screen's width and height, so it also fits short screens. */
+  font-size: clamp(2rem, min(7vw, 9.5vh), 5.6rem);
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.01em;
